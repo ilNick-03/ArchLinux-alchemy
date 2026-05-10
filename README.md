@@ -22,7 +22,6 @@ A precision toolset for distilling high-quality digital audio from the web aethe
 > The author does not condone or encourage the unauthorized downloading of copyrighted material and is not liable for any misuse of this software that violates the Terms of Service of any media provider or local jurisdiction laws.
 
 
-
 #### *[mpv-webaudio.sh](./scripts/audio/dl-tools/mpv-webaudio.sh)*
 A streamlined solution for seizing and catching web audio streams real-time web audio, directly via terminal, without the weight of a browser or local storage.
 
@@ -86,6 +85,7 @@ To ensure a successful fetching of web streams, follow these principles:
 ### *[audio/fzf-music](./scripts/audio/fzf-music/)*
 A minimalistic TUI (Terminal User Interface) ecosystem for music management and shell optimization.
 
+
 #### *[fzf-music.sh](./scripts/audio/fzf-music.sh)*
 A lightweight script that leverages fuzzy searching for high-fidelity playback.
 - **Features:**
@@ -136,6 +136,8 @@ An advanced script designed for ***[Hyprland](https://hyprland.org/)*** that orc
 - [zsh](https://www.zsh.org/) - The script leverages advanced Zsh array expansion.
 
 ##### Shell Integration
+Add the following line to your ~/.zshrc or ~/.bashrc:
+
 ```bash
 alias rdhypr='~/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-hypr.sh'
 ```
@@ -157,6 +159,8 @@ To transmute your desktop visuals, ensure these elements are present:
     - [fd](https://github.com/sharkdp/fd) or [find](https://www.gnu.org/software/findutils/) - For image indexing.
 
 ##### Shell Integration
+Add the following line to your ~/.zshrc or ~/.bashrc:
+
 ```bash
 alias rdkde='~/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-kde.sh'
 ```
@@ -174,9 +178,41 @@ A lightweight, resource-efficient manifestation of desktop aesthetics for wlroot
 - [fd](https://github.com/sharkdp/fd) or [find](https://www.gnu.org/software/findutils/) - For image indexing.
 
 ##### Shell Integration
+Add the following line to your ~/.zshrc or ~/.bashrc:
+
 ```bash
 alias rdsway='~/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-swaybg.sh'
 ```
+
+---
+
+### *[utils/](./scripts/utils/)*
+A diverse compendium of general-purpose artifacts and tactical scripts, crafted to solve the myriad of small challenges that arise within the digital realm.
+
+
+#### *[utils/power-calc.sh](./scripts/utils/power-calc.sh)*
+A high-precision analytical tool to measure and deconstruct the energy efficiency of your mobile workstation.
+
+- **Features:**
+    - **Precise Metrics:** Calculates energy loss (Wh), average power draw (W), and percentage-based depletion rates;
+    - **Temporal Intelligence:** Automatically handles time calculations, including midnight crossing;
+    - **Autonomy Projection:** Estimates remaining battery life based on the detected consumption profile;
+    - **Localized Output:** Automatically formats results with European-standard commas and leading zeros for superior legibility.
+- **Logic:** It uses raw data from `upower` to transmute "before and after" snapshots into a detailed report of your system's metabolic rate.
+
+##### Dependencies (Ingredients)
+- [upower](https://upower.freedesktop.org/) - To extract raw battery telemetry;
+- [bc](https://www.gnu.org/software/bc/) - For high-precision floating-point arithmetic.
+
+##### Shell Integration
+Add the following line to your ~/.zshrc or ~/.bashrc:
+
+```bash
+alias power-calc='~/scripts/utils/power-calc.sh'
+```
+
+
+---
 
 
 
