@@ -186,7 +186,7 @@ alias rdsway='~/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-s
 
 ---
 
-### *[utils/](./scripts/utils/)*
+### *[utils](./scripts/utils/)*
 A diverse compendium of general-purpose artifacts and tactical scripts, crafted to solve the myriad of small challenges that arise within the digital realm.
 
 
