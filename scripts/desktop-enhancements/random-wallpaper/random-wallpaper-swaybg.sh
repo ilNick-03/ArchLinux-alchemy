@@ -4,8 +4,10 @@
 
 
 # --- CONFIGURATION ---
-# Target directory (your favorites folder on the Windows partition)
-WALLPAPER_DIR="/home/nicolas/Immagini/Immagini in Windows/Sfondi HD per desktop/Preferiti/"
+
+# Set your wallpaper directory here. 
+# Defaults to the standard XDG Pictures folder if not specified.
+WALLPAPER_DIR="${1:-$HOME/Pictures/Wallpapers}"
 
 
 # --- SELECTION LOGIC ---
