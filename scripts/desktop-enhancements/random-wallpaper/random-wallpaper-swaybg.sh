@@ -4,7 +4,6 @@
 
 
 # --- CONFIGURATION ---
-
 # Set your wallpaper directory here. 
 # Defaults to the standard XDG Pictures folder if not specified.
 WALLPAPER_DIR="${1:-$HOME/Pictures/Wallpapers}"
