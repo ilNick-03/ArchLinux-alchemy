@@ -1,0 +1,49 @@
+# --- RECURSIVE ARCHITECTURAL LAYOUT ---
+# This configuration bypasses standard grid constraints by manually 
+# orchestrating precise splits and command injections from a single master pane.
+session_name: audio-session
+
+# DYNAMIC ROOT DIRECTORY
+# Inherits TMUXP_ST_DIR from the Zsh launcher (SD Card or Home fallback).
+start_directory: "${TMUXP_ST_DIR}"
+
+windows:
+  - window_name: music
+    layout: tiled
+    panes:
+      - shell_command:
+          # --- PHASE 1: GEOMETRY TRANSMUTATION ---
+
+          # [P1 | P3] Create the vertical pillar: Right pane (P3) at 45% width.
+          - "tmux split-window -h -p 45"
+          - "sleep 0.1"
+
+          # [P1 / P2] Split the Left pillar: Bottom pane (P2) at 40% height.
+          - "tmux split-window -v -t 1 -p 40" 
+          - "sleep 0.1"
+
+          # [P3 / P4] Split the Right pillar: Bottom pane (P4) at 30% height.
+          - "tmux split-window -v -t 3 -p 30"
+          - "sleep 0.1"
+
+          # --- PHASE 2: COMMAND DISPATCHING ---
+          # Remotely injecting logic into panes via 'send-keys'. 
+          # C-m triggers the 'Return' key to initiate the process.
+
+          # P2 (Bottom-Left, 40% height): The FZF music seeker.
+          - "tmux send-keys -t 2 'fzf-music' C-m"
+          - "sleep 0.1"
+
+          # P3 (Top-Right, 45% width, 70% height): System vitals monitor (btop).
+          - "tmux send-keys -t 3 'btop' C-m"
+          - "sleep 0.1"
+
+          # P4 (Bottom-Right, 45% width, 30% height): Visual essence (cava).
+          - "tmux send-keys -t 4 'cava' C-m"
+          - "sleep 0.1"
+
+          # --- PHASE 3: MASTER INTERFACE ---
+          # P1 (Top-Left, 55% width, 60% height): The primary navigator (Yazi).
+          - "clear && yazi"
+          
+        focus: true
