@@ -114,7 +114,7 @@ To translate the code into sound, the following "ingredients" must be present on
 Add the following line to your ~/.zshrc or ~/.bashrc:
 
 ```bash
-[[ -f "$HOME/scripts/audio/fzf-music/.fzf-config" ]]  &&  source "$HOME/scripts/audio/fzf-music/.fzf-config"
+[[ -f "$HOME/dotfiles/shell/custom/fzf/.fzf-config" ]]  &&  source "$HOME/dotfiles/shell/custom/fzf/.fzf-config"
 ```
 
 ---
@@ -222,6 +222,30 @@ A collection of primordial configurations and dotfiles that define the behavior,
 
 ---
 
+### *[CUSTOM dotfiles](./dotfiles/shell/custom)*
+
+#### *[custom/.privacy-hardware-controls](./dotfiles/shell/custom/.privacy-hardware-controls)*
+A fortified *TUI* (*Terminal User Interface*) barrier for hardware isolation and sensory scrying, providing absolute sovereignty over your visual and auditory gateways.
+
+- **Features:**
+  - **Kernel-Level Camera Shield:** Physically unloads the `uvcvideo` module, rendering the webcam non-existent to the entire OS and any potential intruding software;
+  - **Digital Microphone Seal:** Directly mutes the hardware source at the PipeWire level via `wpctl`, ensuring zero audio leakage;
+  - **Process Scrying:** An elegantly framed status report (Box-Drawing TUI) that performs a deep scan to identify active capture streams, unmasking processes (such as `cava`, browsers, or background daemons) currently accessing your hardware.
+- **Aesthetics:** Engineered with ANSI color coding and Unicode symbols, designed to integrate seamlessly into high-fidelity terminal setups like *Alacritty* and *Zsh*.
+
+##### Dependencies (Ingredients)
+- [lsof](https://github.com/lsof-org/lsof) - For process-to-hardware mapping;
+- [pipewire-pulse](https://pipewire.org/) / [wireplumber](https://gitlab.freedesktop.org/pipewire/wireplumber) - For audio source orchestration;
+- [kmod](https://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git) - For `modprobe` camera manipulation (requires *sudo*).
+
+##### Shell Integration
+Add the following line to your `.zshrc` or `.bashrc`:
+```bash
+[[ -f "$HOME/dotfiles/shell/custom/.privacy-hardware-controls" ]]  &&  source "$HOME/dotfiles/shell/custom/.privacy-hardware-controls"
+```
+
+---
+
 ### *[alacritty](./dotfiles/.config/alacritty/alacritty.toml)*
 This terminal configuration for [Alacritty](https://github.com/alacritty/alacritty) designed to act as the "scrying glass" for the system's inner workings, and handle multiple panes inside the terminal window.
 
@@ -266,6 +290,7 @@ cp ./dotfiles/.config/cava/config ~/.config/cava/config
 > [!TIP]
 > **Privacy Note**: CAVA might trigger the "Microphone in use" icon in your status bar.
 > This is a false positive caused by the *desktop environment* detecting an active audio capture stream. When configured with `method = pipewire`, CAVA only monitors the internal output, not the physical microphone hardware.
+> However, if you don't trust CAVA, you should disable microphone access at low-level (see [this dotfile](./dotfiles/shell/custom/.privacy-hardware-controls)) 
 
 ---
 
@@ -309,7 +334,7 @@ To fully manifest these functionalities, ensure the following are installed:
 #### Manual Installation
 Place the file in your local configuration vault:
 ```bash
-cp ./various-dotfiles/.config/yazi/yazi.toml ~/.config/yazi/yazi.toml
+cp ./dotfiles/.config/yazi/yazi.toml ~/.config/yazi/yazi.toml
 ```
 
 
@@ -344,7 +369,7 @@ To manipulate the screen's luminosity, the following tools are required:
 To bridge your shell with the display hardware, add this line to your `.bashrc` or `.zshrc`:
 
 ```bash
-[[ -f "$HOME/arch-fix-configs/display/.brightness-controls" ]]  &&  source "$HOME/arch-fix-configs/display/.brightness-controls"
+[[ -f "$HOME/dotfiles/shell/custom/.brightness-controls" ]]  &&  source "$HOME/dotfiles/shell/custom/.brightness-controls"
 ```
 
 
