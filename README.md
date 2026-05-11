@@ -98,7 +98,7 @@ A lightweight script that leverages fuzzy searching for high-fidelity playback.
     - Adjust the audio settings (*audio server*, *sample rate*) in the script to suit your needs.
 - **Logic:** Designed to provide a "distilled" music experience directly from the terminal, bypassing heavy GUI applications.
 
-#### *[.fzf-config](./dotfiles/shell/custom/fzf/.fzf-config)*
+#### *[.fzf-config (dotfile)](./dotfiles/shell/custom/fzf/.fzf-config)*
 A vital supplement to your shell configuration (`.bashrc` or `.zshrc`).
 - **Purpose:** It bridges your terminal with the script by providing a global alias and optimizing the UI/performance of `fzf` and `fd` system-wide.
 
@@ -304,12 +304,28 @@ The architectural blueprint for the music listening workstation, utilizing a rec
     - **Visual Spectrum (P4):** Bottom-Right corner (45% width, 30% height) running `cava` for real-time frequency visualization; best with this [CAVA configuration](./dotfiles/.config/cava/config);
 - **Logic:** Instead of relying on static grids, this configuration uses a master pane to "carve" the workspace and inject commands into specific coordinates, ensuring a consistent UI regardless of screen resolution.
 
+#### *[.futuristic-audio-session (dotfile)](./dotfiles/shell/custom/.futuristic-audio-session)*
+The "Grand Orchestrator" script that breathes life into the architectural blueprint. 
+
+- **Features:**
+    - **Session Sanitization:** Automatically detects and purges zombie or overlapping sessions before spawning a new environment to prevent PID collisions;
+    - **Dynamic Storage Sensing:** Intelligently probes for external media (SD Cards) and dynamically re-routes the session's root directory, falling back to `$HOME` if no high-fidelity source is detected;
+    - **Clean-Slate Invocation:** Launches a dedicated, maximized Alacritty instance with a scrubbed environment to ensure TMUXP loads without inheriting conflicting shell variables.
+- **Logic:** It transmutes the static YAML configuration into a living, ephemeral workspace with a single command, handling both the creation and the "dissolution" of the audio environment.
+
 #### Dependencies (Ingredients)
 - [tmuxp](https://github.com/tmux-python/tmuxp) - The session orchestrator;
 - [yazi](https://github.com/sxyazi/yazi) - The primary file interface (folders & files exploration);
 - [fzf-music](./scripts/audio/fzf-music.sh) - The auxiliary music picker (direct & instant music selection);
 - [btop](https://github.com/aristocratos/btop) - For system telemetry;
 - [cava](https://github.com/karlstav/cava) - For the reactive audio visualizer;
+
+#### Shell Integration
+Add this line to your `.zshrc` or `.bashrc`:
+
+```bash
+[[ -f "$HOME/dotfiles/shell/custom/.futuristic-audio-session" ]]  &&  source "$HOME/dotfiles/shell/custom/.futuristic-audio-session"
+```
 
 ---
 
