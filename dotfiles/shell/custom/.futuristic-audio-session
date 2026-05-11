@@ -1,0 +1,35 @@
+#!/bin/bash
+# Copyright (C) 2026, Nicolas Scalese
+# Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html
+
+
+# --- CYBERPUNK/FUTURISTIC GRAPHIC AUDIO SESSION MANAGEMENT ---
+# Orchestrates a maximized, multi-pane environment for audio production/listening.
+
+# Spawns a new, cleaned audio session in a maximized Alacritty window
+audio-session() {
+    # Phase 1: Purge existing sessions to prevent nesting or attachment conflicts
+    if tmux has-session -t audio-session 2>/dev/null; then
+        tmux kill-session -t audio-session
+        while tmux has-session -t audio-session 2>/dev/null; do sleep 0.1; done
+    fi
+
+    # Phase 2: Path validation for music storage (SD Card vs. Home)
+    local sd_path="/run/media/nicolas/Scheda SD"
+    local final_dir="${sd_path}"
+    [[ ! -d "$sd_path" ]] && final_dir="$HOME"
+    
+    export TMUXP_ST_DIR="$final_dir"
+
+    # Phase 3: Launch maximized terminal and load TMUXP profile
+    # env -u cleans the environment to allow a fresh TMUX instance
+    alacritty --title "Cyberpunk-style Audio Session" \
+              --option "window.startup_mode='Maximized'" \
+              -e env -u TMUX -u TMUX_PANE TMUXP_ST_DIR="$TMUXP_ST_DIR" zsh -c "tmuxp load audio-session" &!
+}
+
+# Instantly terminates the audio environment and its background processes
+close-audio-session() {
+    tmux kill-session -t audio-session 2>/dev/null
+    echo "Audio session dissolved."
+}
