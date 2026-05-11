@@ -220,9 +220,10 @@ alias power-calc='~/scripts/utils/power-calc.sh'
 ## 🏺 Essence & Configurations (Dotfiles)
 A collection of primordial configurations and dotfiles that define the behavior, aesthetics, and interaction logic of the digital environment.
 
+
 ---
 
-### *[yazi](./various-dotfiles/.config/yazi/yazi.toml)*
+### *[yazi](./dotfiles/.config/yazi/yazi.toml)*
 A highly customized configuration for the [Yazi](https://github.com/sxyazi/yazi) terminal file manager, transmuted to act as a central hub for media and text.
 
 - **Features:**
@@ -245,6 +246,26 @@ Place the file in your local configuration vault:
 ```bash
 cp ./various-dotfiles/.config/yazi/yazi.toml ~/.config/yazi/yazi.toml
 ```
+
+
+---
+
+#### *[.tmuxp/audio-session.yaml](./dotfiles/.tmuxp/audio-session.yaml)*
+The architectural blueprint for the music listening workstation, utilizing a recursive split strategy to bypass standard window layouts.
+
+- **Geometric Blueprint:**
+    - **Master Navigator & Audio player (P1):** Occupies the Top-Left (55% width, 60% height), running `Yazi` for folders and files exploration; best with these [Yazi settings](./dotfiles/.config/yazi/yazi.toml);
+    - **Fuzzy Music Seeker & Player (P2):** Anchored at the Bottom-Left (55% width, 40% height), running [fzf-music](./scripts/audio/fzf-music.sh) for direct and instant music selection;
+    - **Vital Monitor (P3):** Top-Right pillar (45% width, 70% height) running `btop` for resource scrying;
+    - **Visual Spectrum (P4):** Bottom-Right corner (45% width, 30% height) running `cava` for real-time frequency visualization.
+- **Logic:** Instead of relying on static grids, this configuration uses a master pane to "carve" the workspace and inject commands into specific coordinates, ensuring a consistent UI regardless of screen resolution.
+
+##### Dependencies (Ingredients)
+- [tmuxp](https://github.com/tmux-python/tmuxp) - The session orchestrator;
+- [yazi](https://github.com/sxyazi/yazi) - The primary file interface (folders & files exploration);
+- [fzf-music](./scripts/audio/fzf-music.sh) - The auxiliary music picker (direct & instant music selection);
+- [btop](https://github.com/aristocratos/btop) - For system telemetry;
+- [cava](https://github.com/karlstav/cava) - For the reactive audio visualizer;
 
 
 
