@@ -1,0 +1,117 @@
+# Copyright (C) 2026, Nicolas Scalese
+# Licensed under the GNU GPL v3 or later.
+
+
+## --- CAVA: VISUAL ALCHEMY CONFIGURATION ---
+## Optimized for Sweet Ambar Blue / Plasma Burn palettes
+## Tuned for Pipewire (48k) and 60Hz high-fidelity rendering
+
+
+[general]
+# Synced with display refresh rate for fluid motion
+framerate = 60
+#framerate = 144
+
+# Dynamic sensitivity: prevents clipping during peak transients
+autosens = 1
+sensitivity = 100
+
+# Geometry: 0 for automatic terminal width filling
+bars = 0
+bar_width = 2
+bar_spacing = 1
+center_align = 1
+
+
+[input]
+# Pipewire backend: direct stream interception
+method = pipewire
+source = auto
+
+# Matches internal Pipewire sample rate for 1:1 spectral accuracy
+sample_rate = 48000
+# 32-bit depth to match internal audio processing resolution
+sample_bits = 32
+
+
+[output]
+# 'noncurses' ensures low latency and reduced tearing in modern terminals
+method = noncurses
+orientation = bottom
+channels = stereo
+
+
+[color]
+# Transparency support: inherits terminal background
+background = default
+foreground = default
+
+# Gradient Engine: active with 8-bit color depth
+gradient = 1
+gradient_count = 8
+
+
+
+# ----- CAVA THEMES : select or add your favourite palette -------------
+
+# Cyber Neon - high contrast
+#gradient_color_1 = '#0019ff' # Deep Electric Blue
+#gradient_color_2 = '#0062ff'
+#gradient_color_3 = '#00a9ff'
+#gradient_color_4 = '#00f2ff' # Cyan
+#gradient_color_5 = '#00ffc8'
+#gradient_color_6 = '#00ff8c'
+#gradient_color_7 = '#00ff40'
+#gradient_color_8 = '#adff00' # Neon Lime
+
+# Plasma Burn - synthwave/outrun
+gradient_color_1 = '#4d00ff' # Deep Purple
+gradient_color_2 = '#7700ff'
+gradient_color_3 = '#b300ff'
+gradient_color_4 = '#ff00ff' # Magenta
+gradient_color_5 = '#ff00b3'
+gradient_color_6 = '#ff0077'
+gradient_color_7 = '#ff003c'
+gradient_color_8 = '#ff3c00' # Plasma Orange/Red
+
+# Sweet Ambar Blue - from deep purple/magenta to bright cyan
+#gradient_color_1 = '#b45cff'
+#gradient_color_2 = '#9a57ff'
+#gradient_color_3 = '#7d52ff'
+#gradient_color_4 = '#5e4dff'
+#gradient_color_5 = '#3f48ff'
+#gradient_color_6 = '#1f43ff'
+#gradient_color_7 = '#00f2ff'
+#gradient_color_8 = '#00ffff'
+
+# Tokyo Night - minimal and elegant
+#gradient_color_1 = '#1a1b26'  # Night Blue
+#gradient_color_2 = '#24283b'
+#gradient_color_3 = '#414868'
+#gradient_color_4 = '#565f89'
+#gradient_color_5 = '#7aa2f7'  # Soft Blue
+#gradient_color_6 = '#7dcfff'  # Sky Blue
+#gradient_color_7 = '#bb9af7'  # Pastel Purple
+#gradient_color_8 = '#c0caf5'  # Silver Blue
+
+# ---------------------------------------------------------------------
+
+
+
+[smoothing]
+# Monstercat algorithm: provides an organic, fluid visual flow
+monstercat = 1
+waves = 0
+
+# Response speed: 50 balances smoothness with technical precision
+# 100 is very slow/smooth, 0 is fast/noisy.
+noise_reduction = 50
+
+
+[eq]
+# Flat equalization for an honest spectral representation
+; 1 = 1 # bass
+; 2 = 1
+; 3 = 1 # midtone
+; 4 = 1
+; 5 = 1 # treble
