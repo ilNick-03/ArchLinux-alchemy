@@ -222,7 +222,7 @@ A collection of primordial configurations and dotfiles that define the behavior,
 
 ---
 
-### *[cava](./dotfiles/.config/cava/config)]*
+### *[cava](./dotfiles/.config/cava/config)*
 A fine-tuned configuration for the [CAVA](https://github.com/karlstav/cava) audio visualizer, acting as the "visual heart" of the futuristic audio workstation.
 
 - **Features:**
@@ -277,7 +277,7 @@ The architectural blueprint for the music listening workstation, utilizing a rec
     - **Master Navigator & Audio player (P1):** Occupies the Top-Left (55% width, 60% height), running `Yazi` for folders and files exploration; best with these [Yazi settings](./dotfiles/.config/yazi/yazi.toml);
     - **Fuzzy Music Seeker & Player (P2):** Anchored at the Bottom-Left (55% width, 40% height), running [fzf-music](./scripts/audio/fzf-music.sh) for direct and instant music selection;
     - **Vital Monitor (P3):** Top-Right pillar (45% width, 70% height) running `btop` for resource scrying;
-    - **Visual Spectrum (P4):** Bottom-Right corner (45% width, 30% height) running `cava` for real-time frequency visualization.
+    - **Visual Spectrum (P4):** Bottom-Right corner (45% width, 30% height) running `cava` for real-time frequency visualization; best with this *[CAVA configuration](./dotfiles/.config/cava/config);
 - **Logic:** Instead of relying on static grids, this configuration uses a master pane to "carve" the workspace and inject commands into specific coordinates, ensuring a consistent UI regardless of screen resolution.
 
 ##### Dependencies (Ingredients)
