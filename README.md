@@ -263,6 +263,10 @@ A fine-tuned configuration for the [CAVA](https://github.com/karlstav/cava) audi
 cp ./dotfiles/.config/cava/config ~/.config/cava/config
 ```
 
+> [!TIP]
+> **Privacy Note**: CAVA might trigger the "Microphone in use" icon in your status bar.
+> This is a false positive caused by the *desktop environment* detecting an active audio capture stream. When configured with `method = pipewire`, CAVA only monitors the internal output, not the physical microphone hardware.
+
 ---
 
 ### *[.tmuxp/audio-session.yaml](./dotfiles/.tmuxp/audio-session.yaml)*
