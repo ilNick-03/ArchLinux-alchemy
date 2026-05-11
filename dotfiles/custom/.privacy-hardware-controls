@@ -1,0 +1,71 @@
+#!/bin/zsh
+# Copyright (C) 2026, Nicolas Scalese
+# Licensed under the GNU GPL v3 or later. Info: https://www.gnu.org/licenses/gpl-3.0.html
+
+
+# ===== PRIVACY & HARDWARE CONTROLS =====
+# This file provides low-level interfaces for display, camera, and microphone manipulation.
+# Designed for Linux environments using PipeWire and UVC-compliant webcams.
+
+
+# --- Camera Control: Loads/Unloads the UVC Video kernel module ---
+# Note: Requires sudo privileges for kernel manipulation.
+camera-off() {
+    sudo modprobe -r uvcvideo && echo "SUCCESS: Camera module (uvcvideo) unloaded."
+}
+
+camera-on() {
+    sudo modprobe uvcvideo && echo "SUCCESS: Camera module (uvcvideo) loaded."
+}
+
+# --- Microphone Control: Manages the default audio source via PipeWire/Wireplumber ---
+# Directly interacts with the PipeWire sound server to seal audio input.
+mic-off() {
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1 && echo "SUCCESS: Microphone muted."
+}
+
+mic-on() {
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0 && echo "SUCCESS: Microphone unmuted."
+}
+
+
+# --- Status Scrying: Check hardware state and identify intrusive processes ---
+privacy-status() {
+    # Text styles (ANSI)
+    local BOLD="\033[1m"
+    local CYAN="\033[36m"
+    local RED="\033[31m"
+    local GREEN="\033[32m"
+    local RESET="\033[0m"
+
+    echo -e "${CYAN}╭──────────────────────────────────────────╮${RESET}"
+    echo -e "${CYAN}│${RESET}  ${BOLD}󰒃  PRIVACY SYSTEM STATUS SCRYING${RESET}      ${CYAN}│${RESET}"
+    echo -e "${CYAN}├──────────────────────────────────────────┤${RESET}"
+
+    # --- CAMERA SECTION ---
+    local cam_state="${RED}󰄀 DISABLED${RESET}"
+    local cam_procs="n/a (module unloaded)"
+    
+    if lsmod | grep -q uvcvideo; then
+        cam_state="${GREEN}󰄀 ENABLED${RESET}"
+        local raw_cam=$(lsof /dev/video* 2>/dev/null | awk 'NR>1 {print $1}' | sort -u | paste -sd ", " -)
+        cam_procs="${raw_cam:-none}"
+    fi
+    echo -e "${CYAN}│${RESET}  ${BOLD}Camera:${RESET}      $cam_state"
+    echo -e "${CYAN}│${RESET}  ${CYAN}└─${RESET} Active:  $cam_procs"
+
+    echo -e "${CYAN}├──────────────────────────────────────────┤${RESET}"
+
+    # --- MICROPHONE SECTION ---
+    local mic_state="${RED}󰍭 MUTED${RESET}"
+    if ! wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q "MUTED"; then
+        mic_state="${GREEN}󰍮 ACTIVE${RESET}"
+    fi
+    
+    local raw_mic=$(pactl list source-outputs | grep "application.name" | cut -d '"' -f 2 | sort -u | paste -sd ", " -)
+    local mic_procs="${raw_mic:-none}"
+
+    echo -e "${CYAN}│${RESET}  ${BOLD}Microphone:${RESET}  $mic_state"
+    echo -e "${CYAN}│${RESET}  ${CYAN}└─${RESET} Active:  $mic_procs"
+    echo -e "${CYAN}╰──────────────────────────────────────────╯${RESET}"
+}
