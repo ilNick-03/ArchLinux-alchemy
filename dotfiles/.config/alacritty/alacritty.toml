@@ -1,0 +1,77 @@
+# Copyright (C) 2026, Nicolas Scalese
+# Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html
+
+
+# ==== ALACRITTY Configuration - The Alchemist's Terminal ====
+#       Optimized for Hyprland & KDE Plasma (Wayland/X11)
+# ============================================================
+
+
+[window]
+# Visual internal spacing
+padding = { x = 15, y = 15 }
+
+# Dynamic title updates based on the active process
+dynamic_title = true
+
+# Opacity level (0.0 to 1.0) - Best combined with compositor blur
+opacity = 0.30
+
+# Request background blur (Works natively on Hyprland; requires KWin rules on KDE)
+blur = true
+
+# Decoration style: "full" (title bar), "none" (minimalist/flat)
+decorations = "full"
+
+
+[font]
+# Typography: JetBrainsMono Nerd Font for high-fidelity symbols and ligatures
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold   = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+
+# Optimal point size for 1080p/1440p displays
+size = 11.0
+
+
+[colors.primary]
+# --- ALCHEMICAL PALETTES (Uncomment your preferred soul) ---
+
+# 1. Carbon Gray (Current: Balanced Neutrality)
+background = "#161617"
+foreground = "#c1c1c1"
+
+# 2. Obsidian (Deep Pitch Black)
+# background = "#121214"
+# foreground = "#d1d1d1"
+
+# 3. Neutral Deep Black (Legacy Matte)
+# background = "#0b0c10"
+# foreground = "#c5c8c6"
+
+# -----------------------------------------------------------
+
+
+[colors.normal]
+# Standard ANSI colors for terminal consistency
+black   = "#1d1f21"
+red     = "#cc6666"
+green   = "#b5bd68"
+yellow  = "#f0c674"
+blue    = "#81a2be"
+magenta = "#b294bb"
+cyan    = "#8abeb7"
+white   = "#c5c8c6"
+
+
+[cursor]
+# Interaction feedback
+style = { shape = "Beam", blinking = "Always" }
+
+
+[terminal.shell]
+# Default execution environment
+program = "/bin/zsh"
+
+# Multi-window/Persistence logic: Automatically attaches to a TMUX session or creates one
+args = ["-l", "-c", "tmux attach || tmux"]
