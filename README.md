@@ -222,6 +222,33 @@ A collection of primordial configurations and dotfiles that define the behavior,
 
 ---
 
+### *[alacritty](./dotfiles/.config/alacritty/alacritty.toml)*
+This terminal configuration for [Alacritty](https://github.com/alacritty/alacritty) designed to act as the "scrying glass" for the system's inner workings, and handle multiple panes inside the terminal window.
+
+- **Features:**
+    - **Aesthetic Transparency:** Pre-configured with 30% opacity and compositor-ready blur for a seamless desktop blend;
+    - **Native Multi-Pane Support:** Engineered to automatically spawn or attach to a `tmux` session, enabling advanced split-view layouts and multi-panel orchestration within a single window;
+    - **Persistence Engine:** Your workspace survives terminal closures; re-opening Alacritty instantly restores your active "alchemy" session;
+    - **Multi-State Palettes:** Includes 3 curated alchemical color schemes (Carbon Gray, Obsidian, Deep Black) to minimize eye-strain.
+- **Logic:** This configuration transmutes a standard terminal into a persistent workstation. By forcing a `tmux` attachment, it bypasses the limitations of single-process windows, allowing for complex, grid-based multitasking.
+
+#### Dependencies (Ingredients)
+- [alacritty](https://github.com/alacritty/alacritty) - The core terminal emulator;
+- [tmux](https://github.com/tmux/tmux) - **Crucial** for multi-pane functionality and session persistence;
+- [JetBrainsMono Nerd Font](https://www.jetbrains.com/lp/mono/) - For correct glyph rendering.
+
+#### Dependencies (Ingredients)
+- [alacritty](https://github.com/alacritty/alacritty) - The core terminal emulator;
+- [tmux](https://github.com/tmux/tmux) - For session persistence and window management;
+- [JetBrainsMono Nerd Font](https://www.jetbrains.com/lp/mono/) - For correct glyph rendering.
+
+#### Manual Installation
+```bash
+cp ./dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+```
+
+---
+
 ### *[cava](./dotfiles/.config/cava/config)*
 A fine-tuned configuration for the [CAVA](https://github.com/karlstav/cava) audio visualizer, acting as the "visual heart" of the futuristic audio workstation.
 
@@ -232,18 +259,18 @@ A fine-tuned configuration for the [CAVA](https://github.com/karlstav/cava) audi
     - **Pre-set Palettes:** Includes multiple alchemical themes (Cyber Neon, Plasma Burn, Sweet Ambar Blue, Tokyo Night) ready for instant transmutation.
 - **Logic:** Configured with `noncurses` output to avoid terminal flickering and tearing during high-energy transients, especially when embedded in complex TMUX layouts.
 
-##### Dependencies (Ingredients)
+#### Dependencies (Ingredients)
 - [cava](https://github.com/karlstav/cava) - The Console-based Audio Visualizer;
 - [pipewire](https://pipewire.org/) - For real-time audio data acquisition.
 
-##### Manual Installation
+#### Manual Installation
 ```bash
 cp ./dotfiles/.config/cava/config ~/.config/cava/config
 ```
 
 ---
 
-#### *[.tmuxp/audio-session.yaml](./dotfiles/.tmuxp/audio-session.yaml)*
+### *[.tmuxp/audio-session.yaml](./dotfiles/.tmuxp/audio-session.yaml)*
 The architectural blueprint for the music listening workstation, utilizing a recursive split strategy to bypass standard window layouts.
 
 - **Geometric Blueprint:**
@@ -253,7 +280,7 @@ The architectural blueprint for the music listening workstation, utilizing a rec
     - **Visual Spectrum (P4):** Bottom-Right corner (45% width, 30% height) running `cava` for real-time frequency visualization; best with this [CAVA configuration](./dotfiles/.config/cava/config);
 - **Logic:** Instead of relying on static grids, this configuration uses a master pane to "carve" the workspace and inject commands into specific coordinates, ensuring a consistent UI regardless of screen resolution.
 
-##### Dependencies (Ingredients)
+#### Dependencies (Ingredients)
 - [tmuxp](https://github.com/tmux-python/tmuxp) - The session orchestrator;
 - [yazi](https://github.com/sxyazi/yazi) - The primary file interface (folders & files exploration);
 - [fzf-music](./scripts/audio/fzf-music.sh) - The auxiliary music picker (direct & instant music selection);
@@ -271,7 +298,7 @@ A highly customized configuration for the [Yazi](https://github.com/sxyazi/yazi)
     - **Persistent Orphans:** GUI applications (like Ark or IMV) are launched as independent entities, surviving the closure of the parent terminal;
     - **Audiophile-Grade MPV:** Pre-configured with optimized Pipewire buffers and cache limits for glitch-free auditory experiences.
 
-##### Dependencies (Ingredients)
+#### Dependencies (Ingredients)
 To fully manifest these functionalities, ensure the following are installed:
 - [yazi](https://github.com/sxyazi/yazi) - The terminal file manager;
 - [tmux](https://github.com/tmux/tmux) - Required for the split-view audio player;
@@ -280,7 +307,7 @@ To fully manifest these functionalities, ensure the following are installed:
 - [ark](https://apps.kde.org/ark/) - For GUI-based archive management;
 - [micro](https://micro-editor.github.io/) - The default terminal scribe (editor).
 
-##### Manual Installation
+#### Manual Installation
 Place the file in your local configuration vault:
 ```bash
 cp ./various-dotfiles/.config/yazi/yazi.toml ~/.config/yazi/yazi.toml
