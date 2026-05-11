@@ -234,11 +234,6 @@ This terminal configuration for [Alacritty](https://github.com/alacritty/alacrit
 
 #### Dependencies (Ingredients)
 - [alacritty](https://github.com/alacritty/alacritty) - The core terminal emulator;
-- [tmux](https://github.com/tmux/tmux) - **Crucial** for multi-pane functionality and session persistence;
-- [JetBrainsMono Nerd Font](https://www.jetbrains.com/lp/mono/) - For correct glyph rendering.
-
-#### Dependencies (Ingredients)
-- [alacritty](https://github.com/alacritty/alacritty) - The core terminal emulator;
 - [tmux](https://github.com/tmux/tmux) - For session persistence and window management;
 - [JetBrainsMono Nerd Font](https://www.jetbrains.com/lp/mono/) - For correct glyph rendering.
 
