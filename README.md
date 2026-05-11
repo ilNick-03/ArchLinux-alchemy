@@ -220,6 +220,26 @@ alias power-calc='~/scripts/utils/power-calc.sh'
 ## 🏺 Essence & Configurations (Dotfiles)
 A collection of primordial configurations and dotfiles that define the behavior, aesthetics, and interaction logic of the digital environment.
 
+---
+
+### *[cava](./dotfiles/.config/cava/config)]*
+A fine-tuned configuration for the [CAVA](https://github.com/karlstav/cava) audio visualizer, acting as the "visual heart" of the futuristic audio workstation.
+
+- **Features:**
+    - **Pipewire Synergy:** Native 32-bit / 48kHz stream interception for maximum spectral precision;
+    - **Performance Optimized:** Locked at 60 FPS to match display refresh rates, minimizing CPU overhead while maintaining fluid motion;
+    - **Reactive Aesthetics:** Uses the "Monstercat" smoothing algorithm with custom noise reduction (50%) for a balance of organic flow and technical accuracy;
+    - **Pre-set Palettes:** Includes multiple alchemical themes (Cyber Neon, Plasma Burn, Sweet Ambar Blue, Tokyo Night) ready for instant transmutation.
+- **Logic:** Configured with `noncurses` output to avoid terminal flickering and tearing during high-energy transients, especially when embedded in complex TMUX layouts.
+
+##### Dependencies (Ingredients)
+- [cava](https://github.com/karlstav/cava) - The Console-based Audio Visualizer;
+- [pipewire](https://pipewire.org/) - For real-time audio data acquisition.
+
+##### Manual Installation
+```bash
+cp ./dotfiles/.config/cava/config ~/.config/cava/config
+```
 
 ---
 
