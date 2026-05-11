@@ -1,3 +1,7 @@
+# Copyright (C) 2026, Nicolas Scalese
+# Licensed under the GNU GPL v3 or later.
+
+
 [opener]
 # --- Textual Manipulation (Scriptorium) ---
 edit = [
