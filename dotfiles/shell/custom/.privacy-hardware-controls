@@ -39,7 +39,7 @@ privacy-status() {
     local RESET="\033[0m"
 
     echo -e "${CYAN}╭──────────────────────────────────────────╮${RESET}"
-    echo -e "${CYAN}│${RESET}  ${BOLD}󰒃  PRIVACY SYSTEM STATUS SCRYING${RESET}      ${CYAN}│${RESET}"
+    echo -e "${CYAN}│${RESET}  ${BOLD}󰒃  PRIVACY SYSTEM STATUS SCRYING${RESET}        ${CYAN}│${RESET}"
     echo -e "${CYAN}├──────────────────────────────────────────┤${RESET}"
 
     # --- CAMERA SECTION ---
