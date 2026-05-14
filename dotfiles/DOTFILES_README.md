@@ -9,7 +9,7 @@ A collection of primordial configurations and dotfiles that define the behavior,
 ## Dotfiles for TUI APPLICATIONS
 
 
-### *[alacritty](./dotfiles/.config/alacritty/alacritty.toml)*
+### *[alacritty](./.config/alacritty/alacritty.toml)*
 This terminal configuration for [Alacritty](https://github.com/alacritty/alacritty) designed to act as the "scrying glass" for the system's inner workings, and handle multiple panes inside the terminal window.
 
 - **Features:**
@@ -31,7 +31,7 @@ cp ./dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.tom
 
 
 
-### *[cava](./dotfiles/.config/cava/config)*
+### *[cava](./.config/cava/config)*
 A fine-tuned configuration for the [CAVA](https://github.com/karlstav/cava) audio visualizer, acting as the "visual heart" of the futuristic audio workstation.
 
 - **Features:**
@@ -57,7 +57,7 @@ cp ./dotfiles/.config/cava/config ~/.config/cava/config
 
 
 
-### *[.tmuxp/audio-session.yaml](./dotfiles/.tmuxp/audio-session.yaml)*
+### *[.tmuxp/audio-session.yaml](./.tmuxp/audio-session.yaml)*
 The architectural blueprint for the music listening workstation, utilizing a recursive split strategy to bypass standard window layouts.
 
 - **Geometric Blueprint:**
@@ -67,7 +67,7 @@ The architectural blueprint for the music listening workstation, utilizing a rec
     - **Visual Spectrum (P4):** Bottom-Right corner (45% width, 30% height) running `cava` for real-time frequency visualization; best with this [CAVA configuration](./dotfiles/.config/cava/config);
 - **Logic:** Instead of relying on static grids, this configuration uses a master pane to "carve" the workspace and inject commands into specific coordinates, ensuring a consistent UI regardless of screen resolution.
 
-#### *[.futuristic-audio-session (dotfile)](./dotfiles/shell/custom/.futuristic-audio-session)*
+#### *[.futuristic-audio-session (dotfile)](./shell/custom/.futuristic-audio-session)*
 The "Grand Orchestrator" script that breathes life into the architectural blueprint. 
 
 - **Features:**
@@ -91,7 +91,7 @@ Add this line to your `.zshrc` or `.bashrc`:
 ```
 
 
-### *[yazi](./dotfiles/.config/yazi/yazi.toml)*
+### *[yazi](./.config/yazi/yazi.toml)*
 A highly customized configuration for the [Yazi](https://github.com/sxyazi/yazi) terminal file manager, transmuted to act as a central hub for media and text.
 
 - **Features:**
@@ -120,10 +120,10 @@ cp ./dotfiles/.config/yazi/yazi.toml ~/.config/yazi/yazi.toml
 
 
 
-## *[CUSTOM dotfiles for the Shell](./dotfiles/shell/)*
+## *[CUSTOM dotfiles for the Shell](./shell/)*
 
 
-### *[custom/.brightness-controls](./dotfiles/shell/custom/.brightness-controls)*
+### *[custom/.brightness-controls](./shell/custom/.brightness-controls)*
 A low-level interface for precise display backlight manipulation without the need for heavy desktop environment plugins.
 
 - **Features:**
@@ -147,7 +147,7 @@ To bridge your shell with the display hardware, add this line to your `.bashrc` 
 
 
 
-### *[custom/.privacy-hardware-controls](./dotfiles/shell/custom/.privacy-hardware-controls)*
+### *[custom/.privacy-hardware-controls](./shell/custom/.privacy-hardware-controls)*
 A fortified *TUI* (*Terminal User Interface*) barrier for hardware isolation and sensory scrying, providing absolute sovereignty over your visual and auditory gateways.
 
 - **Features:**
@@ -169,11 +169,11 @@ Add the following line to your `.zshrc` or `.bashrc`:
 
 
 
-### *[fzf/.fzf-config](./dotfiles/shell/custom/fzf/.fzf-config)*
+### *[fzf/.fzf-config](./shell/custom/fzf/.fzf-config)*
 An appendix for [fzf-music](./scripts/audio/fzf-music/) and 'fuzzy file' in general.
 - **Purpose:** It bridges your terminal with the script by providing a global alias and optimizing the UI/performance of `fzf` and `fd` system-wide.
 
-### *[fzf/.fzf-config](./dotfiles/shell/custom/fzf/.fzf-config)*
+### *[fzf/.fzf-config](./shell/custom/fzf/.fzf-config)*
 The "Fuzzy Engine" core—a centralized configuration that transmutes standard terminal navigation into a high-speed, interactive experience.
 
 - **Features:**
