@@ -94,11 +94,11 @@ A lightweight script that leverages fuzzy searching for high-fidelity playback.
     - Adjust the audio settings (*audio server*, *sample rate*) in the script to suit your needs.
 - **Logic:** Designed to provide a "distilled" music experience directly from the terminal, bypassing heavy GUI applications.
 
-#### *[.fzf-config (dotfile)](./dotfiles/shell/custom/fzf/.fzf-config)*
+### *[.fzf-config](../dotfiles/shell/fzf/.fzf-config)*
 A vital supplement to your shell configuration (`.bashrc` or `.zshrc`).
 - **Purpose:** It bridges your terminal with the script by providing a global alias and optimizing the UI/performance of `fzf` and `fd` system-wide.
 
-#### Dependencies (Ingredients)
+### Dependencies (Ingredients)
 To translate the code into sound, the following "ingredients" must be present on your system:
 - [fzf](https://github.com/junegunn/fzf) - The interactive fuzzy finder;
 - [fd](https://github.com/sharkdp/fd) - A simple, fast and user-friendly alternative to 'find';
@@ -106,7 +106,7 @@ To translate the code into sound, the following "ingredients" must be present on
 - [ffmpeg](https://ffmpeg.org/) - Specifically `ffprobe`, used for deep metadata extraction;
 - [bc](https://www.gnu.org/software/bc/) - Used for precise bitrate and file size calculations.
 
-#### Shell Integration
+### Shell Integration
 Add the following line to your ~/.zshrc or ~/.bashrc:
 
 ```bash
