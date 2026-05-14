@@ -57,40 +57,6 @@ cp ./dotfiles/.config/cava/config ~/.config/cava/config
 
 
 
-### *[.tmuxp/audio-session.yaml](./.tmuxp/audio-session.yaml)*
-The architectural blueprint for the music listening workstation, utilizing a recursive split strategy to bypass standard window layouts.
-
-- **Geometric Blueprint:**
-    - **Master Navigator & Audio player (P1):** Occupies the Top-Left (55% width, 60% height), running `Yazi` for folders and files exploration; best with these [Yazi settings](./dotfiles/.config/yazi/yazi.toml);
-    - **Fuzzy Music Seeker & Player (P2):** Anchored at the Bottom-Left (55% width, 40% height), running [fzf-music](./scripts/audio/fzf-music.sh) for direct and instant music selection;
-    - **Vital Monitor (P3):** Top-Right pillar (45% width, 70% height) running `btop` for resource scrying;
-    - **Visual Spectrum (P4):** Bottom-Right corner (45% width, 30% height) running `cava` for real-time frequency visualization; best with this [CAVA configuration](./dotfiles/.config/cava/config);
-- **Logic:** Instead of relying on static grids, this configuration uses a master pane to "carve" the workspace and inject commands into specific coordinates, ensuring a consistent UI regardless of screen resolution.
-
-#### *[.futuristic-audio-session (dotfile)](./shell/custom/.futuristic-audio-session)*
-The "Grand Orchestrator" script that breathes life into the architectural blueprint. 
-
-- **Features:**
-    - **Session Sanitization:** Automatically detects and purges zombie or overlapping sessions before spawning a new environment to prevent PID collisions;
-    - **Dynamic Storage Sensing:** Intelligently probes for external media (SD Cards) and dynamically re-routes the session's root directory, falling back to `$HOME` if no high-fidelity source is detected;
-    - **Clean-Slate Invocation:** Launches a dedicated, maximized Alacritty instance with a scrubbed environment to ensure TMUXP loads without inheriting conflicting shell variables.
-- **Logic:** It transmutes the static YAML configuration into a living, ephemeral workspace with a single command, handling both the creation and the "dissolution" of the audio environment.
-
-#### Dependencies (Ingredients)
-- [tmuxp](https://github.com/tmux-python/tmuxp) - The session orchestrator;
-- [yazi](https://github.com/sxyazi/yazi) - The primary file interface (folders & files exploration);
-- [fzf-music](./scripts/audio/fzf-music.sh) - The auxiliary music picker (direct & instant music selection);
-- [btop](https://github.com/aristocratos/btop) - For system telemetry;
-- [cava](https://github.com/karlstav/cava) - For the reactive audio visualizer;
-
-#### Shell Integration
-Add this line to your `.zshrc` or `.bashrc`:
-
-```bash
-[[ -f "$HOME/dotfiles/shell/custom/.futuristic-audio-session" ]]  &&  source "$HOME/dotfiles/shell/custom/.futuristic-audio-session"
-```
-
-
 ### *[yazi](./.config/yazi/yazi.toml)*
 A highly customized configuration for the [Yazi](https://github.com/sxyazi/yazi) terminal file manager, transmuted to act as a central hub for media and text.
 
@@ -169,11 +135,7 @@ Add the following line to your `.zshrc` or `.bashrc`:
 
 
 
-### *[fzf/.fzf-config](./shell/custom/fzf/.fzf-config)*
-An appendix for [fzf-music](./scripts/audio/fzf-music/) and 'fuzzy file' in general.
-- **Purpose:** It bridges your terminal with the script by providing a global alias and optimizing the UI/performance of `fzf` and `fd` system-wide.
-
-### *[fzf/.fzf-config](./shell/custom/fzf/.fzf-config)*
+### *[fzf/.fzf-config](./shell/fzf/.fzf-config)*
 The "Fuzzy Engine" core—a centralized configuration that transmutes standard terminal navigation into a high-speed, interactive experience.
 
 - **Features:**
@@ -191,10 +153,45 @@ The "Fuzzy Engine" core—a centralized configuration that transmutes standard t
 - [fd](https://github.com/sharkdp/fd) - A simple, fast, and user-friendly alternative to `find`;
 
 #### Required by:
-- [fzf-music.sh](./scripts/audio/fzf-music/fzf-music.sh) - A wrapper for *[fzf](https://github.com/junegunn/fzf)* and *[mpv](https://mpv.io/)*, for instant & lightweight music research and playing.
+- [fzf-music.sh](../scripts/audio/fzf-music/fzf-music.sh) - A wrapper for *[fzf](https://github.com/junegunn/fzf)* and *[mpv](https://mpv.io/)*, for instant & lightweight music research and playing.
 
 #### Shell Integration
 To activate this search engine within your environment, add the following line to your `~/.zshrc` or `~/.bashrc`:
+
+
+
+### *[.tmuxp/audio-session.yaml](./.tmuxp/audio-session.yaml)*
+The architectural blueprint for the music listening workstation, utilizing a recursive split strategy to bypass standard window layouts.
+
+- **Geometric Blueprint:**
+    - **Master Navigator & Audio player (P1):** Occupies the Top-Left (55% width, 60% height), running `Yazi` for folders and files exploration; best with these [Yazi settings](./dotfiles/.config/yazi/yazi.toml);
+    - **Fuzzy Music Seeker & Player (P2):** Anchored at the Bottom-Left (55% width, 40% height), running [fzf-music](./scripts/audio/fzf-music.sh) for direct and instant music selection;
+    - **Vital Monitor (P3):** Top-Right pillar (45% width, 70% height) running `btop` for resource scrying;
+    - **Visual Spectrum (P4):** Bottom-Right corner (45% width, 30% height) running `cava` for real-time frequency visualization; best with this [CAVA configuration](./dotfiles/.config/cava/config);
+- **Logic:** Instead of relying on static grids, this configuration uses a master pane to "carve" the workspace and inject commands into specific coordinates, ensuring a consistent UI regardless of screen resolution.
+
+#### *[.futuristic-audio-session (dotfile)](./shell/custom/.futuristic-audio-session)*
+The "Grand Orchestrator" (custom) script that breathes life into the architectural blueprint. 
+
+- **Features:**
+    - **Session Sanitization:** Automatically detects and purges zombie or overlapping sessions before spawning a new environment to prevent PID collisions;
+    - **Dynamic Storage Sensing:** Intelligently probes for external media (SD Cards) and dynamically re-routes the session's root directory, falling back to `$HOME` if no high-fidelity source is detected;
+    - **Clean-Slate Invocation:** Launches a dedicated, maximized Alacritty instance with a scrubbed environment to ensure TMUXP loads without inheriting conflicting shell variables.
+- **Logic:** It transmutes the static YAML configuration into a living, ephemeral workspace with a single command, handling both the creation and the "dissolution" of the audio environment.
+
+#### Dependencies (Ingredients)
+- [tmuxp](https://github.com/tmux-python/tmuxp) - The session orchestrator;
+- [yazi](https://github.com/sxyazi/yazi) - The primary file interface (folders & files exploration);
+- [fzf-music](./scripts/audio/fzf-music.sh) - The auxiliary music picker (direct & instant music selection);
+- [btop](https://github.com/aristocratos/btop) - For system telemetry;
+- [cava](https://github.com/karlstav/cava) - For the reactive audio visualizer;
+
+#### Shell Integration
+Add this line to your `.zshrc` or `.bashrc`:
+
+```bash
+[[ -f "$HOME/dotfiles/shell/custom/.futuristic-audio-session" ]]  &&  source "$HOME/dotfiles/shell/custom/.futuristic-audio-session"
+```
 
 ```bash
 [[ -f "$HOME/dotfiles/shell/custom/fzf/.fzf-config" ]] && source "$HOME/dotfiles/shell/custom/fzf/.fzf-config"
