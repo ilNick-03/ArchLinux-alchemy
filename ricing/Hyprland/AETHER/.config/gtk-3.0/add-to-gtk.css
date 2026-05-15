@@ -1,0 +1,17 @@
+/* Target the menu containers */
+menu, .menu, .context-menu {
+    /* This MUST match your Lua rounding value */
+    border-radius: 16px; 
+    /* Remove any solid background that might leak into corners */
+    background-color: rgba(30, 30, 46, 0.9); 
+    /* Force clipping of children */
+    /* overflow: hidden; */     /* Usupported by waybar */
+    /* Add a small margin to prevent the menu from touching the screen edges */
+    margin: 10px;
+    border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+/* Ensure individual menu items don't have sharp hover backgrounds */
+menuitem, modelbutton {
+    border-radius: 8px;
+}
