@@ -1,0 +1,64 @@
+/* --- WOFI FUTURISTIC CSS --- */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 16px;
+    /* Reset borders to avoid weird overlaps */
+    border: none;
+}
+
+window {
+    /* Deep Indigo background from your Waybar */
+    background-color: rgba(13, 2, 33, 0.95);
+    /* We add a small border here because Wofi is a floating window */
+    border: 2px solid #8839ef;    
+    border-radius: 15px;
+}
+
+#outer-box {
+    margin: 10px;
+    border: none;
+}
+
+/* SEARCH BAR - Cyan/Blue Style */
+#input {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    /* Cyan border like your #network module */
+    border: 2px solid #89dceb;
+    background-color: rgba(40, 40, 60, 0.8);
+    color: #ffffff;
+}
+
+/* This styles the 'Search Applications...' text */
+#input:placeholder {
+    color: rgba(137, 220, 235, 0.5);
+}
+
+#inner-box {
+    margin: 10px;
+}
+
+/* APP LIST NAMES - Lavender Style */
+#text {
+    margin: 5px;
+    /* Soft violet from your window title */
+    color: #cba6f7;
+}
+
+#entry {
+    padding: 8px;
+    border-radius: 10px;
+}
+
+
+/* SELECTION EFFECT - Solid Neon Violet */
+#entry:selected {
+    background-color: #8839ef;
+    border-radius: 10px;
+}
+
+#entry:selected #text {
+    color: #ffffff;
+}

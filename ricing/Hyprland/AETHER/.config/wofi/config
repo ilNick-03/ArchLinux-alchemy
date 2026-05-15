@@ -1,0 +1,18 @@
+# --- WOFI SETTINGS ---
+# File: ~/.config/wofi/config
+
+show=drun
+width=450
+height=500
+location=center
+allow_images=true
+image_size=32
+prompt=Search Applications...    # Search prompt
+
+# Use the custom CSS
+style=/home/nicolas/.config/wofi/style.css
+
+# Fix for focus issues
+no_actions=true
+halign=fill
+orientation=vertical
