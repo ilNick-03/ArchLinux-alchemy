@@ -1,0 +1,11 @@
+{
+  "Lua.workspace.library": [
+    "/usr/share/hypr/stubs"
+  ],
+  "Lua.diagnostics.globals": [
+    "hl"
+  ],
+  "editor.fontSize": 15,
+  "editor.codeLensFontSize": 0,
+  "terminal.integrated.fontSize": 14
+}
