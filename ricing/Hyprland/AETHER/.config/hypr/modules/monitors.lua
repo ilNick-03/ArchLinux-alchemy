@@ -15,11 +15,10 @@ hl.monitor({
     output    =  "";                 -- Automatic
     -- output    =  monitor_Name,       -- Set your monitor in 'vars.lua'
 
-    ---  Monitor Resolution & Resolution Rate
-    -- mode      = "preferred",         -- Automatic
-    -- mode      = "highres@highrr"     -- Highest available parameters
-    mode      =  "1920x1080@144",    --  144Hz : gaming, workstation
-    mode      =  "1920x1080@60",     -- 60Hz : default, compatibility, energy saving
+    ---  Monitor Resolution & Refresh Rate  (default + example configurations)
+    mode      = "preferred",         -- Automatic
+    -- mode      =  "1920x1080@144",    -- 144Hz : gaming, workstation
+    -- mode      =  "1920x1080@60",     -- 60Hz : default, compatibility, energy saving
 
     -- position = "auto",
     position  =  "0x0",   
@@ -32,6 +31,6 @@ hl.monitor({
     -- scale     =  2.00;
 
     ---  Monitor bit depth
-    -- bitdepth  =  "8"     -- Standard
-    bitdepth  =  10    -- HDR / EDR  for gaming/workstation
+    bitdepth  =   8    -- Standard
+    -- bitdepth  =  10    -- HDR / EDR  for gaming/workstation
 })
