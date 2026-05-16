@@ -33,21 +33,13 @@ This area will soon include a collection of specific remedies and configurations
 
 
 ## 📜 Ricing & Procedures
-> *Section under construction.*
-
-This area will soon host detailed Markdown guides and image galleries documenting my specific Arch Linux setup, including terminal aesthetics and desktop look configurations
-
----
-
-
-## 📜 Ricing & Procedures
 Detailed Markdown guides, alchemical philosophies, and image galleries documenting custom interactive desktop configurations .
 
 
 ### Available Ecosystems:
 
-#### * 🟪 **[The *A.E.T.H.E.R.* Project  (*Hyprland* 0.55+)](./ricing/Hyprland/AETHER/README.md)** 
-![AETHER Ricing showcase](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_logo_background_notifications_1.jpg)
+#### * 🟪 **[The *A.E.T.H.E.R.* project  (*Hyprland* 0.55+)](./ricing/Hyprland/AETHER/README.md)** 
+![AETHER Ricing showcase](./ricing/Hyprland/AETHER/img_showcase/AETHER-logo-background-notifications-1.jpg)
 A high-performance, ultra-lightweight dynamic tiling environment wrapped in a futuristic, cyber-neon, Synthwave aesthetic.
 [Written in *Lua* for *Hyprland* 0.55+](https://hypr.land/news/26_lua/).  Fully optimized for hybrid-GPU architectures (Intel + NVIDIA).
 
