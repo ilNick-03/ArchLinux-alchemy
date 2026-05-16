@@ -50,7 +50,10 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 -- === Set here your relevant directories ==
 _G.home_dir             =  os.getenv("HOME")
-_G.scripts_dir          =  os.getenv("HOME") .. "/scripts"
+_G.scripts_dir          =  os.getenv("HOME") .. "/scripts"                   
+-- _G.scripts_dir          =  os.getenv("HOME") .. "/.config/hypr/scripts"
+
+-- You probably want to edit the 'scriots_dir' value, or specify the path for each script individually
 
 
 
@@ -92,9 +95,17 @@ _G.random_WP            =  scripts_dir .. "/random-wallpaper-hypr.sh"
 ----   (b) Use 'swaybg'    ->  solid choice, generalist for Wayland desktops
 -- _G.random_WP            =  scripts_dir .. "/random-wallpaper-swaybg.sh" 
 
----  Screen Capturing
--- _G.screen_shot          =  "grim - | magick - -depth 8 -colorspace sRGB \"$HOME/Immagini/Immagini in Windows/Screenshots on Linux/Schermata_$(date +\'%Y%m%d_%H%M%S\').png\""
-_G.screen_shot          =  "grim -g \"$(slurp)\" - | magick - -depth 8 -colorspace sRGB \"$HOME/Immagini/Immagini in Windows/Screenshots on Linux/Schermata_$(date +\'%Y%m%d_%H%M%S\').png\""
+
+---  Screenshots
+----  (I)   'slurp' selects a specific region of your screen
+----  (II)  'grim' captures the pixel buffer
+----  (III) 'imagemagick' compresses color depth down to standard 8-bit per channel to enhance compatibility across devices
+local screen_shot_dir   =  home_dir .. "/Pictures/Screenshots"           -- You probably need to edit this path
+local screen_shot_name  =  "/Screenshot_$(date +\'%Y%m%d_%H%M%S\').png"
+_G.screen_shot          =  "grim -g \"$(slurp)\" - | magick - -depth 8 -colorspace sRGB \"" .. screen_shot_dir .. screen_shot_name .. "\" "
+
+--- Screen Recording
+---- Uses 'obs-studio' and its 'obs-cmd' command-line interface
 _G.screen_rec_start     =  "obs-cmd recording start"
 _G.screen_rec_stop      =  "obs-cmd recording stop"
 _G.screen_rec_pause     =  "obs-cmd recording toggle-pause"
