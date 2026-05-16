@@ -39,7 +39,7 @@ Detailed Markdown guides, alchemical philosophies, and image galleries documenti
 ### Available Ecosystems:
 
 #### * 🟪 **[The *A.E.T.H.E.R.* project  (*Hyprland* 0.55+)](./ricing/Hyprland/AETHER/README.md)** 
-![AETHER Ricing showcase](./ricing/Hyprland/AETHER/img_showcase/AETHER-logo-background-notifications-1.jpg)
+![AETHER Ricing showcase](./ricing/Hyprland/AETHER/screenshots/AETHER-logo-background-notifications-1.jpg)
 A high-performance, ultra-lightweight dynamic tiling environment wrapped in a futuristic, cyber-neon, Synthwave aesthetic.
 [Written in *Lua* for *Hyprland* 0.55+](https://hypr.land/news/26_lua/).  Fully optimized for hybrid-GPU architectures (Intel + NVIDIA).
 
