@@ -19,6 +19,7 @@
 local map = require("modules.keybindings-map")    -- Import our binds table
 local mainMod = "SUPER"                           -- Sets "Windows" key as main modifier
 
+
 -- === CORE BINDS ===
 
 ---  Menus and launchers
