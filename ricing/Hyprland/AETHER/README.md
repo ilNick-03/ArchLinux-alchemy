@@ -16,7 +16,8 @@ blended with the neon-drenched, high-fidelity atmosphere of Cyberpunk, Outrun, a
 Built strictly upon the principles of "*Keep It Simple, Stupid* (*K.I.S.S.*)" paradigm and the architectural law of *Less is More*, 
 *A.E.T.H.E.R.* treats your operating system as an open alchemical canvas. 
 By stripping away heavy desktop environment abstraction layers and translating system actions into lean, declarative *Lua* logic, 
-this environment channels your hardware's computing capacity straight into user intent. No latency. No compromises. Just pure, unadulterated computational flow.
+this environment channels your hardware's computing capacity straight into user intent. 
+No latency. No compromises. Just pure, unadulterated computational flow.
 
 
 ---
@@ -24,15 +25,15 @@ this environment channels your hardware's computing capacity straight into user 
 
 ## 👁️ Visual Showcase
 
-AETHER's visual grammar relies on obsidian backdrops punctuated by high-contrast neon accents, electric cyan indicators, and floating glass geometries. 
+*A.E.T.H.E.R.* 's visual grammar relies on obsidian backdrops punctuated by high-contrast neon accents, electric cyan indicators, and floating glass geometries. 
 Every layout is mathematically balanced to maximize screen real estate while protecting user focus.
 
 
 ![AETHER Core System](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_logo_background_notifications_1.jpg)
-<p align="center"><em>AETHER at startup: default wallpaper with logo; plus notification styles (low, normal, critical)</em></p>
+<p align="center"><em>A.E.T.H.E.R. at startup: default wallpaper with logo; plus notification styles (low, normal, critical)</em></p>
 
 ![AETHER Core System Alternative](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_logo_background_notifications_2.jpg)
-<p align="center"><em>Another wallpaper, AETHER logo, notification styles (low, normal, critical)</em></p>
+<p align="center"><em>Another wallpaper, A.E.T.H.E.R. logo, notification styles (low, normal, critical)</em></p>
 
 ![AETHER ricing music 1](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_Ricing_music_example_1.jpg)
 <p align="center"><em>An example of "ricing art" using the "mosaic style" in the Hyprland style</em></p>
@@ -52,7 +53,7 @@ Other beautiful ricing screenshots are provided in the ["*img_showcase*"](https:
 
 ## 🛠️ System Architecture & Dependencies
 
-AETHER inflexibly rejects unnecessary complexity.
+*A.E.T.H.E.R.* inflexibly rejects unnecessary complexity.
 To build a system that achieves maximum stability (*Firmitas*) and utility (*Utilitas*), the dependencies are strictly categorized.
 
 Before deploying *A.E.T.H.E.R.*, please review the [Official Hyprland Intrinsic Dependencies Guide](https://www.google.com/search?q=https://wiki.hypr.land/Getting-Started/Master-Tutorial/%23dependencies) 
@@ -61,7 +62,7 @@ to ensure your underlying graphics layers (`Wayland`, `wlroots`, `Mesa`, and opt
 
 ### Essential Components
 
-Without these core pillars, the AETHER environment cannot initialize or maintain architectural integrity.
+Without these core pillars, the A.E.T.H.E.R. environment cannot initialize or maintain architectural integrity.
 
 | Program | Ecosystem Role |
 | :--- | :--- |
@@ -99,7 +100,7 @@ These utilities enrich the ecosystem, providing advanced multimedia, file explor
 
 ### Custom Scripts & Alchemical Automations
 
-The true spirit of AETHER thrives within its custom executable layer. Rather than relying on rigid, monolithic tools, the system coordinates actions through lightweight Shell scripts tethered straight to the Lua core engine.
+The trve spirit of *A.E.T.H.E.R.* thrives within its custom executable layer. Rather than relying on rigid, monolithic tools, the system coordinates actions through lightweight Shell scripts tethered straight to the Lua core engine.
 
 | Program | Ecosystem Role |
 | :--- | :--- |
@@ -114,7 +115,7 @@ The true spirit of AETHER thrives within its custom executable layer. Rather tha
 
 ## ⌨️ The Command Center: Keybindings
 
-Input handling inside AETHER follows a unified command pattern. 
+Input handling inside A.E.T.H.E.R.follows a unified command pattern. 
 Rather than distributing layout mappings across multiple fractured text layers, the interaction map is localized entirely within a single script:
 
 📂 **`./.config/hypr/modules/keybindings.lua`**
@@ -181,3 +182,13 @@ via the `QT_QPA_PLATFORMTHEME` environment variable, ensuring absolute style con
 window on your screen.
 Plus, copy the content of [this file](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/.config/gtk-3.0/add-to-gtk.css)
 and add these code lines inside your "$HOME/.config/gtk-3.0/gtk.css" to uniform the theme of apps using old GTK libraries (such as dunst).
+
+
+---
+
+
+## ⚖️ License
+
+This subproject is licensed under the GPL v3.0 License - protecting the freedom of the code for all users.
+
+See the [LICENSE](../../../LICENSE) file for details.
