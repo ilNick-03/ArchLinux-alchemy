@@ -115,13 +115,17 @@ The trve spirit of *A.E.T.H.E.R.* thrives within its custom executable layer. Ra
 
 ## ⌨️ The Command Center: Keybindings
 
-Input handling inside A.E.T.H.E.R.follows a unified command pattern. 
-Rather than distributing layout mappings across multiple fractured text layers, the interaction map is localized entirely within a single script:
+Input handling inside *A.E.T.H.E.R.* follows a unified command pattern. 
+Rather than distributing layout mappings across multiple fractured text layers, the interaction map is localized entirely within a [single script](./.config/hypr/modules/keybindings.lua):
 
 📂 **`./.config/hypr/modules/keybindings.lua`**
 
 To explore, alter, or enhance the keyboard layout, use this file as your definitive reference. 
 Every map entry utilizes detailed descriptions that flow straight into the dynamic interactive menu mapping script.
+
+Plus. once you have installed this "ricing", you can view keybindings in table format with relative description by pressing `SUPER + F1`:
+
+![](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_keybindings_map_script.jpg)
 
 
 ### Architectural Interaction Features
