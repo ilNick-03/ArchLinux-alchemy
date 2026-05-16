@@ -11,6 +11,11 @@
 ------ See:  https://wiki.hypr.land/Configuring/Basics/Binds/
 ------ See:  https://wiki.hypr.land/Configuring/Basics/Dispatchers/
 
+---- MAIN KEYBINDINGS PROFILE (Active Layer)
+---- Intercepts hotkeys through the custom 'keybindings-map' table wrapper.
+---- Populates metadata on-the-fly to fuel the dynamic interactive binds visualizer.
+
+
 local map = require("modules.keybindings-map")    -- Import our binds table
 local mainMod = "SUPER"                           -- Sets "Windows" key as main modifier
 
