@@ -1,4 +1,19 @@
-The original wallpaper used for the AETHER desktop was uploaded by jmrt on Wallhaven.cc.
-Due to copyright restrictions, I cannot redistribute it. Download it yourself:
+================================================================================
+                A.E.T.H.E.R. Project // Visual Core Asset Notice                
+================================================================================
 
-https://wallhaven.cc/w/g75m8e
+The foundational default wallpaper for the A.E.T.H.E.R. ecosystem is an 
+original artwork curated by user 'jrmnt' on Wallhaven.cc.
+
+To strictly respect international copyright boundaries and support the author's 
+original distribution channel, this asset is not bundled within the core 
+repository files.
+
+Please retrieve the pristine image file directly from the official link below:
+👉 https://wallhaven.cc/w/g75m8e
+
+--------------------------------------------------------------------------------
+Initialization Guide:
+Once downloaded, convert/rename the file to 'splash.jpg' and place it inside 
+your local `./.config/hypr/` directory to enable seamless system boot rendering.
+================================================================================
