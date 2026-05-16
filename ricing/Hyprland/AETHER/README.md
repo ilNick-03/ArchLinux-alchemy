@@ -29,22 +29,22 @@ No latency. No compromises. Just pure, unadulterated computational flow.
 Every layout is mathematically balanced to maximize screen real estate while protecting user focus.
 
 
-![AETHER Core System](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_logo_background_notifications_1.jpg)
+![AETHER Core System](./screenshots/AETHER-logo-background-notifications-1.jpg)
 <p align="center"><em>A.E.T.H.E.R. at startup: default wallpaper with logo; plus notification styles (low, normal, critical)</em></p>
 
-![AETHER Core System Alternative](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_logo_background_notifications_2.jpg)
+![AETHER Core System Alternative](./screenshots/AETHER-logo-background-notifications-2.jpg)
 <p align="center"><em>Another wallpaper, A.E.T.H.E.R. logo, notification styles (low, normal, critical)</em></p>
 
-![AETHER ricing music 1](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_Ricing_music_example_1.jpg)
+![AETHER ricing music 1](./screenshots/AETHER-ricing-music-example-1.jpg)
 <p align="center"><em>An example of "ricing art" using the "mosaic style" in the Hyprland style</em></p>
 
-![AETHER ricing music 2](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_Ricing_music_example_2.jpg)
+![AETHER ricing music 2](./screenshots/AETHER-ricing-music-example-2.jpg)
 <p align="center"><em>Another example of "digital desktop art" you can mimic using A.E.T.H.E.R.</em></p>
 
-![AETHER ricing techinfo](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_Ricing_techinfo_1.jpg)
+![AETHER ricing techinfo](./screenshots/AETHER-ricing-techinfo-1.jpg)
 <p align="center"><em>This desktop setup leverages the Hyprland floating/pseudo windows instead</em></p>
 
-Other beautiful ricing screenshots are provided in the ["*img_showcase*"](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase) subfolder.
+Other beautiful ricing screenshots are provided in the ["*screenshots*"](./screenshots) folder.
 
 
 ---
@@ -126,7 +126,7 @@ Every map entry utilizes detailed descriptions that flow straight into the dynam
 
 Plus. once you have installed this "ricing", you can view keybindings in table format with relative description by pressing `SUPER + F1`:
 
-![](https://github.com/ilNick-03/ArchLinux-alchemy/blob/main/ricing/Hyprland/AETHER/img_showcase/AETHER_keybindings_map_script.jpg)
+![Keybinds Table](./screenshots/AETHER-keybindings-map-script.jpg)
 
 
 ### Architectural Interaction Features
@@ -148,7 +148,19 @@ Plus. once you have installed this "ricing", you can view keybindings in table f
 to conform to your specific system layout.
 
 
-### 1. Re-align User Space Environmental Paths
+### 1. Fetch Default Wallpaper & Initialize Background Canvas
+
+Before booting the environment, you must manually acquire the default ecosystem wallpaper. 
+- Open and follow the retrieval instructions detailed inside this [text file](./.config/hypr/splash.txt).
+- Once downloaded, convert/rename it as `spash.jpg` and move it to `./.config/hypr/` folder. Otherwise, if you choose to store the asset in the non-standard directory
+  and/or using the non-standard file name, ensure you update its absolute target path inside `./.config/hypr/modules/vars.lua` by re-targeting the initialization variable:
+
+```lua
+_G.init_WP = os.getenv("HOME") .. "/your/custom/path/default_wallpaper.jpg"
+```
+
+
+### 2. Re-align User Space Environmental Paths
 
 Open your global variables configuration block located at `./.config/hypr/modules/vars.lua`.
 Re-target the standard global variables to reflect your environment profile:
@@ -162,7 +174,7 @@ _G.scripts_dir  =  os.getenv("HOME") .. "/scripts"  -- Points directly to your c
 Or specify a script' full path in the dedicated line of code.
 
 
-### 2. Tailor Your Graphic Profile (Dual-GPU Configuration)
+### 3. Tailor Your Graphic Profile (Dual-GPU Configuration)
 
 AETHER provides a split variable map to toggle hardware rendering profiles.
 By default, paths are un-commented to utilize the integrated Intel graphics chip (`iGPU`) to optimize laptop battery life.
@@ -179,7 +191,7 @@ hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 ```
 
 
-### 3. Apply Unified Styling Across UI Engines
+### 4. Apply Unified Styling Across UI Engines
 
 To prevent mixed fonts and inconsistent white window frames from breaking the Synthwave theme immersion,
 confirm that `qt6ct` is running. The variable system forces Qt-based applications to read from this layer 
