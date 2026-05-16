@@ -48,12 +48,13 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 ------ Using Lua's global table (_G) so these are accessible in binds.lua and autostart.lua
 
 
--- === Set here your relevant directories ==
+-- === Set here your relevant directories ===
 _G.home_dir             =  os.getenv("HOME")
 _G.scripts_dir          =  os.getenv("HOME") .. "/scripts"                   
 -- _G.scripts_dir          =  os.getenv("HOME") .. "/.config/hypr/scripts"
 
--- You probably want to edit the 'scriots_dir' value, or specify the path for each script individually
+---  Move all useful scripts mentioned in Hyprland configuration files in the same folder, 
+----   or specify the full path for each individually where needed
 
 
 
@@ -86,7 +87,7 @@ _G.browser              =  "librewolf"
 ---  Monitor
 -- _G.monitor_Name         =  "eDP-1"    -- See 'monitors.lua'
 
----  Set your "relevant" directories ===
+---  Set your "relevant" directories
 _G.initial_WP           =  scripts_dir .. "/.config/hypr/splash.jpg"
 
 ---  Choose a random image as next wallpaper
