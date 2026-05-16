@@ -4,10 +4,11 @@
 ---  Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html
 
 
-----
----- Centralized Keybinding Registry
----- This module intercepts 'hl.bind' calls to store metadata for documentation.
-----
+-- ===============================================================================
+---- CENTRALIZED KEYBINDING REGISTRY & METADATA CACHE
+---- Wrapper module that hooks into 'hl.bind'. Caches key combos and descriptions
+---- inside a structured Lua table, enabling programs to query live mappings.
+-- ===============================================================================
 
 
 local M = {}
