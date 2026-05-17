@@ -62,10 +62,10 @@ hl.config({
             vibrancy             =   0.1696,    -- default: 0.1696
 
             --- Fine-tuning the look
-            brightness           =   1.2,        -- default: 0.8172
-            contrast             =   1.5,        -- default: 0.8916
-            vibrancy             =   0.6,        -- default: 0.1696
-            vibrancy_darkness    =     0         -- default: 0
+            brightness           =   1.2,       -- default: 0.8172
+            contrast             =   1.5,       -- default: 0.8916
+            vibrancy             =   0.6,       -- default: 0.1696
+            vibrancy_darkness    =     0        -- default: 0
         },
     },
 
