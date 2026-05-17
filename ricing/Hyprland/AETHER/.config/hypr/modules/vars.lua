@@ -65,6 +65,7 @@ _G.status_bar           =  "waybar"
 _G.notification_daemon  =  "dunst"
 _G.wifi_menu            =  "nm-applet --indicator"
 _G.bluetooth_menu       =  "blueman-applet"
+_G.idle_daemon          =  "hypridle"
 -- _G.binds_table          =  "hyprkcs"    -- It does not yet support new Hyprland's Lua configuration.
 _G.binds_table          =  "alacritty -T \"Keybindings Table [$(date +\'%Y%m%d-%H%M%S\')]\" --class floating_bindsmap -e " .. home_dir .. "/.config/hypr/scripts/hypr-binds-map.sh"
 _G.apps_launcher        =  "wofi --show drun --conf \"" .. home_dir .. "/.config/wofi/config\" --style \"" .. home_dir .. "/.config/wofi/style.css\""
