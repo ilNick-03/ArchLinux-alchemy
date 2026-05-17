@@ -33,7 +33,7 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd(wifi_menu)
     hl.exec_cmd(bluetooth_menu)
     hl.exec_cmd(auth_manager)
-    hl.exec_cmd("hypridle &")    -- Start the idle daemon in the background
+    hl.exec_cmd(idle_daemon)
 
 
     -- === Execute your favorite apps at launch ==
