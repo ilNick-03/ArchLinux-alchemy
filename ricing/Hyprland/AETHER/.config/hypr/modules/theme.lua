@@ -57,8 +57,8 @@ hl.config({
         blur = {
             --- More blur quality -> more GPU calculations
             enabled              =  true,
-            size                 =   1,         -- default: 3
-            passes               =   4,         -- default: 1
+            size                 =   2,         -- default: 3
+            passes               =   3,         -- default: 1
             vibrancy             =   0.1696,    -- default: 0.1696
 
             --- Fine-tuning the look
