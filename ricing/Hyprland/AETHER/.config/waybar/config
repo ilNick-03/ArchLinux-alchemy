@@ -28,9 +28,9 @@
         "pulseaudio",
 
         // HARDWARE MONITORING STRATEGY & BATTERY OPTIMIZATION:
-        // - Real-time (interval <= 1s) :         Highly informative but disrupts CPU C-States (battery drain).
-        // - Balanced Polling (interval 3s-10s) : Optimal trade-off between live metrics and energy efficiency.
-        // - Stealth Mode (commented out) :       Zero overhead, prevents unnecessary CPU wakeups entirely.
+        // - Real-time (interval <= 1s) :          Highly informative but disrupts CPU C-States (battery drain).
+        // - Balanced Polling (interval 10s-30s) : Optimal trade-off between live metrics and energy efficiency.
+        // - Stealth Mode (commented out) :        Zero overhead, prevents unnecessary CPU wakeups entirely.
         "cpu",
         "memory",
         "temperature",
