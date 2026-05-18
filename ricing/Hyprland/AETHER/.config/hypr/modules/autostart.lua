@@ -32,7 +32,7 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd(notification_daemon)
     hl.exec_cmd(wifi_menu)
     hl.exec_cmd(bluetooth_menu)
-    hl.exec_cmd(auth_manager)
+    hl.exec_cmd(auth_manager .. " &")   -- Fork into background
     hl.exec_cmd(idle_daemon .. " &")    -- Start the daemon in background
 
 
