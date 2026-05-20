@@ -76,7 +76,12 @@ hl.config({
     
     -- Please see:  https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/
     dwindle = {
-        preserve_split           =  true    -- You probably want this
+        preserve_split           =  true,       -- You probably want this
+
+        --- New windows' position:  
+        force_split              =   0    -- Default option:   split follows mouse (default)
+        -- force_split              =   1    -- For left-handed:  always split to the left/top
+        -- force_split              =   2    -- For right-handed: always split to the right/down 
     },
 
     -- Please see:  https://wiki.hypr.land/Configuring/Layouts/Master-Layout/
@@ -85,9 +90,9 @@ hl.config({
     },
  
     misc = {
-        force_default_wallpaper  =   0,          -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo    =  true,        -- If true disables the random hyprland logo / anime girl background. :(
-        background_color         =  0x000000     -- Sets the underlying canvas color to black (prevents grey/white flashes)
+        force_default_wallpaper  =   0,         -- Set to 0 or 1 to disable the anime mascot wallpapers
+        disable_hyprland_logo    =  true,       -- If true disables the random hyprland logo / anime girl background. :(
+        background_color         =  0x000000    -- Sets the underlying canvas color to black (prevents grey/white flashes)
     }
 
 })
