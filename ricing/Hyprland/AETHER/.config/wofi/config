@@ -11,7 +11,7 @@ height=500
 location=center
 allow_images=true
 image_size=32
-prompt=Search Applications...    # Search prompt
+prompt=Search or filter...    # Search prompt
 
 # Use the custom CSS
 style=/home/nicolas/.config/wofi/style.css
