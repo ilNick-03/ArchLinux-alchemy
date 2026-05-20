@@ -131,12 +131,17 @@ Plus. once you have installed this "ricing", you can view keybindings in table f
 
 ### Architectural Interaction Features
 
-* **Chronological Terminal Isolation**: Every time you invoke `SUPER + Return`, a new Alacritty interface opens.
+- **Chronological Terminal Isolation**: Every time you invoke `SUPER + Return`, a new Alacritty interface opens.
   The configuration automatically titles the window with an instantaneous timestamp down to the second: `[$(date +'%Y%m%d-%H%M%S')]`. This facilitates perfect log tracking and terminal tracking management.
-* **The "Magic" Workspace**: Accessible via `SUPER + S`, this acts as a scratchpad overlay,
+  
+- **The "Magic" Workspace**: Accessible via `SUPER + S`, this acts as a scratchpad overlay,
   pulling minimized assets or hidden background operations instantly to the center of your screen without disrupting your active window layouts.
-* **Futuristic Audio Session**: Triggered with `SUPER + SHIFT + A`, this macro launches a custom script environment inside your directory structures
-  designed specifically for high-quality music listening experience.
+  
+- **Clipboard History Menu**: Invoking `SUPER + H`, this macro invokes a high-performance, text-only clipboard engine. By piping `cliphist` straight through a streamlined `awk` parser, the system hides database index tracking numbers on the fly, rendering a pristine, unified history of your last copied assets inside a wide (`800px`) dedicated [Wofi](https://hg.sr.ht/~scoopta/wofi) container.
+  ![Clipboard Menu screenshot](./screenshots/AETHER-clipboard-menu.jpg)
+  
+- **[Futuristic Audio Session](https://github.com/ilNick-03/ArchLinux-alchemy)**: Triggered with `SUPER + SHIFT + A`, this macro launches a custom script environment inside your directory structures designed specifically for high-quality music listening experience. Closed typing `SUPER + SHIFT + ALT + A`.
+  ![Futuristic Audio Seeesion view](./screenshots/AETHER-ricing-audio-session-1.jpg)
 
 
 ---
