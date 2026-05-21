@@ -293,7 +293,7 @@ To prevent mixed fonts and inconsistent white window frames from breaking the Sy
 confirm that `qt6ct` is running. The variable system forces Qt-based applications to read from this layer 
 via the `QT_QPA_PLATFORMTHEME` environment variable, ensuring absolute style consistency across every app 
 window on your screen.
-Additionally, add these code lines inside your "$HOME/.config/gtk-3.0/gtk.css" to uniform the theme of apps using old GTK libraries (such as dunst):
+Additionally, add these code lines inside your "$HOME/.config/gtk-3.0/gtk.css" to uniform the theme of apps using old GTK libraries (such as [Dunst](https://dunst-project.org/)):
 
 ```css
 @import `aether-win-menu.css`
