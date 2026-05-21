@@ -24,9 +24,9 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 ---  Manage your dual-GPU configuration:
 
 ---  (a) Rendering with iGPU Intel - battery saving
-hl.env("WLR_DRM_DEVICES",           "/dev/dri/by-path/pci-0000:00:02.0-card:/dev/dri/by-path/pci-0000:01:00.0-card")
-hl.env("LIBVA_DRIVER_NAME",         "i915")
-hl.env("__GLX_VENDOR_LIBRARY_NAME", "mesa")
+-- hl.env("WLR_DRM_DEVICES",           "/dev/dri/by-path/pci-0000:00:02.0-card:/dev/dri/by-path/pci-0000:01:00.0-card")
+-- hl.env("LIBVA_DRIVER_NAME",         "i915")
+-- hl.env("__GLX_VENDOR_LIBRARY_NAME", "mesa")
 
 ---  (b) Rendering with dGPU NVIDIA - performance
 -- hl.env("LIBVA_DRIVER_NAME",         "nvidia")
