@@ -67,6 +67,7 @@ Without these core pillars, the *A.E.T.H.E.R.* environment cannot initialize or 
 | Program | Ecosystem Role |
 | :--- | :--- |
 | [Alacritty](https://alacritty.org/) | The GPU-accelerated terminal emulator acting as the default interface wrapper for all CLI interactions. |
+| [Brightnessctl](https://github.com/Adisbladis/brightnessctl) | Screen backlight brightness adjustments tied directly to laptop hardware keys. |
 | [Dunst](https://dunst-project.org/) | A low-overhead notification daemon configured for clean, geometric pop-up alerts. |
 | [hypridle](https://github.com/hyprwm/hypridle) / [swayidle](https://github.com/swaywm/swayidle) | **Idle Management Daemons**: The core sub-systems driving automated display dimming and suspend activation. This project prefers `swayidle` as a rock-solid, C-based alternative; while maintaining full compatibility with `hypridle`. |
 | [Hyprland](https://hyprland.org/) | The core dynamic tiling Wayland compositor and hardware-accelerated window layout engine. |
@@ -74,6 +75,7 @@ Without these core pillars, the *A.E.T.H.E.R.* environment cannot initialize or 
 | [polkit-gnome](https://archlinux.org/packages/extra/x86_64/polkit-gnome/) | The GTK3-based graphical authentication agent running in the background to handle elevated system privilege requests. |
 | [qt6ct](https://github.com/trialuser02/qt6ct) | The central configuration controller forcing cross-toolkit UI elements to render via uniform theme rules. |
 | [Waybar](https://github.com/Alexays/Waybar) | The primary CSS-styled telemetry bar, hosting custom script extensions and the interactive eye-pill inhibitor. |
+| [Wireplumber](https://pipewire.pages.freedesktop.org/wireplumber/) (`wpctl`) | Audio engine controller driving PipeWire routing settings, hardware mute states, and volume levels. |
 | [wlogout](https://github.com/ArtsyMacaw/wlogout) | A full-screen, minimal overlay menu executing clean power cycles, logouts, and sleep sequences. |
 | [Wofi](https://hg.sr.ht/~scoopta/wofi) | A menu-driven application runner styled via custom stylesheets (`style.css`) to match the colorway. |
 
@@ -84,7 +86,6 @@ These utilities enrich the ecosystem, providing advanced multimedia, file explor
 
 | Program | Ecosystem Role |
 | :--- | :--- |
-| [Brightnessctl](https://github.com/Adisbladis/brightnessctl) | Screen backlight brightness adjustments tied directly to laptop hardware keys. |
 | [btop](https://github.com/aristocratos/btop) | An interactive system monitor executing inside an isolated, floating window class wrapper (`floating_monitor`). |
 | [cliphist](https://github.com/sentriz/cliphist) + [wl-clipboard](https://github.com/bugaevc/wl-clipboard) | **Clipboard Management Subsystem**: The combined stack driving Wayland-native copy/paste synchronization (`wl-clipboard`) alongside a local, text-bound historical data registry (`cliphist`). |
 | [Grim](https://sr.ht/~emersion/grim/) + [Slurp](https://github.com/emersion/slurp) | Regional and full-display screen captioning utilities paired together for accurate crop selections. |
@@ -94,7 +95,6 @@ These utilities enrich the ecosystem, providing advanced multimedia, file explor
 | [obs-cmd](https://github.com/norihiro/obs-cmd) | A command-line client mapping video capturing keybindings straight to a background OBS Studio recording socket. |
 | [Playerctl](https://github.com/alols/playerctl) | A unified command-line media interface mapping global track tracking (Play/Pause/Next/Prev) controls. |
 | [Thunar](https://docs.xfce.org/xfce/thunar/start) | A lightweight, responsive GTK-3 graphical file manager configured to blend into the universal dark theme. |
-| [Wireplumber](https://pipewire.pages.freedesktop.org/wireplumber/) (`wpctl`) | Audio engine controller driving PipeWire routing settings, hardware mute states, and volume levels. |
 | [Yazi](https://github.com/sxyazi/yazi) | An asynchronous terminal file manager used for rapid, terminal-bound asset and workspace navigation. |
 | [Zsh](https://www.zsh.org/) + [Tmux](https://github.com/tmux/tmux) | The combined shell ecosystem delivering automatic terminal nesting, workspace multiplexing, and session persistence. |
 
@@ -137,7 +137,7 @@ Plus. once you have installed this "ricing", you can view keybindings in table f
 - **The "Magic" Workspace**: Accessible via `SUPER + S`, this acts as a scratchpad overlay,
   pulling minimized assets or hidden background operations instantly to the center of your screen without disrupting your active window layouts.
   
-- **Clipboard History Menu**: Invoking `SUPER + H`, this macro invokes a high-performance, text-only clipboard engine. By piping `cliphist` straight through a streamlined `awk` parser, the system hides database index tracking numbers on the fly, rendering a pristine, unified history of your last copied assets inside a wide (`800px`) dedicated [Wofi](https://hg.sr.ht/~scoopta/wofi) container.
+- **Clipboard History Menu**: Invoking `SUPER + H`, this macro invokes a high-performance, text-only clipboard engine. By piping `cliphist` straight through a streamlined `awk` parser, the system hides database index tracking numbers on the fly, rendering a pristine, unified history of your last copied assets inside a wide (`800px`) dedicated [Wofi](https://hg.sr.ht/~scoopta/wofi) container. Purge your clipboard history registry via `SUPER + SHIFT + H`.
   ![Clipboard Menu screenshot](./screenshots/AETHER-clipboard-menu.jpg)
   
 - **[Futuristic Audio Session](https://github.com/ilNick-03/ArchLinux-alchemy)**: Triggered with `SUPER + SHIFT + A`, this macro launches a custom script environment inside your directory structures designed specifically for high-quality music listening experience. Closed typing `SUPER + SHIFT + ALT + A`.
