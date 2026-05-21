@@ -60,7 +60,7 @@ _G.scripts_dir          =  os.getenv("HOME") .. "/scripts"
 
 -- === Set PROGRAMS that you use ===
 
----  Hyprland "extensions"
+---  Hyprland "extensions" ...
 _G.status_bar           =  "waybar"
 _G.notification_daemon  =  "dunst"
 _G.auth_manager         =  "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
@@ -70,8 +70,12 @@ _G.bluetooth_menu       =  "blueman-applet"
 _G.idle_daemon          =  "swayidle -w -C ~/.config/swayidle/config"    -- Stable and reliable alternative 
 _G.binds_table          =  "alacritty -T \"Keybindings Table [$(date +\'%Y%m%d-%H%M%S\')]\" --class floating_bindsmap -e " .. home_dir .. "/.config/hypr/scripts/hypr-binds-map.sh"
 _G.apps_launcher        =  "wofi --show drun --conf \"" .. home_dir .. "/.config/wofi/config\" --style \"" .. home_dir .. "/.config/wofi/style.css\""
+
+----   ... including Clipboard Management
 _G.clip_store_text      =  "zsh -c 'wl-paste --type text --watch cliphist store'"
 _G.clipboard_selector   =  "cliphist list | head -n 30 | awk '{print substr($0, index($0,$2))}' | wofi --dmenu --width 720 | wl-copy"
+_G.clipboard_wipe       =  "cliphist wipe && notify-send -u low 'Clipboard Registry' 'Memory completely purged.'"
+
 
 ---  Terminal User Iterface (TUI) programds
 _G.terminal             =  "alacritty -T \"Alacritty [$(date +\'%Y%m%d-%H%M%S\')]\" -e zsh --login -c \"tmux\""
