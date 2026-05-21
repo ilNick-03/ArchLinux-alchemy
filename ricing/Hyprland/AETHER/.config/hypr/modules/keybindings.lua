@@ -26,6 +26,7 @@ local mainMod = "SUPER"                           -- Sets "Windows" key as main 
 map.bind(mainMod .. " + F1",               hl.dsp.exec_cmd(binds_table),                         { description = "Show keybindings table" })
 map.bind(mainMod .. " + Space",            hl.dsp.exec_cmd(apps_launcher),                       { description = "Open application launcher" })
 map.bind(mainMod .. " + H",                hl.dsp.exec_cmd(clipboard_selector),                  { description = "Open clipboard history manager"})
+map.bind(mainMod .. " + SHIFT + H",        hl.dsp.exec_cmd(clipboard_wipe),                      { description = "Purge clipboard history registry"})
 
 --- The most useful apps
 map.bind(mainMod .. " + Return",           hl.dsp.exec_cmd(terminal),                            { description = "Launch terminal emulator" })
