@@ -24,12 +24,6 @@ This terminal configuration for [Alacritty](https://github.com/alacritty/alacrit
 - [tmux](https://github.com/tmux/tmux) - For session persistence and window management;
 - [JetBrainsMono Nerd Font](https://www.jetbrains.com/lp/mono/) - For correct glyph rendering.
 
-#### Manual Installation
-```bash
-cp ./dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-```
-
-
 
 ### *[cava](./.config/cava/config)*
 A fine-tuned configuration for the [CAVA](https://github.com/karlstav/cava) audio visualizer, acting as the "visual heart" of the futuristic audio workstation.
@@ -44,11 +38,6 @@ A fine-tuned configuration for the [CAVA](https://github.com/karlstav/cava) audi
 #### Dependencies (Ingredients)
 - [cava](https://github.com/karlstav/cava) - The Console-based Audio Visualizer;
 - [pipewire](https://pipewire.org/) - For real-time audio data acquisition.
-
-#### Manual Installation
-```bash
-cp ./dotfiles/.config/cava/config ~/.config/cava/config
-```
 
 > [!TIP]
 > **Privacy Note**: CAVA might trigger the "Microphone in use" icon in your status bar.
@@ -74,12 +63,6 @@ To fully manifest these functionalities, ensure the following are installed:
 - [imv](https://github.com/eunomia/imv) - For lightweight, detached image viewing;
 - [ark](https://apps.kde.org/ark/) - For GUI-based archive management;
 - [micro](https://micro-editor.github.io/) - The default terminal scribe (editor).
-
-#### Manual Installation
-Place the file in your local configuration vault:
-```bash
-cp ./dotfiles/.config/yazi/yazi.toml ~/.config/yazi/yazi.toml
-```
 
 
 ---
@@ -108,7 +91,7 @@ To manipulate the screen's luminosity, the following tools are required:
 To bridge your shell with the display hardware, add this line to your `.bashrc` or `.zshrc`:
 
 ```bash
-[[ -f "$HOME/dotfiles/shell/custom/.brightness-controls" ]]  &&  source "$HOME/dotfiles/shell/custom/.brightness-controls"
+[[ -f "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.brightness-controls" ]]  &&  source "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.brightness-controls"
 ```
 
 
@@ -130,7 +113,7 @@ A fortified *TUI* (*Terminal User Interface*) barrier for hardware isolation and
 #### Shell Integration
 Add the following line to your `.zshrc` or `.bashrc`:
 ```bash
-[[ -f "$HOME/dotfiles/shell/custom/.privacy-hardware-controls" ]]  &&  source "$HOME/dotfiles/shell/custom/.privacy-hardware-controls"
+[[ -f "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.privacy-hardware-controls" ]]  &&  source "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.privacy-hardware-controls"
 ```
 
 
@@ -190,10 +173,10 @@ The "Grand Orchestrator" (custom) script that breathes life into the architectur
 Add this line to your `.zshrc` or `.bashrc`:
 
 ```bash
-[[ -f "$HOME/dotfiles/shell/custom/.futuristic-audio-session" ]]  &&  source "$HOME/dotfiles/shell/custom/.futuristic-audio-session"
+[[ -f "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session" ]]  &&  source "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session"
 ```
 
 ```bash
-[[ -f "$HOME/dotfiles/shell/custom/fzf/.fzf-config" ]] && source "$HOME/dotfiles/shell/custom/fzf/.fzf-config"
+[[ -f "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/fzf/.fzf-config" ]] && source "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/fzf/.fzf-config"
 ```
 
