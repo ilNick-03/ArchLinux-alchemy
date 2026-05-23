@@ -69,7 +69,6 @@ find . -type f -name "*.sh" -exec chmod +x {} +
 
 ### 3. Integration
 Each tool may have its own integration steps.
-- For the core `fzf` experience, follow the instructions inside `shell-integration-appendix` to update your shell configuration.
 
 
 ---
