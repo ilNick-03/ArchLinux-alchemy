@@ -18,14 +18,8 @@ hl.on("hyprland.start", function ()
     ---  Force reload to ensure that GPU drivers are fully initialized
     -- hl.exec_cmd(sleep 2; hyprctl reload)
 
-    ---  Set the first wallpaper at start. Choose between:
-    ----  (a) 'hyprpaper'  ->  native choice, better resize quality
-    hl.exec_cmd(home_dir .. "/.config/hypr/scripts/init-wallpaper.sh")
-    ----  (b) 'swaybg'     ->  solid choice, generalist for Wayland desktops
-    -- hl.exec_cmd("swaybg -i" .. initial_WP .. "-m fill &")
-    ----  (c)  random WP   ->  randolmy choose the initial wallpaper (see vars.lua)
-    -- hl.exec_cmd("sleep 0.2 && " .. random_WP)
-
+    --- Set the first wallpaper at start.
+    hl.exec_cmd(initial_WP_cmd)
 
     --- Run the Hyprland "extensions"
     hl.exec_cmd(status_bar)
