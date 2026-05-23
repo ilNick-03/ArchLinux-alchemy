@@ -89,31 +89,41 @@ _G.browser              =  "librewolf"
 
 
 
--- === MONITOR, WALLPAPER, SCREEN CAPTURING ===
-
----  Monitor
+-- === MONITOR ===
 -- _G.monitor_Name         =  "eDP-1"    -- See 'monitors.lua'
 
----  Set your "relevant" directories
-_G.initial_WP           =  scripts_dir .. "/.config/hypr/splash.jpg"
 
----  Choose a random image as next wallpaper
-----   (a) Use 'hyprpaper' ->  native way, better resize quality
-_G.random_WP            =  scripts_dir .. "/random-wallpaper-hypr.sh"
+
+-- === WALLPAPER ===  
+
+---  The INITIAL, static WALLPAPER (secure option)
+local initial_WP        =  home_dir .. "/.config/hypr/splash.jpg"
+
+
+--- Set the INITIAL wallpaper, and later replace it with a RANDOM IMAGE
+
+---  Choose a RANDOM IMAGE as next wallpaper
+----   (a) Use 'hyprpaper' ->  native way, better quality
+_G.initial_WP_cmd       =  "zsh -c '" .. home_dir .. "/.config/hypr/scripts/set-wp-hypr.sh \"" .. initial_WP .. "\"'"
+_G.random_WP_cmd        =  scripts_dir .. "/random-wallpaper-hypr.sh"
 ----   (b) Use 'swaybg'    ->  solid choice, generalist for Wayland desktops
--- _G.random_WP            =  scripts_dir .. "/random-wallpaper-swaybg.sh" 
+-- _G.initial_WP_cmd       =  "swaybg -i" .. initial_WP .. "-m fill &"
+-- _G.random_WP_cmd        =  scripts_dir .. "/random-wallpaper-sway.sh" 
 
+
+
+-- === SCREEN CAPTURING (IMAGE / VIDEO)
 
 ---  Screenshots
 ----  (I)   'slurp' selects a specific region of your screen
 ----  (II)  'grim' captures the pixel buffer
 ----  (III) 'imagemagick' compresses color depth down to standard 8-bit per channel to enhance compatibility across devices
-local screen_shot_dir   =  home_dir .. "/Pictures/Screenshots"           -- You probably need to edit this path
-local screen_shot_name  =  "/Screenshot_$(date +\'%Y%m%d_%H%M%S\').png"
+local screen_shot_dir   =  home_dir .. "/Immagini/Immagini in Windows/Screenshots on Linux"
+local screen_shot_name  =  "/Schermata_$(date +\'%Y%m%d_%H%M%S\').png"
 _G.screen_shot          =  "grim -g \"$(slurp)\" - | magick - -depth 8 -colorspace sRGB \"" .. screen_shot_dir .. screen_shot_name .. "\" "
 
 --- Screen Recording
----- Uses 'obs-studio' and its 'obs-cmd' command-line interface
+---- Uses 'obs-studio' and its 'obs-cmd' command line interface
 _G.screen_rec_start     =  "obs-cmd recording start"
 _G.screen_rec_stop      =  "obs-cmd recording stop"
 _G.screen_rec_pause     =  "obs-cmd recording toggle-pause"
