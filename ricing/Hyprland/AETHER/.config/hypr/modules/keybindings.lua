@@ -119,7 +119,7 @@ map.bind(mainMod .. " + SHIFT + A",        hl.dsp.exec_cmd("zsh -ic 'audio-sessi
 map.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio-session'"),     { description = "Terminate the 'futuristic audio session'" })
 
 ---  Wallpaper Changing
-map.bind(mainMod .. " + ALT + W",          hl.dsp.exec_cmd(random_WP),                           { description = "Set a random image as new wallpaper" })
+map.bind(mainMod .. " + ALT + W",          hl.dsp.exec_cmd(random_WP_cmd),                       { description = "Set a random image as new wallpaper" })
 
 ---  Screen Capturing
 map.bind("Print",                          hl.dsp.exec_cmd(screen_shot),                         { description = "Capture screenshot" })
