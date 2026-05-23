@@ -165,7 +165,7 @@ alias rdkde='~/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-kd
 ```
 
 
-### *[random-wallpaper-swaybg.sh](./desktop-enhancements/random-wallpaper/random-wallpaper-swaybg.sh)*
+### *[random-wallpaper-sway.sh](./desktop-enhancements/random-wallpaper/random-wallpaper-sway.sh)*
 A lightweight, resource-efficient manifestation of desktop aesthetics for wlroots-based compositors.
 
 - **Features:**
@@ -180,7 +180,7 @@ A lightweight, resource-efficient manifestation of desktop aesthetics for wlroot
 Add the following line to your ~/.zshrc or ~/.bashrc:
 
 ```bash
-alias rdsway='~/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-swaybg.sh'
+alias rdsway='~/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-sway.sh'
 ```
 
 
