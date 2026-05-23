@@ -104,7 +104,7 @@ local initial_WP        =  home_dir .. "/.config/hypr/splash.jpg"
 
 ---  Choose a RANDOM IMAGE as next wallpaper
 ----   (a) Use 'hyprpaper' ->  native way, better quality
-_G.initial_WP_cmd       =  "zsh -c '" .. home_dir .. "/.config/hypr/scripts/set-wp-hypr.sh \"" .. initial_WP .. "\"'"
+_G.initial_WP_cmd       =  "zsh -c '" .. scripts_dir .. "/set-wp-hypr.sh \"" .. initial_WP .. "\"'"
 _G.random_WP_cmd        =  scripts_dir .. "/random-wallpaper-hypr.sh"
 ----   (b) Use 'swaybg'    ->  solid choice, generalist for Wayland desktops
 -- _G.initial_WP_cmd       =  "swaybg -i" .. initial_WP .. "-m fill &"
