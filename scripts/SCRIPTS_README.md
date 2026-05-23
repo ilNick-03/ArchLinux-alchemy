@@ -34,7 +34,7 @@ To achieve seamless real-time streaming, ensure these elements are active:
 Add this alias to your `.bashrc` or `.zshrc`:
 
 ```bash
-alias mpv-webaudio='~/scripts/audio/dl-tools/mpv-webaudio.sh'
+alias mpv-webaudio='~/ArchLinux-alchemy/scripts/audio/dl-tools/mpv-webaudio.sh'
 ```
 
 
@@ -58,7 +58,7 @@ To correctly retrieve and verify audio streams, the following "ingredients" must
 Add this alias to your `.bashrc` or `.zshrc` for instant access:
 
 ```bash
-alias ytdl-bestaudio='~/scripts/audio/dl-tools/ytdl-bestaudio.sh'
+alias ytdl-bestaudio='~/ArchLinux-alchemy/scripts/audio/dl-tools/ytdl-bestaudio.sh'
 ```
 
 
@@ -110,7 +110,7 @@ To translate the code into sound, the following "ingredients" must be present on
 Add the following line to your ~/.zshrc or ~/.bashrc:
 
 ```bash
-[[ -f "$HOME/scripts/dotfiles/shell/custom/fzf/.fzf-config" ]]  &&  source "$HOME/scripts/dotfiles/shell/custom/fzf/.fzf-config"
+[[ -f "$HOME/ArchLinux-alchemy/scripts/dotfiles/shell/custom/fzf/.fzf-config" ]]  &&  source "$HOME/ArchLinux-alchemy/scripts/dotfiles/shell/custom/fzf/.fzf-config"
 ```
 
 
@@ -138,7 +138,7 @@ An advanced script designed for ***[Hyprland](https://hyprland.org/)*** that orc
 Add the following line to your ~/.zshrc or ~/.bashrc:
 
 ```bash
-alias rdhypr='~/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-hypr.sh'
+alias rdhypr='~/ArchLinux-alchemy/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-hypr.sh'
 ```
 
 
@@ -161,7 +161,7 @@ To transmute your desktop visuals, ensure these elements are present:
 Add the following line to your ~/.zshrc or ~/.bashrc:
 
 ```bash
-alias rdkde='~/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-kde.sh'
+alias rdkde='~/ArchLinux-alchemy/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-kde.sh'
 ```
 
 
@@ -180,7 +180,29 @@ A lightweight, resource-efficient manifestation of desktop aesthetics for wlroot
 Add the following line to your ~/.zshrc or ~/.bashrc:
 
 ```bash
-alias rdsway='~/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-sway.sh'
+alias rdsway='~/ArchLinux-alchemy/scripts/desktop-enhancements/random-wallpaper/random-wallpaper-sway.sh'
+```
+
+
+### *[set-wp-hypr.sh](./desktop-enhancements/set-wp-hypr.sh)*
+A deterministic, high-fidelity rendering pipeline designed to explicitly bind a targeted wallpaper asset across all active viewports in ***[Hyprland](https://hyprland.org/)***, preventing IPC structural desynchronization.
+
+- **Features:**
+    - **Dynamic Matrix Mapping:** Queries the compositor's active topology in real-time, instantly broadcasting the texture array across all detected, active display monitors;
+    - **Native Zsh Path Resolution:** Evaluates absolute filesystem nodes natively via parameter modifier expansion (`:A`), safeguarding symbolic link generation when triggered from disparate working directories or system daemons;
+    - **Sandboxed Ephemeral Staging:** Spawns a unique, nanosecond-precise symlink descriptor within `/tmp` to strictly isolate the target payload, preventing delimiter or whitespace parsing errors inside the IPC daemon;
+    - **VRAM Lifecycle Management:** Enforces a synchronous background instance warm-up and a post-render execution block, safely purging unmapped or legacy textures from the GPU memory allocator to protect system resources.
+
+#### Dependencies (Ingredients)
+- [hyprpaper](https://github.com/hyprwm/hyprpaper) - The core VRAM texture loader and canvas utility;
+- [hyprctl](https://wiki.hypr.land/Configuring/Using-hyprctl/) - For synchronous Inter-Process Communication with the compositor;
+- [zsh](https://www.zsh.org/) - Leverages advanced string expansion modifiers and core parameter sanitation.
+
+#### Shell Integration
+Add the following line to your ~/.zshrc or ~/.bashrc:
+
+```bash
+alias sethypr='~/ArchLinux-alchemy/scripts/desktop-enhancements/set-wp-hypr.sh'
 ```
 
 
@@ -209,5 +231,5 @@ A high-precision analytical tool to measure and deconstruct the energy efficienc
 Add the following line to your ~/.zshrc or ~/.bashrc:
 
 ```bash
-alias power-calc='~/utils/power-calc.sh'
+alias power-calc='~/ArchLinux-alchemy/scripts/utils/power-calc.sh'
 ```
