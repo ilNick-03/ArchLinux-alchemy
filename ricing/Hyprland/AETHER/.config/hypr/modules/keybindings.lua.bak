@@ -119,7 +119,7 @@ hl.bind(mainMod .. " + SHIFT + A",        hl.dsp.exec_cmd("zsh -ic 'audio-sessio
 hl.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio-session'"),     { description = "Terminate the 'futuristic audio session'" })
 
 ---  Wallpaper Changing
-hl.bind(mainMod .. " + ALT + W",          hl.dsp.exec_cmd(random_WP),                           { description = "Set a random image as new wallpaper" })
+hl.bind(mainMod .. " + ALT + W",          hl.dsp.exec_cmd(random_WP_cmd),                       { description = "Set a random image as new wallpaper" })
 
 ---  Screen Capturing
 hl.bind("Print",                          hl.dsp.exec_cmd(screen_shot),                         { description = "Capture screenshot" })
