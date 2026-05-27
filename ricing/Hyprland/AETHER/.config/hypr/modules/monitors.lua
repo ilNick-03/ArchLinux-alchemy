@@ -12,8 +12,7 @@
 
 
 hl.monitor({
-    output    =  "";                 -- Automatic
-    -- output    =  monitor_Name,       -- Set your monitor in 'vars.lua'
+    output    =  "";                 -- Automatic monitor selection
 
     ---  Monitor Resolution & Refresh Rate  (default + example configurations)
     mode      = "preferred",         -- Automatic
