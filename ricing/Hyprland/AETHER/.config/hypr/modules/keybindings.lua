@@ -123,6 +123,7 @@ map.bind(mainMod .. " + ALT + W",          hl.dsp.exec_cmd(random_WP_cmd),      
 
 ---  Screen Capturing
 map.bind("Print",                          hl.dsp.exec_cmd(screen_shot),                         { description = "Capture screenshot" })
+map.bind("SHIFT + Print",                  hl.dsp.exec_cmd(screen_shot_ram),                     { description = "Capture screenshot to clipboard" })
 map.bind(mainMod .. " + F8",               hl.dsp.exec_cmd(screen_rec_start),                    { description = "Start screen recording" })
 map.bind(mainMod .. " + F9",               hl.dsp.exec_cmd(screen_rec_pause),                    { description = "Pause screen recording" })
 map.bind(mainMod .. " + F10",              hl.dsp.exec_cmd(screen_rec_stop),                     { description = "Stop screen recording" })
