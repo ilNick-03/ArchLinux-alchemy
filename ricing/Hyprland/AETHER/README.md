@@ -170,6 +170,7 @@ tar -czf "$HOME/config-backup-$(date +%Y%m%d-%H%M%S).tar.gz" -C "$HOME" .config
 Acquire the source blueprint from the official distribution socket using `git`. This fetches the full alchemy stack repository:
 
 ```bash
+cd $HOME
 git clone https://github.com/ilNick-03/ArchLinux-alchemy.git
 cd ArchLinux-alchemy/ricing/Hyprland/AETHER
 ```
@@ -179,35 +180,7 @@ cd ArchLinux-alchemy/ricing/Hyprland/AETHER
 
 Depending on your dotfile management philosophy, choose **Vector Alpha** (Physical Isolation) or **Vector Beta** (Symlink Grafting).
 
-#### Vector Alpha: Physical Decoupled Copying
-Choose this if you want a standalone, immutable setup that completely cuts ties with the cloned repository folder.
-
-- Step 1: Pre-initialize user space structures
-```bash
-mkdir -p "$HOME/.config/gtk-3.0"
-```
-
-- Step 2: Clear pre-existing conflicting directories
-```bash
-rm -rf "$HOME/.config/dunst" "$HOME/.config/hypr" "$HOME/.config/swayidle" "$HOME/.config/waybar" "$HOME/.config/wlogout" "$HOME/.config/wofi"
-```
-
-- Step 3: Physically deploy the configuration structures
-```bash
-cp -r .config/dunst "$HOME/.config/"
-cp -r .config/hypr "$HOME/.config/"
-cp -r .config/swayidle "$HOME/.config/"
-cp -r .config/waybar "$HOME/.config/"
-cp -r .config/wlogout "$HOME/.config/"
-cp -r .config/wofi "$HOME/.config/"
-```
-
-- Step 4: Uniform older toolkit styling using the *A.E.T.H.E.R.* definition
-```bash
-cp .config/gtk-3.0/aether-win-menu.css "$HOME/.config/gtk-3.0/aether-win-menu.css"
-```
-
-#### Vector Beta: Symlink Grafting (Recommended for Developers)
+#### Vector Alpha: Symlink (for easier updates)
 Choose this if you want to actively track upstreams, pull repository updates, or push your own modifications back. This maps live links directly into your `.config` folder.
 
 - Step 1: Pre-initialize user space structures
@@ -234,6 +207,65 @@ ln -s "$(pwd)/.config/wofi" "$HOME/.config/wofi"
 ```bash
 ln -s "$(pwd)/.config/gtk-3.0/aether-win-menu.css" "$HOME/.config/gtk-3.0/aether-win-menu.css"
 ```
+
+#### Vector Beta: Physical Decoupled Copying (for better control)
+Choose this if you want a standalone, immutable setup that completely cuts ties with the cloned repository folder.
+
+- Step 1: Pre-initialize user space structures
+```bash
+mkdir -p "$HOME/.config/gtk-3.0"
+```
+
+- Step 2: Clear pre-existing conflicting directories
+```bash
+rm -rf "$HOME/.config/dunst" "$HOME/.config/hypr" "$HOME/.config/swayidle" "$HOME/.config/waybar" "$HOME/.config/wlogout" "$HOME/.config/wofi"
+```
+
+- Step 3: Physically deploy the configuration structures
+```bash
+cp -r ".config/dunst" "$HOME/.config/"
+cp -r ".config/hypr" "$HOME/.config/"
+cp -r ".config/swayidle" "$HOME/.config/"
+cp -r ".config/waybar" "$HOME/.config/"
+cp -r ".config/wlogout" "$HOME/.config/"
+cp -r ".config/wofi" "$HOME/.config/"
+```
+
+- Step 4: Uniform older toolkit styling using the *A.E.T.H.E.R.* definition
+```bash
+cp .config/gtk-3.0/aether-win-menu.css "$HOME/.config/gtk-3.0/aether-win-menu.css"
+```
+
+
+### 3. Establish Core Automation Script Symlinks
+
+A.E.T.H.E.R. routes its dynamic canvas engines through standard local executable paths. To preserve absolute directory modularity while keeping your master scripts centralized under your primary `~/scripts` repository, you must deploy atomic symbolic links inside the Hyprland configuration structure.
+
+Execute the following commands inside your terminal wrapper to map the script nodes seamlessly without moving your original files:
+
+```bash
+cd "$HOME/ArchLinux-alchemy" 
+ln -sf "./scripts/desktop-enhancements/set-wp-hypr.sh" "$HOME/.config/hypr/scripts/set-wp-hypr.sh"
+ln -sf "./scripts/desktop-enhancements/random-wallpaper-hypr.sh" "$HOME/.config/hypr/scripts/random-wallpaper-hypr.sh"
+```
+
+> [!TIP]
+> The `-sf` (*Symbolic, Force*) architecture guarantees that any pre-existing or broken pointer nodes inside the Hyprland directory will be safely overwritten and realigned to your master files, ensuring an idempotent and non-destructive deployment.
+
+
+### 4. Optional: Source the [*.futuristic-audio-session* dotfile](../../../dotfiles/shell/custom/.futuristic-audio-session) in Your Shell
+
+If you plan to utilize the awesome ***Futuristic Audio Session*** music listening environment via `SUPER + SHIFT + A`, your interactive shell must be aware of the underlying functions. To achieve this without polluting your primary shell configuration, you can source the asset directly from the cloned repository.
+
+Open your local shell configuration file (`~/.zshrc` or `~/.bashrc`) and append the following alchemical directive at the very bottom:
+
+```bash
+# Source A.E.T.H.E.R. 'Futuristic Audio Session' functions
+[[ -f "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session" ]]  $$  source "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session"
+```
+
+> [!TIP]
+> This defensive guard condition ensures that your shell initializes flawlessly and without throwing errors even if the cloned repository path is temporarily missing or relocated during system cleanups.
 
 
 ---
