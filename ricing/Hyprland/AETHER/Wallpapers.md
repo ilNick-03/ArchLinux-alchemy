@@ -9,7 +9,9 @@ emphasize neon-glass geometries, and maximize the visual output of the automated
 
 Feed these links or assets directly into your [random wallpaper](../../../scripts/desktop-enhancements/random-wallpaper/random-wallpaper-hypr.sh) pipeline to maintain an uncompromised computational flow.
 
+
 ---
+
 
 ## Abstract Art
 
@@ -36,6 +38,7 @@ Feed these links or assets directly into your [random wallpaper](../../../script
 
 ---
 
+
 ## Digital Art
 
 
@@ -61,6 +64,7 @@ Feed these links or assets directly into your [random wallpaper](../../../script
 
 ---
 
+
 ## Futuristic, Cyberpunk, Vaporwave, Outrun 
 
 
@@ -83,7 +87,7 @@ Feed these links or assets directly into your [random wallpaper](../../../script
 ---
 
 
-## Goth
+## Gothic
 
 
 https://wall.alphacoders.com/big.php?i=198812
@@ -120,7 +124,6 @@ https://wall.alphacoders.com/big.php?i=198812
 ---
 
 
-
 ## Space
 
 
@@ -130,7 +133,6 @@ https://wall.alphacoders.com/big.php?i=198812
 
 ![wallhaven-017omw](https://w.wallhaven.cc/full/01/wallhaven-017omw.jpg)
 <p align="center"><a href="https://wallhaven.cc/w/017omw">View, download, support on <em>Wallhaven.cc</em></a></p>
-
 
 
 ![wallhaven-d68ox3](https://w.wallhaven.cc/full/d6/wallhaven-d68ox3.png)
