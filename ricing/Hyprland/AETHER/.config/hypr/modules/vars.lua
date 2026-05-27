@@ -79,8 +79,8 @@ _G.clipboard_wipe       =  "cliphist wipe && notify-send -u low 'Clipboard Regis
 
 ---  Terminal User Iterface (TUI) programds
 _G.terminal             =  "alacritty -T \"Alacritty [$(date +\'%Y%m%d-%H%M%S\')]\" -e zsh --login -c \"tmux\""
-_G.process_Monitor      =  "alacritty -T \"Process Monitor (btop) [$(date +\'%Y%m%d-%H%M%S\')]\" --class floating_monitor -e btop"
-_G.file_Manager_TUI     =  "alacritty -T \"File Manager (yazi) [$(date +\'%Y%m%d-%H%M%S\')]\" -e yazi"
+_G.process_Monitor      =  "alacritty -T \"BTOP (Process Monitor) [$(date +\'%Y%m%d-%H%M%S\')]\" --class floating_monitor -e btop"
+_G.file_Manager_TUI     =  "alacritty -T \"Yazi (File Manager) [$(date +\'%Y%m%d-%H%M%S\')]\" -e zsh --login -c \"tmux new-session yazi\""
 _G.aether_logo          =  "alacritty --class aether_logo -e less " .. home_dir .. "/.config/hypr/hyprland.lua"    -- See 'autostart.lua'
 
 ---  Graphical User Interface (GUI) programs
