@@ -268,7 +268,7 @@ Open your local shell configuration file (`~/.zshrc` or `~/.bashrc`) and append 
 
 ```bash
 # Source A.E.T.H.E.R. 'Futuristic Audio Session' functions
-[[ -f "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session" ]]  $$  source "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session"
+[[ -f "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session" ]]  &&  source "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session"
 ```
 
 > [!TIP]
