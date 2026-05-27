@@ -90,7 +90,6 @@ Feed these links or assets directly into your [random wallpaper](../../../script
 ## Gothic
 
 
-https://wall.alphacoders.com/big.php?i=198812
 ![wallpaper-abyss-198812](https://images2.alphacoders.com/198/thumb-1920-198812.jpg)
 <p align="center"><a href="https://wall.alphacoders.com/big.php?i=198812">View, download, support on <em></em>Wallpaper Abyss</a></p>
 
