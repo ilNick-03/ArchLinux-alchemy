@@ -68,7 +68,7 @@ _G.wifi_menu            =  "nm-applet --indicator"
 _G.bluetooth_menu       =  "blueman-applet"
 -- _G.idle_daemon          =  "hypridle"                                 -- Native, sometimes crashes (libsdbus-c++ regression)
 _G.idle_daemon          =  "swayidle -w -C ~/.config/swayidle/config"    -- Stable and reliable alternative 
-_G.binds_table          =  "alacritty -T \"Keybindings Table [$(date +\'%Y%m%d-%H%M%S\')]\" --class floating_bindsmap -e " .. home_dir .. "/.config/hypr/scripts/hypr-binds-map.sh"
+_G.binds_table          =  "alacritty -T \"Keybindings Table [$(date +\'%Y%m%d-%H%M%S\')]\" --class floating_bindsmap -e " .. scripts_dir .. "/hypr-binds-map.sh"
 _G.apps_launcher        =  "wofi --show drun --conf \"" .. home_dir .. "/.config/wofi/config\" --style \"" .. home_dir .. "/.config/wofi/style.css\""
 
 ----   ... including Clipboard Management
