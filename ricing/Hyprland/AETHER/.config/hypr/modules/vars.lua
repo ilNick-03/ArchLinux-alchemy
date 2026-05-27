@@ -49,9 +49,9 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 
 -- === Set here your relevant directories ===
-_G.home_dir             =  os.getenv("HOME")
-_G.scripts_dir          =  os.getenv("HOME") .. "/scripts"                   
--- _G.scripts_dir          =  os.getenv("HOME") .. "/.config/hypr/scripts"
+_G.home_dir             =  os.getenv("HOME")                 
+_G.scripts_dir          =  os.getenv("HOME") .. "/.config/hypr/scripts"
+-- _G.scripts_dir          =  os.getenv("HOME") .. "/scripts"  
 
 ---  Move all useful scripts mentioned in Hyprland configuration files in the same folder, 
 ----   or specify the full path for each individually where needed
@@ -89,11 +89,6 @@ _G.browser              =  "librewolf"
 
 
 
--- === MONITOR ===
--- _G.monitor_Name         =  "eDP-1"    -- See 'monitors.lua'
-
-
-
 -- === WALLPAPER ===  
 
 ---  The INITIAL, static WALLPAPER (secure option)
@@ -121,6 +116,7 @@ _G.random_WP_cmd        =  scripts_dir .. "/random-wallpaper-hypr.sh"
 local screen_shot_dir   =  home_dir .. "/Immagini/Immagini in Windows/Screenshots on Linux"
 local screen_shot_name  =  "/Schermata_$(date +\'%Y%m%d_%H%M%S\').png"
 _G.screen_shot          =  "grim -g \"$(slurp)\" - | magick - -depth 8 -colorspace sRGB \"" .. screen_shot_dir .. screen_shot_name .. "\" "
+_G.screen_shot_ram      =  "grim -g \"$(slurp)\" - | wl-copy --type image/png"
 
 --- Screen Recording
 ---- Uses 'obs-studio' and its 'obs-cmd' command line interface
