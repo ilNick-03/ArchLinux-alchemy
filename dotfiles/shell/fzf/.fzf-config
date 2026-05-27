@@ -6,12 +6,7 @@
 # ---- FZF CONFIGURATION & SHELL INTEGRATION ------------------------------------------------------------------------#
 # This file centralizes global settings to enhance fzf look and performance.
 #
-# INSTALLATION:
-# Add the following line to your ~/.zshrc or ~/.bashrc:
-#
-#   [[ -f "$HOME/scripts/audio/fzf-music/.fzf-config" ]]  &&  source "$HOME/scripts/audio/fzf-music/.fzf-config"
-#
-# WHY:
+#  WHY:
 # 1. High-speed file searching with 'fd' (ignores .git, follows symlinks).
 # 2. Consistent UI (reverse layout, borders) for all fzf instances.
 # 3. Native key-bindings (CTRL-T: files, ALT-C: folders, CTRL-R: history).
