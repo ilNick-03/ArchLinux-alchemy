@@ -233,7 +233,7 @@ cp -r ".config/wofi" "$HOME/.config/"
 
 - Step 4: Uniform older toolkit styling using the *A.E.T.H.E.R.* definition
 ```bash
-cp .config/gtk-3.0/aether-win-menu.css "$HOME/.config/gtk-3.0/aether-win-menu.css"
+cp ".config/gtk-3.0/aether-win-menu.css" "$HOME/.config/gtk-3.0/aether-win-menu.css"
 ```
 
 
