@@ -5,67 +5,71 @@
 [opener]
 # --- Textual Manipulation (Scriptorium) ---
 edit = [
-    { run = 'micro "$@"', block = true, desc = "Micro" }
+    { run = 'micro "$@"',    block = true,   desc = "Micro" }
 ]
 
 # --- High-Fidelity Audio Distillation (TMUX Split) ---
 # Terminates stale instances and spawns a dedicated 20% height viewport at the bottom.
-# Optimized for Pipewire with high-quantum buffers and minimal logging for pure sound.
+# Features: Pipewire audio output, high-quantum buffers, music playlists (send multiple files to MPV)
 play_music = [
-    { run = 'pkill mpv || true; sleep 0.25; tmux split-window -v -p 20 "exec env PIPEWIRE_DEBUG=0 PIPEWIRE_LOG_LEVEL=0 PIPEWIRE_QUANTUM=4096/48000 mpv --ao=pipewire --no-video --audio-display=no --cache=yes --cache-secs=120 --demuxer-max-bytes=14M --demuxer-max-back-bytes=8M --audio-buffer=2.0 --msg-level=all=status,ffmpeg/demuxer=fatal,ao=fatal --no-msg-module \"$1\""', block = false, desc = "MPV Audio" }
+    { 
+        run = 'pkill mpv || true; sleep 0.25; tmux split-window -v -p 20 "exec env PIPEWIRE_DEBUG=0 PIPEWIRE_LOG_LEVEL=0 PIPEWIRE_QUANTUM=4096/48000 mpv %s --ao=pipewire --no-video --audio-display=no --cache=yes --cache-secs=120 --demuxer-max-bytes=14M --demuxer-max-back-bytes=8M --audio-buffer=2.0 --msg-level=all=status,ffmpeg/demuxer=fatal,ao=fatal --no-msg-module"',
+        block = false,
+        desc = "MPV Audio"
+    }
 ]
 
 # --- Visual Scrying (Image Viewing) ---
-# Opens the image in 'imv', detached as an orphan process to ensure persistence.
+# Opens the image viewer detached as an orphan process to ensure persistence.
 open_image = [
-    #{ run = 'xdg-open "$@"', desc = "Open Image" }                # Using system default application
-    { run = 'imv-dir "$@"', orphan = true, desc = "IMV Viewer" }   # Using 'imv', separate window
+    #{ run = 'xdg-open "$@"', desc = "Open Image" }                  # Using system default application
+    { run = 'imv-dir "$@"',  orphan = true,  desc = "IMV Viewer" }   # Using 'imv', separate window
 ]
 
 # --- Archive Extraction/Management ---
-# Hands over compressed archives to the GUI 'Ark' manager.
 # 'orphan = true' allows the interface to persist after Yazi is closed.
-ark_gui = [
-    { run = 'ark "$1"', orphan = true, desc = "Ark (GUI)" }
+open_archive = [
+    { run = 'ark "$1"',      orphan = true,  desc = "Ark (GUI)" }
 ]
+
 
 
 [open]
 rules = [
     # --- 1. DIRECTORIES ---
     # Standard internal navigation
-    { mime = "inode/directory", use = "open" },
+    { mime = "inode/directory",              use = "open" },
 
     # --- 2. ARCHIVES ---
     # Primary action: Open in Ark GUI (since internal navigation is unavailable)
-    { mime = "application/zip", use = "ark_gui" },
-    { mime = "application/x-7z-compressed", use = "ark_gui" },
-    { mime = "application/x-rar", use = "ark_gui" },
-    { mime = "application/x-tar", use = "ark_gui" },
-    { url = "*.zip",  use = "ark_gui" },
-    { url = "*.7z",   use = "ark_gui" },
-    { url = "*.tar*", use = "ark_gui" },
-    { url = "*.rar",  use = "ark_gui" },
-    { url = "*.iso",  use = "ark_gui" },
+    { mime = "application/zip",              use = "open_archive" },
+    { mime = "application/x-7z-compressed",  use = "open_archive" },
+    { mime = "application/x-rar",            use = "open_archive" },
+    { mime = "application/x-tar",            use = "open_archive" },
+    { url  = "*.zip",                        use = "open_archive" },
+    { url  = "*.7z",                         use = "open_archive" },
+    { url  = "*.tar*",                       use = "open_archive" },
+    { url  = "*.rar",                        use = "open_archive" },
+    { url  = "*.iso",                        use = "open_archive" },
 
     # --- 3. IMAGES ---
-    { mime = "image/*", use = "open_image" },
+    { mime = "image/*",                      use = "open_image" },
 
     # --- 4. AUDIO ---
-    { mime = "audio/*", use = "play_music" },
-    { url = "*.flac", use = "play_music" },
-    { url = "*.wav",  use = "play_music" },
-    { url = "*.mp3",  use = "play_music" },
-    { url = "*.m4a",  use = "play_music" },
-    { url = "*.aac",  use = "play_music" },
-    { url = "*.ogg",  use = "play_music" },
-    { url = "*.opus", use = "play_music" },
+    { mime = "audio/*",                      use = "play_music" },
+    { url  = "*.flac",                       use = "play_music" },
+    { url  = "*.wav",                        use = "play_music" },
+    { url  = "*.mp3",                        use = "play_music" },
+    { url  = "*.m4a",                        use = "play_music" },
+    { url  = "*.aac",                        use = "play_music" },
+    { url  = "*.ogg",                        use = "play_music" },
+    { url  = "*.opus",                       use = "play_music" },
 
     # --- 5. TEXT ---
-    { mime = "text/*",  use = "edit" },
-    { url = "*.md",    use = "edit" },
-    { url = "*.toml",  use = "edit" },
-    { url = "*.conf",  use = "edit" },
-    { url = "*.txt",   use = "edit" },
-    { url = "*.sh",    use = "edit" }
+    { mime = "text/*",                       use = "edit" },
+    { url  = "*.md",                         use = "edit" },
+    { url  = "*.toml",                       use = "edit" },
+    { url  = "*.conf",                       use = "edit" },
+    { url  = "*.txt",                        use = "edit" },
+    { url  = "*.sh",                         use = "edit" }
 ]
