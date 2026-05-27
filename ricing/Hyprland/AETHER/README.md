@@ -244,12 +244,19 @@ A.E.T.H.E.R. routes its dynamic canvas engines through standard local executable
 Execute the following commands inside your terminal wrapper to map the script nodes seamlessly without moving your original files:
 
 ```bash
-cd "$HOME/ArchLinux-alchemy" 
+cd "$HOME/ArchLinux-alchemy"
+
+# 1. Inject forced symbolic links pointing to your master script layers
 ln -sf "./scripts/desktop-enhancements/set-wp-hypr.sh" "$HOME/.config/hypr/scripts/set-wp-hypr.sh"
 ln -sf "./scripts/desktop-enhancements/random-wallpaper-hypr.sh" "$HOME/.config/hypr/scripts/random-wallpaper-hypr.sh"
+
+# 2. Grant explicit execution permissions to the master scripts
+chmod +x "$HOME/.config/hypr/scripts/hypr-binds-map.sh"
+chmod +x "./scripts/desktop-enhancements/set-wp-hypr.sh"
+chmod +x "./scripts/desktop-enhancements/random-wallpaper-hypr.sh"
 ```
 
-> [!TIP]
+> [!NOTE]
 > The `-sf` (*Symbolic, Force*) architecture guarantees that any pre-existing or broken pointer nodes inside the Hyprland directory will be safely overwritten and realigned to your master files, ensuring an idempotent and non-destructive deployment.
 
 
