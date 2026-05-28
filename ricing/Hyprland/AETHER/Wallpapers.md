@@ -3,7 +3,7 @@
 > **"Venustas in varietate consistere."** *(Beauty consists in variety.)*
 
 This repository module hosts a strict aesthetic selection of high-fidelity graphical assets 
-tailored specifically for the **A.E.T.H.E.R.** digital ecosystem. 
+tailored specifically for the ***A.E.T.H.E.R.*** digital ecosystem. 
 Every image in this archive has been evaluated to preserve interface readability, 
 emphasize neon-glass geometries, and maximize the visual output of the automated wallpaper deployment engine (`_G.random_WP_cmd`). 
 
