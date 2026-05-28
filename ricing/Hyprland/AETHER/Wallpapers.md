@@ -68,6 +68,14 @@ Feed these links or assets directly into your [random wallpaper](../../../script
 ## Futuristic, Cyberpunk, Vaporwave, Outrun 
 
 
+![heroscreen-wp14828429](https://blogger.googleusercontent.com/img/a/AVvXsEhqzeTOTJm2J-wrSe9kAj3DlAphY5RzFw3W4xf25OPT1AEktfD1Z70sYBclrMDeuD6jAeZzJPByXgH272iG3hxS7AGppznCwS1yzioR77m4J03rVdFLmL3TtLjVmUfaCk-p1D3Jdkj6fp-9U64Tnqg1EMKT9OXpclfVjKrYeqT-OJWdnq9JBh_8ZZKWpsM)
+<p align="center"><a href="https://www.heroscreen.cc/2023/07/4k-pc-wallpaper-vaporwave-tropical.html">View, download, support on <em>Heroscreen.cc</em></a></p>
+
+
+![heroscreen-0625_(19)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjB0r-dg4oFSy_mQkO1ivxxpU5an0ag-7K2Z-QpmpQkZXvKxnyQNU09H3kEfWpxbqECuLSN45BFOCxbORYFI6-OG0-Qw5x2f3Ab6mCuuMEYGD3x1xzHRJTYQugKvl9ZblhziI3_o5Y3O7zjeXeoxAUT2hC9OPA58iGesFEon5K1ZCp9tQiWe9CsTK-PKlE/s1600/HERO060225%20(19).png=-d)
+<p align="center"><a href="https://www.heroscreen.cc/2025/03/synthwave-sunset-drive-4k-wallpaper.html">View, download, support on <em>Heroscreen.cc</em></a></p>
+
+
 ![wallhaven-x8g82d](https://w.wallhaven.cc/full/x8/wallhaven-x8g82d.jpg)
 <p align="center"><a href="https://wallhaven.cc/w/x8g82d">View, download, support on <em>Wallhaven.cc</em></a></p>
 
@@ -87,7 +95,11 @@ Feed these links or assets directly into your [random wallpaper](../../../script
 ---
 
 
-## Gothic
+## Gothic, Dark, Moody
+
+
+![alpha-coders-1337139](https://images5.alphacoders.com/133/thumb-1920-1337139.png)
+<p align="center"><a href="https://wall.alphacoders.com/big.php?i=1337139">View, download, support on <em>Alpha Coders</em></a></p>
 
 
 ![wallpaper-abyss-198812](https://images2.alphacoders.com/198/thumb-1920-198812.jpg)
