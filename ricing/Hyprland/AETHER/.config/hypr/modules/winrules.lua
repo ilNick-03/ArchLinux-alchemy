@@ -12,12 +12,18 @@
 ------ See:  https://wiki.hypr.land/Configuring/Basics/Dispatchers/#workspace
 
 
--- === BASIC, RECOMMENDED windows rules ===
 
--- Example window rules that are useful
 
+-- ===============================================================================
+-- [1]   COMPOSITOR CORE & PROTOCOLS
+-- ===============================================================================
+
+----------------------------------------------------------------------------------
+-- [1.1] Low-Level Event Mitigations
+----------------------------------------------------------------------------------
+
+--- Ignore maximize requests from all apps. You'll probably like this.
 local suppressMaximizeRule = hl.window_rule({
-    ---  Ignore maximize requests from all apps. You'll probably like this.
     name             =  "suppress-maximize-events",
     match            =  { class = ".*" },
 
@@ -25,9 +31,8 @@ local suppressMaximizeRule = hl.window_rule({
 })
 -- suppressMaximizeRule:set_enabled(false)
 
-
+--- Fix some dragging issues with XWayland
 hl.window_rule({
-    -- Fix some dragging issues with XWayland
     name  = "fix-xwayland-drags",
     match = {
         class        =  "^$",
@@ -41,7 +46,12 @@ hl.window_rule({
     no_focus         =  true
 })
 
----  Layer rules also return a handle.
+
+----------------------------------------------------------------------------------
+-- [1.2] Layer & Native Dispatcher Rules
+----------------------------------------------------------------------------------
+
+--- Layer rules also return a handle.
 -- local overlayLayerRule = hl.layer_rule({
 --     name             =  "no-anim-overlay",
 --     match            =  { namespace = "^my-overlay$" },
@@ -49,7 +59,7 @@ hl.window_rule({
 -- })
 -- overlayLayerRule:set_enabled(false)
 
--- Hyprland-run windowrule
+--- Hyprland-run windowrule
 hl.window_rule({
     name             =  "move-hyprland-run",
     match            =  { class = "hyprland-run" },
@@ -60,23 +70,18 @@ hl.window_rule({
 
 
 
---- === CUSTOM window rules ===
 
--- Some applications require full visual clarity (no transparency/blur)
-hl.window_rule({
-    name             =  "apps-solid-view",
-    
-    match = {
-        class        =  "^(imv|mpv|obsidian|obs-studio|okular|org.kde.okular)"
-    },
-    
-    -- Ensure windows are 100% opaque and disable background blurring
-    opaque           =  true,
-    no_blur          =  true
-})
+-- ===============================================================================
+-- [2]   ENVIRONMENT & LAYOUT BEHAVIORS
+-- ===============================================================================
 
+----------------------------------------------------------------------------------
+-- [2.1] Floating Dialogs & Overlays
+----------------------------------------------------------------------------------
 
--- Display some windows as "floating" (we don't want them fullscreen, nor tiling)
+-- ... [2.1.1] System Utilities & Security .......................................
+
+--- Display some windows as "floating" (we don't want them fullscreen, nor tiling)
 hl.window_rule({
     name             =  "floating-window-on-default",
     
@@ -95,7 +100,37 @@ hl.window_rule({
     pin              =  true
 })
 
--- Display the "activity manager" as a "floating" window
+--- Custom rule for your "Authentication Agent"
+hl.window_rule({
+    name             =  "auth-agent-float",
+    match = {
+        class        =  "^(xfce-polkit)$"
+    },
+
+    -- Set behavior: float them and keep them centered
+    float            =  true,
+    center           =  true,
+    size             =  { 650, 230 },    -- Formato: { width, height }
+
+    -- Keeps the authentication window always on top of other tiled windows
+    pin              =  true
+})
+
+
+-- ... [2.1.2] A.E.T.H.E.R. Native Tools .........................................
+
+--- Custom rule for the 'A.E.T.H.E.R.' startup logo
+hl.window_rule({
+    name             =  "aether-logo-floating",
+    match            =  { class = "^(aether_logo)" },
+
+    float            =  true,
+    center           =  true,
+    size             =  { 750, 490 },    -- Optimized size for the ASCII box
+    pin              =  false
+})
+
+--- Display the "activity manager" as a "floating" window
 hl.window_rule({
     name             =  "process-monitor-float",
     match            =  { class  = "^(floating_monitor)" },
@@ -104,29 +139,47 @@ hl.window_rule({
     size             =  { 900, 800 }    -- Format: { width, height }
 })
 
--- Display the "keybindings table" as a "floating" window
+--- Display the "keybindings table" as a "floating" window
 hl.window_rule({
     name             =  "keybindings-table-float",
     match            =  { class  = "^(floating_bindsmap)" },
     
     float            =  true,           -- Behavior
-    size             =  { 795, 800 }    -- Format: { width, height }
+    size             =  { 880, 800 }    -- Format: { width, height }
 })
 
 
--- Custom rule for the 'A.E.T.H.E.R.'' startup logo
+----------------------------------------------------------------------------------
+-- [2.2] Surface Rendering & Clarity Overrides
+----------------------------------------------------------------------------------
+
+-- ... [2.2.1] Media & Content Creation Apps .....................................
+
+--- Some applications require full visual clarity (no transparency/blur)
 hl.window_rule({
-    name             =  "aether-logo-floating",
-    match            =  { class = "^(aether_logo)" },
-
-    float            =  true,
-    center           =  true,
-    size             =  { 750, 480 },    -- Optimized size for the ASCII box
-    pin              =  false
+    name             =  "apps-solid-view",
+    
+    match = {
+        class        =  "^(darktable|org.darktable.darktable|imv|mpv|obsidian|obs-studio|soffice|libreoffice.*|okular|org.kde.okular)"
+    },
+    
+    -- Ensure windows are 100% opaque and disable background blurring
+    opaque           =  true,
+    no_blur          =  true
 })
 
 
--- Final fix for nm-applet sharp edges
+
+
+-- ===============================================================================
+-- [3]   UI & DECORATION REFINEMENTS
+-- ===============================================================================
+
+----------------------------------------------------------------------------------
+-- [3.1] Tray Menus & Unnamed Popups
+----------------------------------------------------------------------------------
+
+--- Final fix for nm-applet sharp edges
 hl.window_rule({
     name             =  "nm-applet-menu-refinement",
     match            = { class = "^(nm-applet)$" },
@@ -138,8 +191,7 @@ hl.window_rule({
     no_blur          =  false
 })
 
-
--- Aggressive rule for unnamed GTK popups/menus
+--- Aggressive rule for unnamed GTK popups/menus
 hl.window_rule({
     name             =  "global-gtk-popup-fix",
     match = {
