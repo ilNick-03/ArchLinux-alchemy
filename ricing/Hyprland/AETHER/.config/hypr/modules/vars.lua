@@ -35,9 +35,10 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 
 
 -- === MODERN THEMING STRATEGY ===
--- Force QT apps to look for qt6ct configuration
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
-
+-- Force unified visual consistency across all Qt applications
+hl.env("QT_QPA_PLATFORMTHEME" ,                "qt6ct")      -- Route configuration through qt6ct engine
+hl.env("QT_STYLE_OVERRIDE" ,                   "kvantum")    -- Force Kvantum rendering engine globally
+hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION" ,  1)           -- Delegate window borders & titlebars to Hyprland
 
 
 
@@ -45,7 +46,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 ---- #####################################
 ---- ### MY PROGRAMS & OTHER VARIABLES ###
 ---- #####################################
------- Using Lua's global table (_G) so these are accessible in binds.lua and autostart.lua
+------ Using Lua's global table (_G) so these are accessible in 'binds.lua' and 'autostart.lua'
 
 
 -- === Set here your relevant directories ===
@@ -63,7 +64,8 @@ _G.scripts_dir          =  os.getenv("HOME") .. "/.config/hypr/scripts"
 ---  Hyprland "extensions" ...
 _G.status_bar           =  "waybar"
 _G.notification_daemon  =  "dunst"
-_G.auth_manager         =  "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+-- _G.auth_manager         =  "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"    -- GNOME agent, old and stable, X11-native, extra GTK dependencies
+_G.auth_manager         =  "/usr/lib/xfce-polkit/xfce-polkit"                                -- XFCE agent, lightweight, Wayland-native
 _G.wifi_menu            =  "nm-applet --indicator"
 _G.bluetooth_menu       =  "blueman-applet"
 -- _G.idle_daemon          =  "hypridle"                                 -- Native, sometimes crashes (libsdbus-c++ regression)
@@ -81,29 +83,30 @@ _G.clipboard_wipe       =  "cliphist wipe && notify-send -u low 'Clipboard Regis
 _G.terminal             =  "alacritty -T \"Alacritty [$(date +\'%Y%m%d-%H%M%S\')]\" -e zsh --login -c \"tmux\""
 _G.process_Monitor      =  "alacritty -T \"BTOP (Process Monitor) [$(date +\'%Y%m%d-%H%M%S\')]\" --class floating_monitor -e btop"
 _G.file_Manager_TUI     =  "alacritty -T \"Yazi (File Manager) [$(date +\'%Y%m%d-%H%M%S\')]\" -e zsh --login -c \"tmux new-session yazi\""
-_G.aether_logo          =  "alacritty --class aether_logo -e less " .. home_dir .. "/.config/hypr/hyprland.lua"    -- See 'autostart.lua'
+_G.text_editor          =  "alacritty -T \"NeoVim (Text Editor)\" -e zsh --login -c \"tmux new-session -A -s neovim_session nvim\""
+_G.aether_logo          =  "alacritty --class aether_logo -e zsh -c \"sed -n '3,25p' " .. home_dir .. "/.config/hypr/hyprland.lua | less -r\""     -- See 'autostart.lua'
 
 ---  Graphical User Interface (GUI) programs
 _G.file_Manager_GUI     =  "thunar"
 _G.browser              =  "librewolf"
+-- _G.text_editor          =  "code"
 
 
 
 -- === WALLPAPER ===  
 
----  The INITIAL, static WALLPAPER (secure option)
+---  The INITIAL, static WALLPAPER
 local initial_WP        =  home_dir .. "/.config/hypr/splash.jpg"
 
 
---- Set the INITIAL wallpaper, and later replace it with a RANDOM IMAGE
+--- Set the INITIAL wallpaper, and later replace the current background with a RANDOM IMAGE
+----   (a) Use 'hyprpaper' ->  native way, the most efficient, 10-bit support 
+_G.initial_WP_cmd       =  "zsh -c '" .. scripts_dir .. "/hypr-bg-setter.sh \"" .. initial_WP .. "\"'"
+_G.random_WP_cmd        =  "zsh -c '" .. scripts_dir .. "/random-wallpaper-selector.sh | " .. scripts_dir .. "/hypr-bg-setter.sh'"
 
----  Choose a RANDOM IMAGE as next wallpaper
-----   (a) Use 'hyprpaper' ->  native way, better quality
-_G.initial_WP_cmd       =  "zsh -c '" .. scripts_dir .. "/set-wp-hypr.sh \"" .. initial_WP .. "\"'"
-_G.random_WP_cmd        =  scripts_dir .. "/random-wallpaper-hypr.sh"
-----   (b) Use 'swaybg'    ->  solid choice, generalist for Wayland desktops
--- _G.initial_WP_cmd       =  "swaybg -i" .. initial_WP .. "-m fill &"
--- _G.random_WP_cmd        =  scripts_dir .. "/random-wallpaper-sway.sh" 
+----   (b) Use 'swaybg'    ->  more stable, high-quality heavyweight image processing, generalist for Wayland desktops
+-- _G.initial_WP_cmd       =  "zsh -c '" .. scripts_dir .. "/sway-bg-setter.sh \"" .. initial_WP .. "\"'"
+-- _G.random_WP_cmd        =  "zsh -c '" .. scripts_dir .. "/random-wallpaper-selector.sh | " .. scripts_dir .. "/sway-bg-setter.sh'"
 
 
 
@@ -122,4 +125,4 @@ _G.screen_shot_ram      =  "grim -g \"$(slurp)\" - | wl-copy --type image/png"
 ---- Uses 'obs-studio' and its 'obs-cmd' command line interface
 _G.screen_rec_start     =  "obs-cmd recording start"
 _G.screen_rec_stop      =  "obs-cmd recording stop"
-_G.screen_rec_pause     =  "obs-cmd recording toggle-pause"
+_G.screen_rec_pause     =  "obs-cmd recording toggle-pause""
