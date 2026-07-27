@@ -123,8 +123,8 @@ map.bind("XF86AudioPrev",                  hl.dsp.exec_cmd("playerctl previous")
 
 ---  Futuristic Audio Session (custom 'terminal music player' setup)
 ----   Only for TRVE music enthusiasts!
-map.bind(mainMod .. " + SHIFT + A",        hl.dsp.exec_cmd("zsh -ic 'audio-session'"),           { description = "Launch the 'futuristic audio session'" })
-map.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio-session'"),     { description = "Terminate the 'futuristic audio session'" })
+-- map.bind(mainMod .. " + SHIFT + A",        hl.dsp.exec_cmd("zsh -ic 'audio-session'"),           { description = "Launch the 'futuristic audio session'" })
+-- map.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio-session'"),     { description = "Terminate the 'futuristic audio session'" })
 
 ---  Wallpaper Changing
 map.bind(mainMod .. " + ALT + W",          hl.dsp.exec_cmd(random_WP_cmd),                       { description = "Set a random image as new wallpaper" })
