@@ -13,6 +13,7 @@
 
 hl.monitor({
     output    =  "";                 -- Automatic monitor selection
+    -- output    =  "eDP-1";            -- User-defined monitor name 
 
     ---  Monitor Resolution & Refresh Rate  (default + example configurations)
     mode      = "preferred",         -- Automatic
@@ -29,7 +30,12 @@ hl.monitor({
     -- scale     =  1.50;
     -- scale     =  2.00;
 
+    ---  Optional ICC color profile for accurate display color calibration
+    -----   The user needs to specify the monitor name above
+    -- icc       =  home_dir .. "/.local/share/icc/your_color_correction_profile.icc",    
+    -- icc       =  "/usr/share/color/icc/colord/your_color_correction_profile.icc",
+
     ---  Monitor bit depth
-    bitdepth  =   8    -- Standard
+    -- bitdepth  =   8    -- Standard
     -- bitdepth  =  10    -- HDR / EDR  for gaming/workstation
 })
