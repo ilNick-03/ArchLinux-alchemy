@@ -7,14 +7,15 @@
 -- ===============================================================================
 ---- CENTRALIZED KEYBINDING REGISTRY & METADATA CACHE
 ---- Wrapper module that hooks into 'hl.bind'. Caches key combos and descriptions
----- inside a structured Lua table, enabling programs to query live mappings.
+---- inside a structured Lua table and exports a clean JSON file.
 -- ===============================================================================
 
 
 local M = {}
 
--- The "Famous" Table: This stores every registered bind as a structured object
+-- The "Famous" Table: Stores every registered bind as a structured object
 M.registry = {}
+
 
 --- Registers a keybinding and stores it in the internal registry
 -- @param keys string: The key combination (e.g., "SUPER + SHIFT + A")
@@ -23,22 +24,31 @@ M.registry = {}
 function M.bind(keys, dispatcher, opts)
     opts = opts or {}
     
-    -- Store binding metadata for the UI/Terminal explorer
+    -- 1. Store key combo and clean description in the internal registry
     table.insert(M.registry, {
         keys = keys,
-        description = opts.description or "No description provided",
-        dispatcher = tostring(dispatcher), -- Convert dispatcher to string for display
-        flags = opts
+        description = opts.description or "No description provided"
     })
 
-    -- Execute the actual Hyprland binding command
-    hl.bind(keys, dispatcher, opts)
+    -- 2. Pass clean options to native Hyprland binding
+    return hl.bind(keys, dispatcher, opts)
 end
 
---- Returns the entire registry for external processing
--- Can be used to export binds to JSON or formatted text files
-function M.get_registry()
-    return M.registry
+
+--- Exports the internal registry as a clean JSON file to /tmp
+function M.export_json()
+    local file = io.open("/tmp/hypr_binds.json", "w")
+    if not file then return end
+    
+    file:write("[\n")
+    for i, item in ipairs(M.registry) do
+        local k = item.keys:gsub('"', '\\"')
+        local d = item.description:gsub('"', '\\"')
+        file:write(string.format('  {"keys": "%s", "description": "%s"}%s\n', k, d, (i < #M.registry and "," or "")))
+    end
+    file:write("]\n")
+    file:close()
 end
+
 
 return M
