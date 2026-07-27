@@ -11,12 +11,17 @@
 ------ See:  https://wiki.hypr.land/Configuring/Basics/Binds/
 ------ See:  https://wiki.hypr.land/Configuring/Basics/Dispatchers/
 
----- MAIN KEYBINDINGS PROFILE (Active Layer)
----- Intercepts hotkeys through the custom 'keybindings-map' table wrapper.
----- Populates metadata on-the-fly to fuel the dynamic interactive binds visualizer.
 
+---- DUAL-MODE KEYBINDINGS PROFILE
+---- Toggle the 'map' assignment below to switch between:
+------  [NATIVE   MODE]  Binds directly to the Hyprland API ['hl.bind'], bypassing the map registry. 
+------                   Kept as a robust fallback, ensures keyboard input binding works any times. 
+------  [REGISTRY MODE]  Intercepts hotkeys through the custom 'keybindings-map' table wrapper to fuel the binds visualizer.
+------                   See:  "hypr-binds-map.sh"
 
-local map = require("modules.keybindings-map")    -- Import our binds table
+-- local map = hl                                 -- [NATIVE   MODE]
+local map = require("modules.keybindings-map")    -- [REGISTRY MODE]
+
 local mainMod = "SUPER"                           -- Sets "Windows" key as main modifier
 
 
@@ -27,13 +32,16 @@ map.bind(mainMod .. " + F1",               hl.dsp.exec_cmd(binds_table),        
 map.bind(mainMod .. " + Space",            hl.dsp.exec_cmd(apps_launcher),                       { description = "Open application launcher" })
 map.bind(mainMod .. " + H",                hl.dsp.exec_cmd(clipboard_selector),                  { description = "Open clipboard history manager"})
 map.bind(mainMod .. " + SHIFT + H",        hl.dsp.exec_cmd(clipboard_wipe),                      { description = "Purge clipboard history registry"})
+-- map.bind(mainMod .. " + SHIFT + ALT + Y",                hl.dsp.exec_cmd(aether_logo),                         { description = "Display the AETHER logo (debug)" })
 
 --- The most useful apps
 map.bind(mainMod .. " + Return",           hl.dsp.exec_cmd(terminal),                            { description = "Launch terminal emulator" })
-map.bind(mainMod .. " + E",                hl.dsp.exec_cmd(file_Manager_GUI),                    { description = "Open GUI file manager" })
-map.bind(mainMod .. " + ALT + E",          hl.dsp.exec_cmd(file_Manager_TUI),                    { description = "Open TUI file manager" })
+map.bind(mainMod .. " + F",                hl.dsp.exec_cmd(file_Manager_GUI),                    { description = "Open GUI file manager" })
+map.bind(mainMod .. " + SHIFT + F",        hl.dsp.exec_cmd(file_Manager_TUI),                    { description = "Open TUI file manager" })
+map.bind(mainMod .. " + E",                hl.dsp.exec_cmd(text_editor),                         { description = "Open text editor" })
 map.bind(mainMod .. " + B",                hl.dsp.exec_cmd(browser),                             { description = "Open web browser" })
 map.bind("CTRL + SHIFT + Escape",          hl.dsp.exec_cmd(process_Monitor),                     { description = "Open system process monitor" })
+
 
 
 -- === WINDOWS, LAYOUT, NAVIGATION, REPOSITIONING ===
@@ -42,12 +50,12 @@ map.bind("CTRL + SHIFT + Escape",          hl.dsp.exec_cmd(process_Monitor),    
 map.bind(mainMod .. " + V",                hl.dsp.window.float({ action = "toggle" }),           { description = "Toggle floating mode" })
 map.bind(mainMod .. " + C",                hl.dsp.window.center(),                               { description = "Center focused window" })
 map.bind(mainMod .. " + M",                hl.dsp.window.fullscreen({ mode = 1 }),               { description = "Maximize window (keep gaps)" })
-map.bind(mainMod .. " + F",                hl.dsp.window.fullscreen({ mode = 0 }),               { description = "Toggle true fullscreen" })
+map.bind(mainMod .. " + F11",              hl.dsp.window.fullscreen({ mode = 0 }),               { description = "Toggle true fullscreen" })
 map.bind(mainMod .. " + P",                hl.dsp.window.pin(),                                  { description = "Pin window (sticky)" })
 
 ---  Kill the focused window
 local closeWindowBind = map.bind(
-         mainMod .. " + K",                hl.dsp.window.close(),                                 { description = "Kill focused window" }
+         mainMod .. " + ALT + K",          hl.dsp.window.close(),                                 { description = "Kill focused window" }
 )
 
 ---  Layout controls
@@ -56,7 +64,7 @@ map.bind(mainMod .. " + L",                hl.dsp.window.pseudo(),              
 
 ---  Navigation & Focus  (Arrow keys)
 map.bind(mainMod .. " + left",             hl.dsp.focus({ direction = "l" }),                    { description = "Focus window left" })
-map.bind(mainMod .. " + right",            hl.dsp.focus({ direction = "r" }),                    { description = "Move window right" })
+map.bind(mainMod .. " + right",            hl.dsp.focus({ direction = "r" }),                    { description = "Focus window right" })
 map.bind(mainMod .. " + up",               hl.dsp.focus({ direction = "u" }),                    { description = "Focus window up" })
 map.bind(mainMod .. " + down",             hl.dsp.focus({ direction = "d" }),                    { description = "Focus window down" })
 
@@ -127,3 +135,10 @@ map.bind("SHIFT + Print",                  hl.dsp.exec_cmd(screen_shot_ram),    
 map.bind(mainMod .. " + F8",               hl.dsp.exec_cmd(screen_rec_start),                    { description = "Start screen recording" })
 map.bind(mainMod .. " + F9",               hl.dsp.exec_cmd(screen_rec_pause),                    { description = "Pause screen recording" })
 map.bind(mainMod .. " + F10",              hl.dsp.exec_cmd(screen_rec_stop),                     { description = "Stop screen recording" })
+
+
+
+-- === Export registry snapshot for the TUI visualizer ===
+if map.export_json then
+    map.export_json()
+end
