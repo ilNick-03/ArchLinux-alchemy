@@ -20,7 +20,7 @@ hl.config({
 
         col = {
             active_border        =  { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
-            inactive_border      =  "rgba(595959aa)",
+            inactive_border      =  "rgba(3a0ca3aa)",      -- Deep Indigo (RGBA)
         },
 
         --- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -44,14 +44,15 @@ hl.config({
 
         shadow = {
             enabled              =  true,
-            range                =   4,
-            render_power         =   3,
+            range                =   8,
+            render_power         =   2,    -- default:  3
 
             ---  The Color
             -- color                =  "0xee1a1a1a",         -- Default
             -- color                =  "rgba(1a1a1aee)",     -- Default (RGBA)
-            color                =  "rgba(3a0ca3aa)",        -- Deep Indigo (RGBA)
-            -- color                =  "rgba(7209b7aa)",        -- Dream Violet (RGBA)
+            -- color                =  "rgba(3a0ca3aa)",     -- Deep Indigo (RGBA)
+            -- color                =  "rgba(7209b7aa)",     -- Dream Violet (RGBA)
+            color                =  "rgba(0a1128ee)",     -- Dark blue, 93% opaque
         },
 
         blur = {
@@ -76,7 +77,7 @@ hl.config({
     
     -- Please see:  https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/
     dwindle = {
-        preserve_split           =  true,       -- You probably want this
+        preserve_split           =  true,    -- You probably want this
 
         --- New windows' position:  
         force_split              =   0    -- Default option:   split follows mouse (default)
