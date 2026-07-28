@@ -10,18 +10,22 @@
 ------ #        ██╔══██║██╔══╝     ██║   ██╔══██║██╔══╝  ██╔══██╗       # ---
 ------ #        ██║  ██║███████╗   ██║   ██║  ██║███████╗██║  ██║       # ---
 ------ #        ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝       # ---
+------ #                 __             __  __       __                 # ---
+------ #                / /_  __  __   / | / (_)____/ /__               # ---
+------ #               / __ \/ / / /  /  |/ / / ___/ //_/               # ---
+------ #              / /_/ / /_/ /  / /|  / / /__/ ,<                  # ---
+------ #             /_.___/\__, /  /_/ |_/_/\___/_/|_|                 # ---
+------ #                   /____/                                       # ---
 ------ #                                                                # ---
 ------ # AESTHETIC ENVIRONMENT using TRVE HYPRLAND ELEMENTAL REACTIVITY # ---
 ------ #        Modular LUA Configuration for Hyprland 0.55+            # ---
 ------ #                                                                # ---
 ------ ################################################################## ---
------
 ----
----     Copyright (C) 2026, Nicolas Scalese
---      Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html
+--
 ---
-----
------
+----      Copyright (C) 2026, Nicolas Scalese
+-----     Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html
 ------
 -------
 --------  Make sure you edit this configuration based on your needs.
