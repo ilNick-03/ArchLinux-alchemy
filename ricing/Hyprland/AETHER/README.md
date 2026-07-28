@@ -20,6 +20,9 @@ this environment channels your hardware's computing capacity straight into user 
 No latency. No compromises. Just pure, unadulterated computational flow.
 
 
+
+<br>
+
 ---
 
 
@@ -29,23 +32,29 @@ No latency. No compromises. Just pure, unadulterated computational flow.
 Every layout is mathematically balanced to maximize screen real estate while protecting user focus.
 
 
-![AETHER Core System](./screenshots/AETHER-logo-background-notifications-1.jpg)
+![AETHER Core System Default](./screenshots/AETHER_logo_background_notifications_1.jpg)
 <p align="center"><em>A.E.T.H.E.R. at startup: default wallpaper with logo; plus notification styles (low, normal, critical)</em></p>
 
-![AETHER Core System Alternative](./screenshots/AETHER-logo-background-notifications-2.jpg)
-<p align="center"><em>Another wallpaper, A.E.T.H.E.R. logo, notification styles (low, normal, critical)</em></p>
+![AETHER Core System Cyberpunk](./screenshots/AETHER_logo_background_notifications_2.jpg)
+<p align="center"><em>A.E.T.H.E.R. logo on a "cyberpunk" setting, notification styles (low, normal, critical)</em></p>
 
-![AETHER ricing music 1](./screenshots/AETHER-ricing-music-example-1.jpg)
+![AETHER Core System Abstract](./screenshots/AETHER_logo_background_notifications_3.jpg)
+<p align="center"><em>A.E.T.H.E.R. logo on an "abstract" setting, notification styles (low, normal, critical)</em></p>
+
+![AETHER ricing music 1](./screenshots/AETHER_ricing_music_example_1.jpg)
 <p align="center"><em>An example of "ricing art" using the "mosaic style" in the Hyprland style</em></p>
 
-![AETHER ricing music 2](./screenshots/AETHER-ricing-music-example-2.jpg)
+![AETHER ricing music 2](./screenshots/AETHER_ricing_music_example_2.jpg)
 <p align="center"><em>Another example of "digital desktop art" you can mimic using A.E.T.H.E.R.</em></p>
 
-![AETHER ricing techinfo](./screenshots/AETHER-ricing-techinfo-1.jpg)
+![AETHER ricing techinfo](./screenshots/AETHER_ricing_techinfo_1.jpg)
 <p align="center"><em>This desktop setup leverages the Hyprland floating/pseudo windows instead</em></p>
 
 Other beautiful ricing screenshots are provided in the ["*screenshots*"](./screenshots) folder.
 
+
+
+<br>
 
 ---
 
@@ -111,6 +120,9 @@ The TRVE spirit of *A.E.T.H.E.R.* thrives within its custom executable layer. Ra
 | [random-wallpaper-hypr.sh](../../../scripts/desktop-enhancements/random-wallpaper/random-wallpaper-hypr.sh) / [random-wallpaper-sway.sh](../../../scripts/desktop-enhancements/random-wallpaper/random-wallpaper-sway.sh) | **Change Wallpaper Randomly:** Driven by `SUPER + ALT + W`, these scripts inject life into the canvas by selecting a random graphical asset. The framework routes requests through `hyprpaper` by default for high-quality, hardware-accelerated image scaling; while maintaining an identical, fully operational `swaybg` fallback layout to preserve absolute desktop modularity. |
 
 
+
+<br>
+
 ---
 
 
@@ -124,10 +136,13 @@ Rather than distributing layout mappings across multiple fractured text layers, 
 To explore, alter, or enhance the keyboard layout, use this file as your definitive reference. 
 Every map entry utilizes detailed descriptions that flow straight into the dynamic interactive menu mapping script.
 
-Plus. once you have installed this "ricing", you can view keybindings in table format with relative description by pressing `SUPER + F1`:
+Plus. once you have installed this "ricing", you can view keybindings in table format with relative description by pressing `SUPER + F1`.
 
-![Keybinds Table](./screenshots/AETHER-keybindings-map-script.jpg)
+![Keybinds Table](./screenshots/AETHER_keybindings_table.jpg)
 
+See [`Keybindings.md`](./Keybindings.md) for more detailed info, and complete _key combinations_ table.
+
+<br>
 
 ### Architectural Interaction Features
 
@@ -143,6 +158,9 @@ Plus. once you have installed this "ricing", you can view keybindings in table f
 - **[Futuristic Audio Session](https://github.com/ilNick-03/ArchLinux-alchemy)**: Triggered with `SUPER + SHIFT + A`, this macro launches a custom script environment inside your directory structures designed specifically for high-quality music listening experience. Closed typing `SUPER + SHIFT + ALT + A`.
   ![Futuristic Audio Seeesion view](./screenshots/AETHER-ricing-audio-session-1.jpg)
 
+
+
+<br>
 
 ---
 
@@ -275,6 +293,9 @@ Open your local shell configuration file (`~/.zshrc` or `~/.bashrc`) and append 
 > This defensive guard condition ensures that your shell initializes flawlessly and without throwing errors even if the cloned repository path is temporarily missing or relocated during system cleanups.
 
 
+
+<br>
+
 ---
 
 
@@ -338,6 +359,9 @@ Additionally, add these code lines inside your "$HOME/.config/gtk-3.0/gtk.css" t
 @import `aether-win-menu.css`
 ```
 
+
+
+<br>
 
 ---
 
