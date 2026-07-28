@@ -6,7 +6,7 @@ This document details the hotkey architecture, runtime dispatchers, and visualiz
 
 The keybinding infrastructure relies on three interacting components designed to separate registration logic, internal state mapping, and user interface rendering:
 
-1. [**`modules/keybindings.lua`**](./.config/hypr/modules/heybindings.lua):
+1. [**`modules/keybindings.lua`**](./.config/hypr/modules/keybindings.lua):
    The primary entry point where human-readable keybindings are declared.
    It defines modifiers (`SUPER`), system calls, window management functions, and multimedia dispatchers.
    Instead of making [`Hyprland API`](https://wiki.hypr.land/Configuring/) calls directly, it passes definitions to the (custom) mapping layer.
@@ -17,7 +17,7 @@ The keybinding infrastructure relies on three interacting components designed to
    Upon execution, it exports this data structure into a structured JSON payload (`/tmp/hypr_binds.json`).
 
 5. [**`hypr-binds-map.sh`**](./.config/hypr/scripts/hypr-binds-map.sh) (_TUI_ Visualizer Execution Script):
-   A [_Zsh_](https://www.zsh.org/) / _Bash_ execution script invoked via `SUPER + F1`.
+   A [_Zsh_](https://www.zsh.org/) execution script invoked via `SUPER + F1`.
    It reads the generated `/tmp/hypr_binds.json` snapshot, formats the key-value pairs using terminal utilities (such as `jq` or custom formatting parsers), and spawns an interactive _TUI_ overlay window displaying the active binding matrix in real time.
 
 
@@ -40,7 +40,7 @@ Toggled at the top of `modules/keybindings.lua`, the binding engine supports two
 
 <br>
 
-Always refer to [`keybindings.lua`](./.config/hypr/modules/heybindings.lua) for the most updated _keybindings_ !
+Always refer to [`keybindings.lua`](./.config/hypr/modules/keybindings.lua) for the most updated _keybindings_ !
 
 <br>
 
