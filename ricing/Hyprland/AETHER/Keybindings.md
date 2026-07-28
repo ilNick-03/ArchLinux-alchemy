@@ -11,10 +11,10 @@ The keybinding infrastructure relies on three interacting components designed to
    It defines modifiers (`SUPER`), system calls, window management functions, and multimedia dispatchers.
    Instead of making [`Hyprland API`](https://wiki.hypr.land/Configuring/) calls directly, it passes definitions to the (custom) mapping layer.
 
-3. [**`modules/keybindings-map.lua`**](./.config/hypr/modules/keybindings-map.lua) (Wrapper Layer):
+3. [**`modules/keybindings-map.lua`**](./.config/hypr/modules/keybindings-map.lua) (_Wrapper Layer_):
    An intermediate abstraction module.
-   When active in **Registry Mode**, it wraps Hyprland's `hl.bind()` calls and maintains an internal lookup table of all defined keybindings, actions, and their associated descriptions.
-   Upon execution, it exports this data structure into a structured JSON payload (`/tmp/hypr_binds.json`).
+   When active in ***Registry Mode***, it wraps _Hyprland_'s `hl.bind()` calls and maintains an internal lookup table of all defined keybindings, actions, and their associated descriptions.
+   Upon execution, it exports this data structure into a structured _JSON_ payload (`/tmp/hypr_binds.json`).
 
 5. [**`hypr-binds-map.sh`**](./.config/hypr/scripts/hypr-binds-map.sh) (_TUI_ Visualizer Execution Script):
    A [_Zsh_](https://www.zsh.org/) execution script invoked via `SUPER + F1`.
@@ -27,8 +27,8 @@ The keybinding infrastructure relies on three interacting components designed to
 
 Toggled at the top of `modules/keybindings.lua`, the binding engine supports two execution modes:
 
-- **Direct Dispatch Mode (`local map = hl`)**: Bypasses the internal mapping wrapper and binds keys directly to the [_Hyprland C++ API_](https://wiki.hypr.land/Configuring/). Used for maximum execution speed or troubleshooting.
-- **Registry Mode [`local map = require("modules.keybindings-map")`]**: Enables key interception and JSON state export to power the _TUI_ visualizer (`SUPER + F1`).
+- **Direct Dispatch Mode (`local map = hl`)**: Bypasses the internal _mapping wrapper_ and binds keys directly to the [_Hyprland C++ API_](https://wiki.hypr.land/Configuring/). Used for maximum execution speed or troubleshooting.
+- **Registry Mode [`local map = require("modules.keybindings-map")`]**: Enables key interception and _JSON_ state export to power the _TUI_ visualizer (`SUPER + F1`).
 
 
 ---
@@ -107,6 +107,6 @@ Always refer to [`keybindings.lua`](./.config/hypr/modules/keybindings.lua) for 
 ### Status Legend & Modular Configuration
 
 - **🟢 (Active)**: Indicates hotkeys that are natively registered and operational in the system runtime upon deployment.
-- **🔴 (Disabled/Optional)**: Indicates dormant keybindings. These correspond to user-specific scripts or optional dependencies.
+- **🔴 (Disabled/Optional)**: Indicates _dormant_ keybindings. These correspond to user-specific scripts or optional dependencies.
   They are commented out by default in `modules/keybindings.lua` to prevent execution failures on environments where secondary scripts are absent.
   To enable them, uncomment the relative `map.bind` calls and reload the compositor configuration.
