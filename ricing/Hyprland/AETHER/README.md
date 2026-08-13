@@ -209,81 +209,71 @@ cd ArchLinux-alchemy/ricing/Hyprland/AETHER
 ```
 
 
-### 2. Choosing Your Deployment Vector
+### 2. Deploying Configuration Files
 
-Depending on your dotfile management philosophy, choose **Vector Alpha** (Symlink Grafting) or **Vector Beta** (Physical Isolation).
+- **Step I: Clean pre-existing configuration directories**
+  Remove pre-existing targets to prevent link nesting or file collision errors:
+  
+  ```bash
+  rm -rf "$HOME/.config/dunst" "$HOME/.config/hypr" "$HOME/.config/swayidle" "$HOME/.config/waybar" "$HOME/.config/wlogout" "$HOME/.config/wofi"
+  ```
 
+- **Step II: Deploy main configurations**
+  Execute your favourite one:
 
-#### Vector Alpha: Symlink (for easier updates)
-Choose this if you want to actively track upstreams, pull repository updates, or push your own modifications back. 
-This maps live links directly into your `.config` folder.
+  - **Option A (Symlinks):**
+    Best for active development and easy upstream synchronization.
+    Link live nodes directly into `$HOME/.config/`.
+    
+    ```bash
+    ln -s "$(pwd)/.config/dunst" "$HOME/.config/"
+    ln -s "$(pwd)/.config/hypr" "$HOME/.config/"
+    ln -s "$(pwd)/.config/swayidle" "$HOME/.config/"
+    ln -s "$(pwd)/.config/waybar" "$HOME/.config/"
+    ln -s "$(pwd)/.config/wlogout" "$HOME/.config/"
+    ln -s "$(pwd)/.config/wofi" "$HOME/.config/"
+    ```
 
-- Step 1: Clean legacy nodes to prevent multi-nesting link corruption
-```bash
-rm -rf "$HOME/.config/dunst" "$HOME/.config/hypr" "$HOME/.config/swayidle" "$HOME/.config/waybar" "$HOME/.config/wlogout" "$HOME/.config/wofi"
-```
+  - **Option B (Physical Copies):**
+    Best for standalone, immutable setups.
+    Copy files directly, cutting all ties with the local repository.
+    
+    ```bash
+    cp -r ".config/dunst" "$HOME/.config/"
+    cp -r ".config/hypr" "$HOME/.config/"
+    cp -r ".config/swayidle" "$HOME/.config/"
+    cp -r ".config/waybar" "$HOME/.config/"
+    cp -r ".config/wlogout" "$HOME/.config/"
+    cp -r ".config/wofi" "$HOME/.config/"
+    ```
 
-- Step 2: Inject live symbolic links targeting the A.E.T.H.E.R. blueprint
-```bash
-ln -s "$(pwd)/.config/dunst" "$HOME/.config/"
-ln -s "$(pwd)/.config/hypr" "$HOME/.config/"
-ln -s "$(pwd)/.config/swayidle" "$HOME/.config/"
-ln -s "$(pwd)/.config/waybar" "$HOME/.config/"
-ln -s "$(pwd)/.config/wlogout" "$HOME/.config/"
-ln -s "$(pwd)/.config/wofi" "$HOME/.config/"
-```
+- **Step III: Integrate the custom GTK stylesheet**
+  Create the target directory and link or copy the UI layout file matching your deployment vector:
 
-- Step 3: Link the custom _GTK_ layout definition as a secondary system stylesheet
-```bash
-mkdir -p "$HOME/.config/gtk-3.0"
-ln -s "$(pwd)/.config/gtk-3.0/aether-win-menu.css" "$HOME/.config/gtk-3.0"
-```
+  ```bash
+  mkdir -p "$HOME/.config/gtk-3.0"
+  ```
 
-- Step 4: Import the custom stylesheet into your _GTK-3_ configuration
-Open your local `gtk.css` file using your preferred terminal text editor:
-```bash
-$EDITOR "$HOME/.config/gtk-3.0/gtk.css"
-```
+  * **Option A (Symlink):**
+    ```bash
+    ln -s "$(pwd)/.config/gtk-3.0/aether-win-menu.css" "$HOME/.config/gtk-3.0/"
+    ```
 
-Add the following import line at the very top of the file (or beneath existing `@import` directives):
-```css
-@import url('aether-win-menu.css');
-```
+  * **Option B (Physical Copy):**
+    ```bash
+    cp ".config/gtk-3.0/aether-win-menu.css" "$HOME/.config/gtk-3.0/aether-win-menu.css"
+    ```
 
-#### Vector Beta: Physical Decoupled Copying (for better control)
-Choose this if you want a standalone, immutable setup that completely cuts ties with the cloned repository folder.
+- **Step IV: Import stylesheet into _GTK-3_ settings**
+  Open your primary `gtk.css` file with your preferred text editor:
+  ```bash
+  $EDITOR "$HOME/.config/gtk-3.0/gtk.css"
+  ```
 
-- Step 1: Clear pre-existing conflicting directories
-```bash
-rm -rf "$HOME/.config/dunst" "$HOME/.config/hypr" "$HOME/.config/swayidle" "$HOME/.config/waybar" "$HOME/.config/wlogout" "$HOME/.config/wofi"
-```
-
-- Step 2: Physically deploy the configuration structures
-```bash
-cp -r ".config/dunst" "$HOME/.config/"
-cp -r ".config/hypr" "$HOME/.config/"
-cp -r ".config/swayidle" "$HOME/.config/"
-cp -r ".config/waybar" "$HOME/.config/"
-cp -r ".config/wlogout" "$HOME/.config/"
-cp -r ".config/wofi" "$HOME/.config/"
-```
-
-- Step 3: Uniform older toolkit styling using the *A.E.T.H.E.R.* definition
-```bash
-mkdir -p "$HOME/.config/gtk-3.0"
-cp ".config/gtk-3.0/aether-win-menu.css" "$HOME/.config/gtk-3.0/aether-win-menu.css"
-```
-
-- Step 4: Import the custom stylesheet into your _GTK-3_ configuration
-Open your local `gtk.css` file using your preferred terminal text editor:
-```bash
-$EDITOR "$HOME/.config/gtk-3.0/gtk.css"
-```
-
-Add the following import line at the very top of the file (or beneath existing `@import` directives):
-```css
-@import url('aether-win-menu.css');
-```
+  Add the following import line at the top of the file (or alongside existing `@import` directives):
+  ```css
+  @import url('aether-win-menu.css');
+  ```
 
 
 ### 3. Establish Core Automation Script Symlinks
@@ -359,7 +349,7 @@ local initial_WP = os.getenv("HOME") .. "/.config/hypr/splash.jpg"
 ```
 
 
-### 2. Align Environment Directories in `vars.lua`
+### 2. Align Environment Directories in [vars.lua](../../../ricing/Hyprland/AETHER/.config/hypr/modules/vars.lua)
 
 Open the global variables module located at `./.config/hypr/modules/vars.lua`.
 Confirm or update the script and wallpaper root directories to reflect your system layout:
@@ -387,8 +377,10 @@ hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 
 To prevent mixed fonts and inconsistent white window frames from breaking the Synthwave theme immersion:
 
-1. Confirm that `qt6ct` and/or `Kvantum` are configured as your primary theme engines. The Lua configuration enforces `QT_QPA_PLATFORMTHEME = "qt6ct"` across all subshells.
-2. Verify that your `$HOME/.config/gtk-3.0/gtk.css` file properly includes `@import url('aether-win-menu.css');` as configured during deployment.
+1. Confirm that `qt6ct` and/or `Kvantum` are configured as your primary theme engines.
+2. If needed, uncomment `hl.env("QT_STYLE_OVERRIDE" , "kvantum")` in [vars.lua](../../../ricing/Hyprland/AETHER/.config/hypr/modules/vars.lua).
+   The Lua configuration enforces `kvantum` theme across all _QT_-based _GUI_ applications.
+4. Verify that your `$HOME/.config/gtk-3.0/gtk.css` file properly includes `@import url('aether-win-menu.css');` as configured during deployment.
 
 
 
