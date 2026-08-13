@@ -82,11 +82,13 @@
         "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
 
-        // Increase/decrease brightness by 5%
+        // SCROLL up/down to increase/decrease brightness by 5%
         "on-scroll-up": "brightnessctl set +5%",
         "on-scroll-down": "brightnessctl set 5%-",
 
+        // LEFT CLICK: Increase brightness by 5%
         "on-click": "brightnessctl set 5%-",
+        // RIGHT CLICK: Decrease brightness by 5%
         "on-click-right": "brightnessctl set +5%"
     },
 
@@ -270,10 +272,15 @@
             "headset": "",
             "default": ["", "", ""]
         },
+
         // LEFT CLICK: Toggle Mute/Unmute (restores previous volume)
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         // RIGHT CLICK: Open audio control panel
-        "on-click-right": "pavucontrol"
+        "on-click-right": "pavucontrol",
+
+        // SCROLL up/down to increase/decrease volume by 2%
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
     },
 
     "temperature": {
