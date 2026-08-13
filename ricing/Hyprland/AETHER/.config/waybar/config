@@ -62,17 +62,6 @@
         "separate-outputs": true
     },
 
-    // Keyboard layout module
-    "hyprland/language": {
-        "format": "IT", 
-        "keyboard-name": "at-translated-set-2-keyboard",
-        "min-length": 5
-    },
-
-    "hyprland/submap": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-
 
 
     // --- HARDWARE MODULES DEFINITION --- //
