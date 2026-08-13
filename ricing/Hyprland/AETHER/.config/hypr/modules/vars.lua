@@ -37,7 +37,7 @@ hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 -- === MODERN THEMING STRATEGY ===
 -- Force unified visual consistency across all Qt applications
 hl.env("QT_QPA_PLATFORMTHEME" ,                "qt6ct")      -- Route configuration through qt6ct engine
-hl.env("QT_STYLE_OVERRIDE" ,                   "kvantum")    -- Force Kvantum rendering engine globally
+-- hl.env("QT_STYLE_OVERRIDE" ,                   "kvantum")    -- Force Kvantum rendering engine globally
 hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION" ,  1)           -- Delegate window borders & titlebars to Hyprland
 
 
