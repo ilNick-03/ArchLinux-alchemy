@@ -154,19 +154,22 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
 
 ### Architectural Interaction Features
 
-- **Chronological Terminal Isolation**: Every time you invoke `SUPER + Return`, a new [***Alacritty***](https://alacritty.org/) interface opens inside a [_***Tmux***](https://github.com/tmux/tmux) session.
-  The configuration automatically titles the window with an instantaneous timestamp down to the second: `[$(date +'%Y%m%d-%H%M%S')]`. This facilitates perfect log tracking and terminal tracking management.
+- **Chronological Terminal Isolation**: Every time you invoke `SUPER + Return`, a new [***Alacritty***](https://alacritty.org/) interface opens inside a [***Tmux***](https://github.com/tmux/tmux) session.
+  The configuration automatically titles the window with an instantaneous timestamp down to the second: `[$(date +'%Y%m%d-%H%M%S')]`.
+  This facilitates perfect log tracking and terminal tracking management.
 
 - **Terminal _IDE_ Workspace**: Invoking `SUPER + E` launches a dedicated [***Neovim***](https://neovim.io/) session powered by [***NvChad***](https://nvchad.com/) inside an isolated [***Tmux***](https://github.com/tmux/tmux) environment, providing instant text editing capability without leaving the keyboard flow.
   
 - **The "Magic" Workspace**: Accessible via `SUPER + S`, this acts as a scratchpad overlay,
   pulling minimized assets or hidden background operations instantly to the center of your screen without disrupting your active window layouts.
   
-- **Clipboard History Menu**: Invoking `SUPER + H`, this macro invokes a high-performance, text-only clipboard engine. By piping `cliphist` straight through a streamlined `awk` parser, the system hides database index tracking numbers on the fly, rendering a pristine, unified history of your last copied assets inside a wide dedicated [Wofi](https://hg.sr.ht/~scoopta/wofi) container. Purge your clipboard history registry via `SUPER + SHIFT + H`.
-  ![Clipboard Menu screenshot](./screenshots/AETHER-clipboard-menu.jpg)
+- **Clipboard History Menu**: Invoking `SUPER + H`, this macro invokes a high-performance, text-only clipboard engine.
+  By piping `cliphist` straight through a streamlined `awk` parser, the system hides database index tracking numbers on the fly, rendering a pristine, unified history of your last copied assets inside a wide dedicated [Wofi](https://hg.sr.ht/~scoopta/wofi) container.
+  Purge your clipboard history registry via `SUPER + SHIFT + H`.
+  ![Clipboard Menu screenshot](./screenshots/AETHER_clipboard_menu.jpg)
   
 - **[Futuristic Audio Session](https://github.com/ilNick-03/ArchLinux-alchemy)**: Triggered with `SUPER + SHIFT + A`, this macro launches a custom script environment inside your directory structures designed specifically for high-quality music listening experience. Closed typing `SUPER + SHIFT + ALT + A`.
-  ![Futuristic Audio Seeesion view](./screenshots/AETHER-ricing-audio-session-1.jpg)
+  ![Futuristic Audio Session view](./screenshots/AETHER_ricing_audio_session_1.jpg)
 
 
 
@@ -177,21 +180,23 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
 
 ## 💾 Installation & Deployment
 
-Before modifying your desktop infrastructure, remember the core Roman architectural maxim: *ensure the foundation is secure before erecting the framework*. Deploying *A.E.T.H.E.R.* involves overwriting or linking configuration nodes. 
+Before modifying your desktop infrastructure, remember the core Roman architectural maxim: *ensure the foundation is secure before erecting the framework*. 
+Deploying *A.E.T.H.E.R.* involves linking configuration nodes. 
 
 
 ### 0. The Defensive Sentinel: Mandatory Backup Strategy
 > [!TIP]
 > Do not proceed without archiving your current user-space environments. Run the following command inside your terminal to generate an atomic, timestamped snapshot of your entire `.config` directory:
-
-```bash
-# Generate a compressed tarball backup with exact calendar tracking
-tar -czf "$HOME/config-backup-$(date +%Y%m%d-%H%M%S).tar.gz" -C "$HOME" .config
-```
-
-> [!TIP]
+>
+> ```bash
+> # Generate a compressed tarball backup with exact calendar tracking
+> tar -czf "$HOME/config-backup-$(date +%Y%m%d-%H%M%S).tar.gz" -C "$HOME" .config
+> ```
+>
 > *If anything breaks during deployment, you can restore your pristine state instantly via*: 
-    `tar -xzf ~/config-backup-*.tar.gz -C ~`
+> ```bash
+> tar -xzf ~/config-backup-*.tar.gz -C ~
+> ```
 
 
 ### 1. Cloning the Alchemical Repository
@@ -206,50 +211,54 @@ cd ArchLinux-alchemy/ricing/Hyprland/AETHER
 
 ### 2. Choosing Your Deployment Vector
 
-Depending on your dotfile management philosophy, choose **Vector Alpha** (Physical Isolation) or **Vector Beta** (Symlink Grafting).
+Depending on your dotfile management philosophy, choose **Vector Alpha** (Symlink Grafting) or **Vector Beta** (Physical Isolation).
+
 
 #### Vector Alpha: Symlink (for easier updates)
-Choose this if you want to actively track upstreams, pull repository updates, or push your own modifications back. This maps live links directly into your `.config` folder.
+Choose this if you want to actively track upstreams, pull repository updates, or push your own modifications back. 
+This maps live links directly into your `.config` folder.
 
-- Step 1: Pre-initialize user space structures
-```bash
-mkdir -p "$HOME/.config/gtk-3.0"
-```
-
-- Step 2: Clean legacy nodes to prevent multi-nesting link corruption
+- Step 1: Clean legacy nodes to prevent multi-nesting link corruption
 ```bash
 rm -rf "$HOME/.config/dunst" "$HOME/.config/hypr" "$HOME/.config/swayidle" "$HOME/.config/waybar" "$HOME/.config/wlogout" "$HOME/.config/wofi"
 ```
 
-- Step 3: Inject live symbolic links targeting the A.E.T.H.E.R. blueprint
+- Step 2: Inject live symbolic links targeting the A.E.T.H.E.R. blueprint
 ```bash
-ln -s "$(pwd)/.config/dunst" "$HOME/.config/dunst"
-ln -s "$(pwd)/.config/hypr" "$HOME/.config/hypr"
-ln -s "$(pwd)/.config/swayidle" "$HOME/.config/swayidle"
-ln -s "$(pwd)/.config/waybar" "$HOME/.config/waybar"
-ln -s "$(pwd)/.config/wlogout" "$HOME/.config/wlogout"
-ln -s "$(pwd)/.config/wofi" "$HOME/.config/wofi"
+ln -s "$(pwd)/.config/dunst" "$HOME/.config/"
+ln -s "$(pwd)/.config/hypr" "$HOME/.config/"
+ln -s "$(pwd)/.config/swayidle" "$HOME/.config/"
+ln -s "$(pwd)/.config/waybar" "$HOME/.config/"
+ln -s "$(pwd)/.config/wlogout" "$HOME/.config/"
+ln -s "$(pwd)/.config/wofi" "$HOME/.config/"
 ```
 
-- Step 4: Link the custom GTK layout definition as the primary system stylesheet
+- Step 3: Link the custom _GTK_ layout definition as a secondary system stylesheet
 ```bash
-ln -s "$(pwd)/.config/gtk-3.0/aether-win-menu.css" "$HOME/.config/gtk-3.0/aether-win-menu.css"
+mkdir -p "$HOME/.config/gtk-3.0"
+ln -s "$(pwd)/.config/gtk-3.0/aether-win-menu.css" "$HOME/.config/gtk-3.0"
+```
+
+- Step 4: Import the custom stylesheet into your _GTK-3_ configuration
+Open your local `gtk.css` file using your preferred terminal text editor:
+```bash
+$EDITOR "$HOME/.config/gtk-3.0/gtk.css"
+```
+
+Add the following import line at the very top of the file (or beneath existing `@import` directives):
+```css
+@import url('aether-win-menu.css');
 ```
 
 #### Vector Beta: Physical Decoupled Copying (for better control)
 Choose this if you want a standalone, immutable setup that completely cuts ties with the cloned repository folder.
 
-- Step 1: Pre-initialize user space structures
-```bash
-mkdir -p "$HOME/.config/gtk-3.0"
-```
-
-- Step 2: Clear pre-existing conflicting directories
+- Step 1: Clear pre-existing conflicting directories
 ```bash
 rm -rf "$HOME/.config/dunst" "$HOME/.config/hypr" "$HOME/.config/swayidle" "$HOME/.config/waybar" "$HOME/.config/wlogout" "$HOME/.config/wofi"
 ```
 
-- Step 3: Physically deploy the configuration structures
+- Step 2: Physically deploy the configuration structures
 ```bash
 cp -r ".config/dunst" "$HOME/.config/"
 cp -r ".config/hypr" "$HOME/.config/"
@@ -259,15 +268,28 @@ cp -r ".config/wlogout" "$HOME/.config/"
 cp -r ".config/wofi" "$HOME/.config/"
 ```
 
-- Step 4: Uniform older toolkit styling using the *A.E.T.H.E.R.* definition
+- Step 3: Uniform older toolkit styling using the *A.E.T.H.E.R.* definition
 ```bash
+mkdir -p "$HOME/.config/gtk-3.0"
 cp ".config/gtk-3.0/aether-win-menu.css" "$HOME/.config/gtk-3.0/aether-win-menu.css"
+```
+
+- Step 4: Import the custom stylesheet into your _GTK-3_ configuration
+Open your local `gtk.css` file using your preferred terminal text editor:
+```bash
+$EDITOR "$HOME/.config/gtk-3.0/gtk.css"
+```
+
+Add the following import line at the very top of the file (or beneath existing `@import` directives):
+```css
+@import url('aether-win-menu.css');
 ```
 
 
 ### 3. Establish Core Automation Script Symlinks
 
-A.E.T.H.E.R. routes its dynamic canvas engines through standard local executable paths. To preserve absolute directory modularity while keeping your master scripts centralized under your primary `~/scripts` repository, you must deploy atomic symbolic links inside the Hyprland configuration structure.
+A.E.T.H.E.R. routes its dynamic canvas engines through standard local executable paths.
+To preserve absolute directory modularity while keeping your master scripts centralized under your primary `~/scripts` repository, you must deploy atomic symbolic links inside the _Hyprland_ configuration structure.
 
 Execute the following commands inside your terminal wrapper to map the script nodes seamlessly without moving your original files:
 
@@ -275,32 +297,42 @@ Execute the following commands inside your terminal wrapper to map the script no
 cd "$HOME/ArchLinux-alchemy"
 
 # 1. Inject forced symbolic links pointing to your master script layers
-ln -sf "./scripts/desktop-enhancements/set-wp-hypr.sh" "$HOME/.config/hypr/scripts/set-wp-hypr.sh"
-ln -sf "./scripts/desktop-enhancements/random-wallpaper-hypr.sh" "$HOME/.config/hypr/scripts/random-wallpaper-hypr.sh"
+ln -sf "./scripts/desktop-enhancements/random-wallpaper-selector.sh" "$HOME/.config/hypr/scripts"
+ln -sf "./scripts/desktop-enhancements/change-wallpaper/hypr-bg-setter.sh" "$HOME/.config/hypr/scripts"
+ln -sf "./scripts/desktop-enhancements/change-wallpaper/sway-bg-setter.sh" "$HOME/.config/hypr/scripts"
 
 # 2. Grant explicit execution permissions to the master scripts
-chmod +x "$HOME/.config/hypr/scripts/hypr-binds-map.sh"
-chmod +x "./scripts/desktop-enhancements/set-wp-hypr.sh"
-chmod +x "./scripts/desktop-enhancements/random-wallpaper-hypr.sh"
+chmod +x "$HOME/.config/hypr/scripts/"*.sh
 ```
 
 > [!NOTE]
-> The `-sf` (*Symbolic, Force*) architecture guarantees that any pre-existing or broken pointer nodes inside the Hyprland directory will be safely overwritten and realigned to your master files, ensuring an idempotent and non-destructive deployment.
+> The `-sf` (*Symbolic, Force*) architecture guarantees that any pre-existing or broken pointer nodes inside the _Hyprland_ directory will be safely overwritten and realigned to your master files, ensuring an idempotent and non-destructive deployment.
 
 
-### 4. Optional: Source the [*.futuristic-audio-session* dotfile](../../../dotfiles/shell/custom/.futuristic-audio-session) in Your Shell
+### 4. Optional: ["*Futuristic Audio Session*" shell music player](../../../dotfiles/shell/custom/.futuristic-audio-session)
 
-If you plan to utilize the awesome ***Futuristic Audio Session*** music listening environment via `SUPER + SHIFT + A`, your interactive shell must be aware of the underlying functions. To achieve this without polluting your primary shell configuration, you can source the asset directly from the cloned repository.
+If you plan to utilize the ***Futuristic Audio Session*** music listening environment via `SUPER + SHIFT + A`, follow these two steps:
 
+#### A. Source the Shell Environment
 Open your local shell configuration file (`~/.zshrc` or `~/.bashrc`) and append the following alchemical directive at the very bottom:
 
 ```bash
 # Source A.E.T.H.E.R. 'Futuristic Audio Session' functions
-[[ -f "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session" ]]  &&  source "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session"
+[[ -f "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session" ]] && source "$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session"
 ```
 
 > [!TIP]
 > This defensive guard condition ensures that your shell initializes flawlessly and without throwing errors even if the cloned repository path is temporarily missing or relocated during system cleanups.
+
+#### B. Uncomment the Keybindings in [keybindings.lua](../../../ricing/Hyprland/AETHER/.config/hypr/modules/keybindings.lua)
+Open `./.config/hypr/modules/keybindings.lua` and uncomment the following lines to make this feature actually working by typing these keyboard shortcuts:
+
+```lua
+-- Futuristic Audio Session (custom 'terminal music player' setup)
+-- Only for TRVE music enthusiasts!
+map.bind(mainMod .. " + SHIFT + A",        hl.dsp.exec_cmd("zsh -ic 'audio-session'"),           { description = "Launch the 'futuristic audio session'" })
+map.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio-session'"),     { description = "Terminate the 'futuristic audio session'" })
+```
 
 
 
@@ -311,26 +343,26 @@ Open your local shell configuration file (`~/.zshrc` or `~/.bashrc`) and append 
 
 ## 🚀 Post-Installation & Manual Adjustments
 
-*A.E.T.H.E.R.* is configured out of the box for hybrid laptops, but requires minimal path alignment
-to conform to your specific system layout.
+*A.E.T.H.E.R.* is configured out of the box, but requires minimal path alignment and asset positioning to conform to your specific hardware layout.
 
+### 1. Wallpaper Gallery Setup & Default Background Initialization
 
-### 1. Fetch Default Wallpaper & Initialize Background Canvas
+*A.E.T.H.E.R.* manages wallpaper rotation through native daemons (`hyprpaper` or `swaybg`) controlled via [hypr-bg-setter.sh](../../../scripts/desktop-enhancements/change-wallpaper/hypr-bg-setter.sh) / [sway-bg-setter.sh](../../../scripts/desktop-enhancements/change-wallpaper/sway-bg-setter.sh) and [random-wallpaper-selector.sh](../../../scripts/desktop-enhancements/random-wallpaper-selector.sh) ..
 
-Before booting the environment, you must manually acquire the default ecosystem wallpaper. 
-- Open and follow the retrieval instructions detailed inside this [text file](./.config/hypr/splash.txt).
-- Once downloaded, convert/rename it as `splash.jpg` and move it to `./.config/hypr/` folder. Otherwise, if you choose to store the asset in the non-standard directory
-  and/or using the non-standard file name, ensure you update its absolute target path inside `./.config/hypr/modules/vars.lua` by re-targeting the initialization variable:
+1. Read the [dedicated wallpaper guide]((./Wallpapers.md) ) to obtain the recommended high-resolution artwork collection.
+2. Place your downloaded wallpapers into your preferred picture directory (e.g., `~/Pictures/Wallpapers/`).
+3. Set your default startup wallpaper by placing an image named `splash.jpg` inside `$HOME/.config/hypr/` **OR** update the initial wallpaper path in `./.config/hypr/modules/vars.lua`:
 
 ```lua
-_G.init_WP = os.getenv("HOME") .. "/your/custom/path/default_wallpaper.jpg"
+-- Initial wallpaper rendered upon compositor startup
+local initial_WP = os.getenv("HOME") .. "/.config/hypr/splash.jpg"
 ```
 
 
-### 2. Re-align User Space Environmental Paths
+### 2. Align Environment Directories in `vars.lua`
 
-Open your global variables configuration block located at `./.config/hypr/modules/vars.lua`.
-Re-target the standard global variables to reflect your environment profile:
+Open the global variables module located at `./.config/hypr/modules/vars.lua`.
+Confirm or update the script and wallpaper root directories to reflect your system layout:
 
 ```lua
 -- Set your relevant root directories
@@ -338,16 +370,10 @@ _G.home_dir     =  os.getenv("HOME")
 _G.scripts_dir  =  os.getenv("HOME") .. "/scripts"  -- Points directly to your custom executable layers
 ```
 
-Or specify a script' full path in the dedicated line of code.
-
-
 ### 3. Tailor Your Graphic Profile (Dual-GPU Configuration)
 
 *A.E.T.H.E.R.* provides a split variable map to toggle hardware rendering profiles.
-By default, paths are un-commented to utilize the integrated Intel graphics chip (`iGPU`) to optimize laptop battery life.
-
-If you want to unlock the full power of an Nvidia dedicated card (`dGPU`), open `./.config/hypr/modules/vars.lua`,
-comment out the Intel profile block, and un-comment the advanced Nvidia theming strategy block:
+If you are running an NVIDIA or Intel dedicated card (`dGPU`), open `./.config/hypr/modules/vars.lua`, un-comment the relative driver strategy:
 
 ```lua
 -- === Rendering with dGPU NVIDIA - performance ===
@@ -359,15 +385,10 @@ hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 
 ### 4. Apply Unified Styling Across UI Engines
 
-To prevent mixed fonts and inconsistent white window frames from breaking the Synthwave theme immersion,
-confirm that `qt6ct` is running. The variable system forces Qt-based applications to read from this layer 
-via the `QT_QPA_PLATFORMTHEME` environment variable, ensuring absolute style consistency across every app 
-window on your screen.
-Additionally, add these code lines inside your "$HOME/.config/gtk-3.0/gtk.css" to uniform the theme of apps using old GTK libraries (such as [Dunst](https://dunst-project.org/)):
+To prevent mixed fonts and inconsistent white window frames from breaking the Synthwave theme immersion:
 
-```css
-@import `aether-win-menu.css`
-```
+1. Confirm that `qt6ct` and/or `Kvantum` are configured as your primary theme engines. The Lua configuration enforces `QT_QPA_PLATFORMTHEME = "qt6ct"` across all subshells.
+2. Verify that your `$HOME/.config/gtk-3.0/gtk.css` file properly includes `@import url('aether-win-menu.css');` as configured during deployment.
 
 
 
