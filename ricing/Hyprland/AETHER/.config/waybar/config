@@ -239,7 +239,11 @@
             "balanced": " ",
             "power-saver": " "
         },
-        "min-length": 3
+        "min-length": 3,
+
+        // SCROLL up/down to change the current profile (power-saver -> balanced -> performance)
+        "on-scroll-up": "powerprofilesctl set $(powerprofilesctl get | awk '/power-saver/{print \"balanced\"} /balanced/{print \"performance\"} /performance/{print \"power-saver\"}')",
+        "on-scroll-down": "powerprofilesctl set $(powerprofilesctl get | awk '/performance/{print \"balanced\"} /balanced/{print \"power-saver\"} /power-saver/{print \"performance\"}')"
     },
 
     // Privacy module for mic and webcam indicators
