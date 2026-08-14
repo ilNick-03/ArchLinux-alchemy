@@ -28,57 +28,57 @@ local mainMod = "SUPER"                           -- Sets "Windows" key as main 
 -- === CORE BINDS ===
 
 ---  Menus and launchers
-map.bind(mainMod .. " + F1",               hl.dsp.exec_cmd(binds_table),                         { description = "Show keybindings table" })
-map.bind(mainMod .. " + Space",            hl.dsp.exec_cmd(apps_launcher),                       { description = "Open application launcher" })
-map.bind(mainMod .. " + H",                hl.dsp.exec_cmd(clipboard_selector),                  { description = "Open clipboard history manager"})
-map.bind(mainMod .. " + SHIFT + H",        hl.dsp.exec_cmd(clipboard_wipe),                      { description = "Purge clipboard history registry"})
--- map.bind(mainMod .. " + SHIFT + ALT + Y",                hl.dsp.exec_cmd(aether_logo),                         { description = "Display the AETHER logo (debug)" })
+map.bind(mainMod .. " + F1",               hl.dsp.exec_cmd(binds_table),                                          { description = "Show keybindings table" })
+map.bind(mainMod .. " + Space",            hl.dsp.exec_cmd(apps_launcher),                                        { description = "Open application launcher" })
+map.bind(mainMod .. " + H",                hl.dsp.exec_cmd(clipboard_selector),                                   { description = "Open clipboard history manager"})
+map.bind(mainMod .. " + SHIFT + H",        hl.dsp.exec_cmd(clipboard_wipe),                                       { description = "Purge clipboard history registry"})
+-- map.bind(mainMod .. " + SHIFT + ALT + Y",  hl.dsp.exec_cmd(aether_logo),                                          { description = "Display the AETHER logo (debug)" })
 
 --- The most useful apps
-map.bind(mainMod .. " + Return",           hl.dsp.exec_cmd(terminal),                            { description = "Launch terminal emulator" })
-map.bind(mainMod .. " + F",                hl.dsp.exec_cmd(file_Manager_GUI),                    { description = "Open GUI file manager" })
-map.bind(mainMod .. " + SHIFT + F",        hl.dsp.exec_cmd(file_Manager_TUI),                    { description = "Open TUI file manager" })
-map.bind(mainMod .. " + E",                hl.dsp.exec_cmd(text_editor),                         { description = "Open text editor" })
-map.bind(mainMod .. " + B",                hl.dsp.exec_cmd(browser),                             { description = "Open web browser" })
-map.bind("CTRL + SHIFT + Escape",          hl.dsp.exec_cmd(process_Monitor),                     { description = "Open system process monitor" })
+map.bind(mainMod .. " + Return",           hl.dsp.exec_cmd(terminal),                                             { description = "Launch terminal emulator" })
+map.bind(mainMod .. " + F",                hl.dsp.exec_cmd(file_Manager_GUI),                                     { description = "Open GUI file manager" })
+map.bind(mainMod .. " + SHIFT + F",        hl.dsp.exec_cmd(file_Manager_TUI),                                     { description = "Open TUI file manager" })
+map.bind(mainMod .. " + E",                hl.dsp.exec_cmd(text_editor),                                          { description = "Open text editor" })
+map.bind(mainMod .. " + B",                hl.dsp.exec_cmd(browser),                                              { description = "Open web browser" })
+map.bind("CTRL + SHIFT + Escape",          hl.dsp.exec_cmd(process_Monitor),                                      { description = "Open system process monitor" })
 
 
 
 -- === WINDOWS, LAYOUT, NAVIGATION, REPOSITIONING ===
 
 ---  Windows Management
-map.bind(mainMod .. " + V",                hl.dsp.window.float({ action = "toggle" }),           { description = "Toggle floating mode" })
-map.bind(mainMod .. " + C",                hl.dsp.window.center(),                               { description = "Center focused window" })
-map.bind(mainMod .. " + M",                hl.dsp.window.fullscreen({ mode = 1 }),               { description = "Maximize window (keep gaps)" })
-map.bind(mainMod .. " + F11",              hl.dsp.window.fullscreen({ mode = 0 }),               { description = "Toggle true fullscreen" })
-map.bind(mainMod .. " + P",                hl.dsp.window.pin(),                                  { description = "Pin window (sticky)" })
+map.bind(mainMod .. " + V",                hl.dsp.window.float({ action = "toggle" }),                            { description = "Toggle floating mode" })
+map.bind(mainMod .. " + C",                hl.dsp.window.center(),                                                { description = "Center focused window" })
+map.bind(mainMod .. " + M",                hl.dsp.window.fullscreen({ mode = 1 }),                                { description = "Maximize window (keep gaps)" })
+map.bind(mainMod .. " + F11",              hl.dsp.window.fullscreen({ mode = 0 }),                                { description = "Toggle true fullscreen" })
+map.bind(mainMod .. " + P",                hl.dsp.window.pin(),                                                   { description = "Pin window (sticky)" })
 
 ---  Kill the focused window
 local closeWindowBind = map.bind(
-         mainMod .. " + ALT + K",          hl.dsp.window.close(),                                 { description = "Kill focused window" }
+         mainMod .. " + ALT + K",          hl.dsp.window.close(),                                                 { description = "Kill focused window" }
 )
 
 ---  Layout controls
-map.bind(mainMod .. " + J",                hl.dsp.layout("togglesplit"),                         { description = "Toggle horizontal/vertical split" })
-map.bind(mainMod .. " + L",                hl.dsp.window.pseudo(),                               { description = "Toggle pseudo-tiling" })
+map.bind(mainMod .. " + J",                hl.dsp.layout("togglesplit"),                                          { description = "Toggle horizontal/vertical split" })
+map.bind(mainMod .. " + L",                hl.dsp.window.pseudo(),                                                { description = "Toggle pseudo-tiling" })
 
 ---  Navigation & Focus  (Arrow keys)
-map.bind(mainMod .. " + left",             hl.dsp.focus({ direction = "l" }),                    { description = "Focus window left" })
-map.bind(mainMod .. " + right",            hl.dsp.focus({ direction = "r" }),                    { description = "Focus window right" })
-map.bind(mainMod .. " + up",               hl.dsp.focus({ direction = "u" }),                    { description = "Focus window up" })
-map.bind(mainMod .. " + down",             hl.dsp.focus({ direction = "d" }),                    { description = "Focus window down" })
+map.bind(mainMod .. " + left",             hl.dsp.focus({ direction = "l" }),                                     { description = "Focus window left" })
+map.bind(mainMod .. " + right",            hl.dsp.focus({ direction = "r" }),                                     { description = "Focus window right" })
+map.bind(mainMod .. " + up",               hl.dsp.focus({ direction = "u" }),                                     { description = "Focus window up" })
+map.bind(mainMod .. " + down",             hl.dsp.focus({ direction = "d" }),                                     { description = "Focus window down" })
 
 ---  Window Repositioning  (Shift + arrows)
-map.bind(mainMod .. " + SHIFT + left",     hl.dsp.window.move({ direction = "l" }),              { description = "Move window left" })
-map.bind(mainMod .. " + SHIFT + right",    hl.dsp.window.move({ direction = "r" }),              { description = "Move window right" })
-map.bind(mainMod .. " + SHIFT + up",       hl.dsp.window.move({ direction = "u" }),              { description = "Move window up" })
-map.bind(mainMod .. " + SHIFT + down",     hl.dsp.window.move({ direction = "d" }),              { description = "Move window down" })
+map.bind(mainMod .. " + SHIFT + left",     hl.dsp.window.move({ direction = "l" }),                               { description = "Move window left" })
+map.bind(mainMod .. " + SHIFT + right",    hl.dsp.window.move({ direction = "r" }),                               { description = "Move window right" })
+map.bind(mainMod .. " + SHIFT + up",       hl.dsp.window.move({ direction = "u" }),                               { description = "Move window up" })
+map.bind(mainMod .. " + SHIFT + down",     hl.dsp.window.move({ direction = "d" }),                               { description = "Move window down" })
 
 ---  Resize windows  (Alt + arrows) (Repeatable)
-map.bind(mainMod .. " + ALT + left",       hl.dsp.window.resize({ x = -30, y =   0, relative = true }),  { repeating = true,  description = "Shrink window width" })
-map.bind(mainMod .. " + ALT + right",      hl.dsp.window.resize({ x =  30, y =   0, relative = true }),  { repeating = true,  description = "Expand window width" })
-map.bind(mainMod .. " + ALT + up",         hl.dsp.window.resize({ x =   0, y = -30, relative = true }),  { repeating = true,  description = "Shrink window height" })
-map.bind(mainMod .. " + ALT + down",       hl.dsp.window.resize({ x =   0, y =  30, relative = true }),  { repeating = true,  description = "Expand window height" })
+map.bind(mainMod .. " + ALT + left",       hl.dsp.window.resize({ x = -30, y =   0, relative = true }),           { repeating = true,  description = "Shrink window width" })
+map.bind(mainMod .. " + ALT + right",      hl.dsp.window.resize({ x =  30, y =   0, relative = true }),           { repeating = true,  description = "Expand window width" })
+map.bind(mainMod .. " + ALT + up",         hl.dsp.window.resize({ x =   0, y = -30, relative = true }),           { repeating = true,  description = "Shrink window height" })
+map.bind(mainMod .. " + ALT + down",       hl.dsp.window.resize({ x =   0, y =  30, relative = true }),           { repeating = true,  description = "Expand window height" })
 
 
 
@@ -88,14 +88,14 @@ map.bind(mainMod .. " + ALT + down",       hl.dsp.window.resize({ x =   0, y =  
 ---  Move active window to a workspace with:  mainMod + SHIFT + [0-9]
 for i = 1, 10 do
     local key = i % 10    -- 10 maps to key 0
-    map.bind(mainMod .. " + " .. key,          hl.dsp.focus({ workspace = i}),                   { description = "Switch to workspace " .. i })
-    map.bind(mainMod .. " + SHIFT + " .. key,  hl.dsp.window.move({ workspace = i }),            { description = "Move window to workspace " .. i })
+    map.bind(mainMod .. " + " .. key,          hl.dsp.focus({ workspace = i}),                                    { description = "Switch to workspace " .. i })
+    map.bind(mainMod .. " + SHIFT + " .. key,  hl.dsp.window.move({ workspace = i }),                             { description = "Move window to workspace " .. i })
 end
 
 ---  "Magic" workspace (scratchpad)
-map.bind(mainMod .. " + S",                hl.dsp.workspace.toggle_special("magic"),             { description = "Toggle magic scratchpad" })
-map.bind(mainMod .. " + SHIFT + S",        hl.dsp.window.move({ workspace = "special:magic" }),  { description = "Move window to scratchpad" })
-map.bind(mainMod .. " + SHIFT + D",        hl.dsp.window.move({ workspace = "+0"}),              { description = "Detach from workspace (move 0)" })
+map.bind(mainMod .. " + S",                hl.dsp.workspace.toggle_special("magic"),                              { description = "Toggle magic scratchpad" })
+map.bind(mainMod .. " + SHIFT + S",        hl.dsp.window.move({ workspace = "special:magic" }),                   { description = "Move window to scratchpad" })
+map.bind(mainMod .. " + SHIFT + D",        hl.dsp.window.move({ workspace = "+0"}),                               { description = "Detach from workspace (move 0)" })
 
 
 
@@ -123,18 +123,21 @@ map.bind("XF86AudioPrev",                  hl.dsp.exec_cmd("playerctl previous")
 
 ---  Futuristic Audio Session (custom 'terminal music player' setup)
 ----   Only for TRVE music enthusiasts!
--- map.bind(mainMod .. " + SHIFT + A",        hl.dsp.exec_cmd("zsh -ic 'audio-session'"),           { description = "Launch the 'futuristic audio session'" })
--- map.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio-session'"),     { description = "Terminate the 'futuristic audio session'" })
+map.bind(mainMod .. " + SHIFT + A",        hl.dsp.exec_cmd("zsh -ic 'audio-session'"),                            { description = "Launch the 'futuristic audio session'" })
+map.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio-session'"),                      { description = "Terminate the 'futuristic audio session'" })
 
 ---  Wallpaper Changing
-map.bind(mainMod .. " + ALT + W",          hl.dsp.exec_cmd(random_WP_cmd),                       { description = "Set a random image as new wallpaper" })
+map.bind(mainMod .. " + ALT + W",          hl.dsp.exec_cmd(random_WP_cmd),                                        { description = "Set a random image as new wallpaper" })
 
 ---  Screen Capturing
-map.bind("Print",                          hl.dsp.exec_cmd(screen_shot),                         { description = "Capture screenshot" })
-map.bind("SHIFT + Print",                  hl.dsp.exec_cmd(screen_shot_ram),                     { description = "Capture screenshot to clipboard" })
-map.bind(mainMod .. " + F8",               hl.dsp.exec_cmd(screen_rec_start),                    { description = "Start screen recording" })
-map.bind(mainMod .. " + F9",               hl.dsp.exec_cmd(screen_rec_pause),                    { description = "Pause screen recording" })
-map.bind(mainMod .. " + F10",              hl.dsp.exec_cmd(screen_rec_stop),                     { description = "Stop screen recording" })
+map.bind("Print",                          hl.dsp.exec_cmd(screen_shot),                                          { description = "Capture screenshot" })
+map.bind("SHIFT + Print",                  hl.dsp.exec_cmd(screen_shot_ram),                                      { description = "Capture screenshot to clipboard" })
+map.bind(mainMod .. " + F8",               hl.dsp.exec_cmd(screen_rec_start),                                     { description = "Start screen recording" })
+map.bind(mainMod .. " + F9",               hl.dsp.exec_cmd(screen_rec_pause),                                     { description = "Pause screen recording" })
+map.bind(mainMod .. " + F10",              hl.dsp.exec_cmd(screen_rec_stop),                                      { description = "Stop screen recording" })
+
+---  Status bar Management (Toggle / Restart)
+map.bind(mainMod .. " + SHIFT + R",        hl.dsp.exec_cmd("killall " .. status_bar .. " || " .. status_bar),     { description = "Toggle or restart status bar" })
 
 
 
