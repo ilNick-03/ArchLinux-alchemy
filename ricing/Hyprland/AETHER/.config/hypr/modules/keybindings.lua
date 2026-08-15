@@ -36,11 +36,12 @@ map.bind(mainMod .. " + SHIFT + H",        hl.dsp.exec_cmd(clipboard_wipe),     
 
 --- The most useful apps
 map.bind(mainMod .. " + Return",           hl.dsp.exec_cmd(terminal),                                             { description = "Launch terminal emulator" })
-map.bind(mainMod .. " + F",                hl.dsp.exec_cmd(file_Manager_GUI),                                     { description = "Open GUI file manager" })
-map.bind(mainMod .. " + SHIFT + F",        hl.dsp.exec_cmd(file_Manager_TUI),                                     { description = "Open TUI file manager" })
-map.bind(mainMod .. " + E",                hl.dsp.exec_cmd(text_editor),                                          { description = "Open text editor" })
+map.bind(mainMod .. " + F",                hl.dsp.exec_cmd(file_manager_GUI),                                     { description = "Open GUI file manager" })
+map.bind(mainMod .. " + SHIFT + F",        hl.dsp.exec_cmd(file_manager_TUI),                                     { description = "Open TUI file manager" })
+map.bind(mainMod .. " + E",                hl.dsp.exec_cmd(text_editor_GUI),                                      { description = "Open GUI text editor" })
+map.bind(mainMod .. " + SHIFT + E",        hl.dsp.exec_cmd(text_editor_TUI),                                      { description = "Open GUI text editor" })
 map.bind(mainMod .. " + B",                hl.dsp.exec_cmd(browser),                                              { description = "Open web browser" })
-map.bind("CTRL + SHIFT + Escape",          hl.dsp.exec_cmd(process_Monitor),                                      { description = "Open system process monitor" })
+map.bind("CTRL + SHIFT + Escape",          hl.dsp.exec_cmd(process_monitor),                                      { description = "Open system process monitor" })
 
 
 
@@ -123,8 +124,8 @@ map.bind("XF86AudioPrev",                  hl.dsp.exec_cmd("playerctl previous")
 
 ---  Futuristic Audio Session (custom 'terminal music player' setup)
 ----   Only for TRVE music enthusiasts!
-map.bind(mainMod .. " + SHIFT + A",        hl.dsp.exec_cmd("zsh -ic 'audio-session'"),                            { description = "Launch the 'futuristic audio session'" })
-map.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio-session'"),                      { description = "Terminate the 'futuristic audio session'" })
+-- map.bind(mainMod .. " + SHIFT + A",        hl.dsp.exec_cmd("zsh -ic 'audio-session'"),                            { description = "Launch the 'futuristic audio session'" })
+-- map.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio-session'"),                      { description = "Terminate the 'futuristic audio session'" })
 
 ---  Wallpaper Changing
 map.bind(mainMod .. " + ALT + W",          hl.dsp.exec_cmd(random_WP_cmd),                                        { description = "Set a random image as new wallpaper" })
