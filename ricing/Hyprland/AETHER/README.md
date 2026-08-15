@@ -179,7 +179,7 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
 
 ## 💾 Installation & Deployment
 
-For detailed, step-by-step setup and configuration instructions, please refer to the **[Installation Guide](./Installation.md)**.
+For detailed, step-by-step setup and configuration instructions, please refer to the **[Installation tutorial](./installation/Installation-guide.md)**.
 
 
 
