@@ -44,6 +44,7 @@ Always refer to [`keybindings.lua`](./.config/hypr/modules/keybindings.lua) for 
 
 <br>
 
+
 | STATUS | KEY COMBINATIONS | DESCRIPTION |
 | :---: | :--- | :--- |
 | 🟢 | `SUPER + F1` | Show keybindings table |
@@ -54,7 +55,8 @@ Always refer to [`keybindings.lua`](./.config/hypr/modules/keybindings.lua) for 
 | 🟢 | `SUPER + Return` | Launch terminal emulator |
 | 🟢 | `SUPER + F` | Open GUI file manager |
 | 🟢 | `SUPER + SHIFT + F` | Open TUI file manager |
-| 🟢 | `SUPER + E` | Open text editor |
+| 🟢 | `SUPER + E` | Open GUI text editor |
+| 🟢 | `SUPER + SHIFT + E` | Open TUI text editor |
 | 🟢 | `SUPER + B` | Open web browser |
 | 🟢 | `CTRL + SHIFT + Escape` | Open system process monitor |
 | 🟢 | `SUPER + V` | Toggle floating mode |
@@ -100,6 +102,7 @@ Always refer to [`keybindings.lua`](./.config/hypr/modules/keybindings.lua) for 
 | 🟢 | `SUPER + F8` | Start screen recording |
 | 🟢 | `SUPER + F9` | Pause screen recording |
 | 🟢 | `SUPER + F10` | Stop screen recording |
+| 🟢 | `SUPER + SHIFT + R` | Toggle or restart status bar |
 
 
 ---
