@@ -5,7 +5,7 @@
 </p>
 
 
-The AETHER status bar is built with _Waybar_ and designed as a modular, pill-based interactive interface. 
+The _A.E.T.H.E.R._ status bar is built with _Waybar_ and designed as a modular, pill-based interactive interface. 
 Modules are organized logically from left to right, combining real-time metric indicators, quick action controls, and hardware dispatchers.
 
 
@@ -71,7 +71,7 @@ Modules are organized logically from left to right, combining real-time metric i
 | Module Group | Component | Functionality & Gestures | Tooltip & Alerts |
 | :--- | :--- | :--- | :--- |
 | **Hardware Monitors** | **Disk (`custom/disk`)** | Shows percentage of root partition used. Left-click triggers an immediate storage usage recalculation. | Tooltip displays exact used vs. total disk space (e.g., `185G / 460G`). |
-| | **Memory (`memory`)** | Monitors total RAM utilization percentage in real-time. | Native Waybar memory statistics tooltip. |
+| | **Memory (`memory`)** | Monitors total RAM utilization percentage in real-time. | Native _Waybar_ memory statistics tooltip. |
 | | **_CPU_ (`cpu`)** | Displays overall CPU usage load percentage. | None (clean layout). |
 | | **Temperature (`temperature`)** | Tracks thermal sensors. Colors shift dynamically and flash when temperature exceeds 80°C. | None (clean layout). |
 | **Hardware Controls** | **Audio (`pulseaudio`)** | Scroll up/down to adjust system volume by 2%; left-click toggles Mute; right-click opens the graphical volume control mixer. | Displays active audio output device and current volume level. |
