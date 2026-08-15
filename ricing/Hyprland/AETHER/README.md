@@ -19,6 +19,8 @@ By stripping away heavy desktop environment abstraction layers and translating s
 this environment channels your hardware's computing capacity straight into user intent. 
 No latency. No compromises. Just pure, unadulterated computational flow.
 
+Made in Italy 🇮🇹 with ❤️ .
+
 
 
 <br>
