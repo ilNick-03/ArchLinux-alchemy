@@ -41,7 +41,7 @@ Every layout is mathematically balanced to maximize screen real estate while pro
 <p align="center"><em>A.E.T.H.E.R. logo on a "cyberpunk" setting, notification styles (low, normal, critical)</em></p>
 
 ![AETHER Core System Abstract](./screenshots/AETHER_logo_background_notifications_3.jpg)
-<p align="center"><em>A.E.T.H.E.R. logo on an "abstract" setting, notification styles (low, normal, critical)</em></p>
+<p align="center"><em>A.E.T.H.E.R. logo on an "abstract" setting</em></p>
 
 ![AETHER ricing music 1](./screenshots/AETHER_ricing_music_example_1.jpg)
 <p align="center"><em>An example of "ricing art" using the "mosaic style" in the Hyprland style</em></p>
