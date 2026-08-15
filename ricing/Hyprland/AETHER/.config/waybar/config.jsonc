@@ -1,0 +1,95 @@
+// Copyright (C) 2026, Nicolas Scalese
+// Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html
+
+
+{
+    "layer": "top", 
+    "position": "top", 
+    "height": 56, 
+    "spacing": 8, 
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+
+
+    // --- OVERALL STATUS-BAR STRUCTURE & MODULES ORDER --- //
+    
+    "modules-left": [
+        "custom/apps-launcher",
+        "custom/binds-table",
+        "hyprland/workspaces",
+    ],
+
+    "modules-center": [
+        "hyprland/window"
+    ],
+    
+    "modules-right": [
+        "privacy",                  // Monitors mic and cam usage
+        "idle_inhibitor",           // Toggles auto-suspend 
+        "mpris",                    // Which audio is playing now?
+        "group/hardware-monitors",  // RAM & CPU usage, temperature,
+        "group/hardware-controls",  // Audio & backlight controls
+        "group/power-management",   // Power & battery management
+        "group/connectivity",       // Wi-fi & Bluetooth
+        "tray",                     // Tray applets (nm-applet, blueman)
+        "clock",
+        "custom/power"
+    ],
+
+
+
+    // --- MODULE GROUPS --- //
+
+
+    // HARDWARE MONITORING STRATEGY & BATTERY OPTIMIZATION:
+    // - Real-time (interval <= 1s) :          Highly informative but disrupts CPU C-States (battery drain).
+    // - Balanced Polling (interval 10s-30s) : Optimal trade-off between live metrics and energy efficiency.
+    // - Stealth Mode (commented out) :        Zero overhead, prevents unnecessary CPU wakeups entirely.
+    "group/hardware-monitors": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/disk",
+            "memory",
+            "cpu",
+            "temperature"
+        ]
+    },
+
+    // Audio and backlight controls
+    "group/hardware-controls": {
+        "orientation": "inherit",
+        "modules": [
+            "pulseaudio",
+            "backlight"
+        ]
+    },
+
+    // Wi-Fi and Bluetooth
+    "group/connectivity": {
+        "orientation": "inherit",
+        "modules": [
+            "network",
+            "bluetooth"
+        ]
+    },
+
+    // Power and battery management
+    "group/power-management": {
+        "orientation": "inherit",
+        "modules": [
+            "battery",
+            "power-profiles-daemon"
+        ]
+    },
+
+
+    
+    // --- INCLUDE EXTERNAL MODULE FILES --- //
+    "include": [
+        "$HOME/.config/waybar/modules/hyprland.jsonc",
+        "$HOME/.config/waybar/modules/default.jsonc",
+        "$HOME/.config/waybar/modules/custom.jsonc"
+    ]
+
+}

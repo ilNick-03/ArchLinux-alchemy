@@ -1,0 +1,39 @@
+// Copyright (C) 2026, Nicolas Scalese
+// Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html
+
+
+{
+    // --- WAYBAR CUSTOM MODULES DEFINITION --- //
+
+    // Application launcher module (Wofi)
+    "custom/apps-launcher": {
+        "format": "Apps",
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/apps-launcher.sh"
+    },
+
+    // Keybindings cheat-sheet trigger (Launches script in Alacritty)
+    "custom/binds-table": {
+        "format": "󰌌",
+        "tooltip": true,
+        "tooltip-format": "Keybindings Cheat-Sheet",
+        "on-click": "alacritty -T \"Keybindings Table [$(date +'%Y%m%d-%H%M%S')]\" --class floating_bindsmap -e ~/.config/hypr/scripts/hypr-binds-map.sh"
+    },
+
+    // Disk storage usage monitor  (Manual refresh via click)
+    "custom/disk": {
+        "format": "{}% 󰋊",
+        "exec": "df -h / | awk 'NR==2 {print $5 \"\\n\" $3 \" / \" $2}' | sed 's/%//'",   // Percentage value
+        "return-type": "mpris",                                                           // Standard multiline parser (Line 1 = Label, Line 2 = Tooltip)
+        "interval": "once",                                                               // Run strictly on Waybar launch (no background polling)
+        "signal": 8,                                                                      // Dedicated RT signal reserved for manual updates
+        "on-click": "pkill -RTMIN+8 waybar",                                              // Force immediate data refresh upon mouse click
+        "tooltip": true                                                                   // Format: 'Used / Total' (e.g., "185G / 460G")
+    },
+
+    "custom/power": {
+        "format" : "⏻ ",
+        "tooltip": false,
+        "on-click": "wlogout" 
+    }
+}

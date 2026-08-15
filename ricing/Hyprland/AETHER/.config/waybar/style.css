@@ -1,340 +1,417 @@
 /* Copyright (C) 2026, Nicolas Scalese
-   Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html  */
+   Licensed under the GNU GPL v3 or later. Info: https://www.gnu.org/licenses/gpl-3.0.html */
+
+/* Import external color palette definitions */
+@import "themes/aether-cyberpunk.css";
 
 
-/* --- DARK VIOLET DREAMS - FUTURISTIC STYLE --- */
+/* --- DARK VIOLET DREAMS - FUTURISTIC VAPORWAVE STYLE --- */
 
 * {
     /* Modern Nerd Font and icon support */
     font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Helvetica, Roboto, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 15.5px;
     font-weight: bold;
     border: none;
     border-radius: 0;
     min-height: 0;
 }
 
-
-/* --- WINDOW TITLE --- */
-#window {
-    margin: 8px 15px;
-    padding: 0 10px;
-    color: #cba6f7;
-    font-size: 14px;
-    /* Note: 'max-width' is not supported in GTK CSS for this widget. 
-       Limit the title length in the config file instead. */
+/* --- MAIN BAR CONTAINER --- */
+window#waybar {
+    background-color: @bar_bg;
+    border-bottom: 2px solid @primary_violet;
+    color: @white;
+    margin: 5px 10px;
+    border-radius: 20px;
 }
 
-window#waybar {
-    /* Deep indigo background with transparency */
-    background-color: rgba(13, 2, 33, 0.75);
-    /* Neon violet bottom border for a glow effect */
-    border-bottom: 2px solid #8839ef;
-    color: #ffffff;
-    /* Floating layout: adds space from screen edges */
-    margin: 5px 10px;
-    border-radius: 15px;
+/* Increases the internal spacing between Waybar border and the pills */
+.modules-left,
+.modules-center,
+.modules-right {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /* Critical Alert Animation */
 @keyframes blink {
     to {
-        background-color: rgba(243, 139, 168, 0.5);
-        color: #ffffff;
+        background-color: @red_alpha50;
+        color: @white;
     }
 }
 
 /* Futuristic tooltip styling */
 tooltip {
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 12px;
-    background: rgba(30, 30, 46, 0.9);
-    border: 1px solid #c0a0f0;
+    /* font-size: 12px; */
+    background: @tooltip_bg;
+    border: 1px solid @pastel_violet;
     border-radius: 10px;
 }
 
 
 
-/* --- HARDWARE MODULES: PILL-STYLE (Right Side) --- */
+/* =============================================================================
+   LEFT SIDE MODULES (Launcher, Cheat-Sheet, Workspaces)
+   ============================================================================= */
 
-#backlight, #battery, #bluetooth, #clock, #cpu, #idle_inhibitor, #memory, #mpris, #network, #power-profiles-daemon, #pulseaudio, #temperature, #tray {
-    margin: 8px 3px;
-    padding: 0 15px;
+/* --- APPS LAUNCHER ("Apps") --- */
+#custom-apps-launcher {
+    margin: 8px 3px 8px 8px;
+    padding: 0 16px;
     border-radius: 10px;
-    /* Dark gradient for depth and high-tech feel */
-    background: linear-gradient(180deg, rgba(40, 40, 60, 0.6) 0%, rgba(20, 20, 35, 0.8) 100%);
-}
-
-
-
-/* --- BACKLIGHT: FROSTED GLOW --- */
-#backlight {
-    background: linear-gradient(180deg, rgba(40, 40, 60, 0.6) 0%, rgba(20, 20, 35, 0.8) 100%);
-    margin: 8px 3px;
-    padding: 0 15px;
-    border-radius: 10px;
-    
-    /* Ice White/Blue: Bright and clean */
-    color: #e0f7fa; 
-    border-bottom: 2px solid #b2ebf2;
-    
-    /* Subtle neon glow to represent "light" */
-    box-shadow: 0 0 8px rgba(178, 235, 242, 0.4);
-}
-
-#backlight:hover {
-    /* Brighter glow on hover to signal interactivity */
-    box-shadow: 0 0 12px rgba(178, 235, 242, 0.7);
+    background: linear-gradient(180deg, @cyber_pink_alpha25 0%, @violet_alpha35 100%);
+    color: @white;
+    border-bottom: 2px solid @cyber_pink; /* Cyber pink accent */
+    box-shadow: 0 0 8px @cyber_pink_alpha40;
     transition: all 0.3s ease;
 }
 
-
-
-/* Battery dynamic coloring */
-#battery {
-    color: #94e2d5; /* Seafoam/Cyan */
-    border-bottom: 2px solid #94e2d5;
+#custom-apps-launcher:hover {
+    background: linear-gradient(180deg, @cyber_pink_alpha45 0%, @violet_alpha55 100%);
+    box-shadow: 0 0 14px @cyber_pink_alpha70;
 }
 
-#battery.charging {
-    color: #a6e3a1;
-    border-bottom: 2px solid #a6e3a1;
-}
-
-#battery.critical:not(.charging) {
-    color: #f38ba8;
-    border-bottom: 2px solid #f38ba8;
-    animation: blink 0.5s steps(10) infinite alternate;
-}
-
-
-
-/* Bluetooth dynamic coloring (Electric Pink/Magenta) --- */
-#bluetooth {
-    color: #f5c2e7; 
-    border-bottom: 2px solid #f5c2e7;
-}
-
-#bluetooth.connected {
-    color: #b48ead;    /* Violet/Mauve when a device is connected */
-    border-bottom: 2px solid #b48ead;
-}
-
-#bluetooth.discoverable {
-    color: #f5c2e7;    /* Glowing Pink (Active search) */
-    border-bottom: 2px solid #f5c2e7;
-    box-shadow: 0 0 5px rgba(245, 194, 231, 0.6);
-}
-
-
-#bluetooth.disconnected {
-    color: #f38ba8;    /* Neon Pink/Red) */
-    border-bottom: 2px solid #f38ba8;
-}
-
-#bluetooth.disabled, #bluetooth.off {
-    color: #6c7086;    /* Dimmed gray when disabled */
-    border-bottom: 2px solid #6c7086;
-}
-
-
-
-/* Clock (The focal point of the bar) */
-#clock {
-    color: #ffffff;
-    background: rgba(136, 57, 239, 0.2);
-    border: 1px solid rgba(136, 57, 239, 0.5);
-    font-weight: 900;
-}
-
-
-
-/* Green for CPU and hardware monitoring */
-#cpu {
-    color: #a6e3a1;
-    border-bottom: 2px solid #a6e3a1;
-}
-
-
-
-/* Specific styling for the Idle Inhibitor (Eye icon) */
-#idle_inhibitor {
-    color: #cba6f7;
-    font-size: 14px;  /* Slightly smaller to ensure it fits perfectly */
-}
-
-
-
-/* Violet/Indigo for Memory and Language modules */
-#memory {
-    color: #cba6f7;
-    border-bottom: 2px solid #cba6f7;
-}
-
-
-
-/* Which audio is playing now? */
-#mpris {
-    background: rgba(25, 25, 35, 0.8);
+/* --- KEYBINDINGS CHEAT-SHEET ICON --- */
+#custom-binds-table {
+    font-size: 16;
     margin: 8px 3px;
-    padding: 0 15px;
+    padding: 0 14px; /* Reduced to balance pill width */
     border-radius: 10px;
-    
-    /* Mauve Glow: A bridge between your Violet and Cyan */
-    color: #cba6f7; 
-    border-bottom: 2px solid #cba6f7;
-    box-shadow: none;
+    background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
+    color: @neon_cyan;
+    border-bottom: 2px solid @neon_cyan;
+    box-shadow: 0 0 6px @cyan_glow;
+    transition: all 0.3s ease;
 }
 
-#mpris.paused {
-    color: #6c7086; /* Grayed out when paused */
-    border-bottom: 2px solid #6c7086;
+#custom-binds-table:hover {
+    box-shadow: 0 0 12px @neon_cyan;
+    color: @white;
 }
 
-#mpris label {
-    font-size: 18px;
-    font-weight: bold;
-    padding-left: 4px;
-}
-
-
-
-/* Network status, dynamic coloring (Cyan/Blue) */
-#network {
-    color: #89dceb;
-    border-bottom: 2px solid #89dceb;
-}
-
-#network.disconnected {
-    color: #f38ba8;
-    border-bottom: 2px solid #f38ba8;
-}
-
-#network.disabled {
-	color: #6c7086; 
-    border-bottom: 2px solid #6c7086;
-}
-
-
-
-/* Power profiles module */
-#power-profiles-daemon {
-    color: #fab387;
-    border-bottom: 2px solid #fab387;
-}
-
-#power-profiles-daemon.performance {
-    color: #f38ba8;
-    border-bottom: 2px solid #f38ba8;
-}
-
-#power-profiles-daemon.power-saver {
-    color: #a6e3a1;
-    border-bottom: 2px solid #a6e3a1;
-}
-
-
-
-/* --- PRIVACY MODULE --- */
-/* Shows icons when the mic, webcam, or screen is in use. */
-#privacy {
-    margin: 8px 3px;
-    padding: 0 10px;
-    border-radius: 10px;
-    /* Dark gradient to match the pill-style of other modules */
-    background: linear-gradient(180deg, rgba(40, 40, 60, 0.6) 0%, rgba(20, 20, 35, 0.8) 100%);
-    /* Red/Pink accent to highlight privacy status */
-    border-bottom: 2px solid #f38ba8;
-}
-
-/* Individual icons inside the privacy module */
-#privacy-item {
-    padding: 0 5px;
-    color: #f38ba8;
-}
-
-
-
-/* Neon Blue for Audio/Volume control */
-#pulseaudio {
-    color: #89b4fa;
-    border-bottom: 2px solid #89b4fa;
-}
-
-#pulseaudio.muted {
-    color: #6c7086;
-    border-bottom: 2px solid #6c7086;
-}
-
-
-
-/* Bright Orange/Neon for Temperature alerts */
-#temperature {
-    color: #fab387; 
-    border-bottom: 2px solid #fab387;
-}
-
-
-
-/* --- TRAY and APPLET MENU --- */
-#tray {
-    background: linear-gradient(180deg, rgba(40, 40, 60, 0.6) 0%, rgba(20, 20, 35, 0.8) 100%);
-    margin: 8px 3px;
-    padding: 0 15px;
-    border-radius: 10px;
-    
-    /* Cyber Neon Cyan: High luminosity for maximum visibility */
-    border-bottom: 2px solid #00f2ff;
-    
-    /* Intense glow effect */
-    box-shadow: 0 0 8px rgba(0, 242, 255, 0.5);
-}
-
-/* NM-APPLET MENU */
-#tray menu {
-    background: rgba(17, 27, 36, 0.88);    /* Midnight Sky with slight transparency */
-    color: #ffffff;
-    border: 3px solid #5a24a1;    /* Deep Royal Violet: The dark evolution of #8839ef */
-    border-radius: 18px;          /* Strong rounding for a modern look */
-    padding: 8px;
-    margin: 10px;
-    /* Adding a subtle purple shadow to the menu itself */
-    box-shadow: 0 4px 15px rgba(90, 36, 161, 0.4);
-}
-
-/* Hover effect: A mix of the two worlds */
-#tray menu menuitem:hover {
-    /* Transparent deep violet background */
-    background: rgba(90, 36, 161, 0.3);
-    border-radius: 18px;
-    color: #00f2ff; /* Text glows cyan on hover */
-}
-
-
-
-/* --- WORKSPACES (Indigo/Violet Accents) --- */
+/* --- HYPRLAND WORKSPACES --- */
 #workspaces {
-    background-color: rgba(48, 45, 75, 0.5);
-    margin: 4px;
+    background-color: @workspaces_bg;
+    margin: 8px 4px;
     border-radius: 10px;
-    border: 1px solid rgba(136, 57, 239, 0.3);
+    border: 1px solid @violet_alpha30;
 }
 
 #workspaces button {
-    padding: 0 12px;
-    color: #c0a0f0;
+    padding: 0 10px;
+    color: @pastel_violet;
     transition: all 0.3s ease;
 }
 
 #workspaces button.active {
-    color: #ffffff;
-    background-color: #8839ef;
+    color: @white;
+    background-color: @primary_violet;
     border-radius: 8px;
-    /* Neon glow effect for the active workspace */
-    box-shadow: 0 0 10px rgba(136, 57, 239, 0.8);
+    box-shadow: 0 0 10px @violet_alpha80;
 }
 
 #workspaces button:hover {
-    background-color: rgba(136, 57, 239, 0.2);
-    color: #ffffff;
+    background-color: @violet_alpha20;
+    color: @white;
+}
+
+
+
+/* =============================================================================
+   CENTER MODULE (Active Window Title)
+   ============================================================================= */
+
+#window {
+    margin: 8px 15px;
+    padding: 2px 18px;
+    border-radius: 10px;
+    background-color: @primary_violet; /* Highlighted solid matte color */
+    color: @white;
+    /* font-size: 13px; */
+    font-weight: bold;
+    border: none;
+    box-shadow: none; /* No glare/halo */
+}
+
+/* Collapse window pill completely when the workspace has no active windows */
+window#waybar.empty #window {
+    background-color: transparent;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    opacity: 0;
+}
+
+
+
+/* =============================================================================
+   RIGHT SIDE: UNIFIED MODULE GROUPS (The Multi-Element Pill Architecture)
+   ============================================================================= */
+
+/* --- GLOBAL RESET FOR MODULES INSIDE GROUPS --- */
+#hardware-monitors widget > *,
+#hardware-controls widget > *,
+#connectivity widget > *,
+#power-management widget > *,
+#group-hardware-monitors widget > *,
+#group-hardware-controls widget > *,
+#group-connectivity widget > *,
+#group-power-management widget > * {
+    background: transparent;
+    margin: 0;
+    padding: 0 12px; 
+    border: none;
+    box-shadow: none;
+    transition: background 0.25s ease;
+}
+
+/* Hover effect */
+#hardware-monitors widget > *:hover,
+#hardware-controls widget > *:hover,
+#connectivity widget > *:hover,
+#power-management widget > *:hover,
+#group-hardware-monitors widget > *:hover,
+#group-hardware-controls widget > *:hover,
+#group-connectivity widget > *:hover,
+#group-power-management widget > *:hover {
+    background: @white_alpha08;
+    border-radius: 6px;
+}
+
+/* MICRO-REFINED DIVIDERS: Spacing and internal dividing lines */
+#custom-disk, #memory, #cpu, #pulseaudio, #battery, #network {
+    border-right: 1px solid @white_alpha20;
+    padding-right: 14px;
+    margin-right: 4px;
+}
+
+
+/* -----------------------------------------------------------------------------
+   GROUP 1: HARDWARE MONITORS
+   ----------------------------------------------------------------------------- */
+#hardware-monitors, #group-hardware-monitors {
+    margin: 8px 3px;
+    padding: 0 4px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
+    border-bottom: 2px solid @mint_green;
+    box-shadow: 0 0 6px @monitor_glow;
+}
+
+#custom-disk { 
+    color: @seafoam; 
+}
+#memory { 
+    color: @lavender; 
+}
+#cpu { 
+    color: @mint_green; 
+}
+#temperature { 
+    color: @peach; 
+}
+
+
+/* -----------------------------------------------------------------------------
+   GROUP 2: HARDWARE CONTROLS
+   ----------------------------------------------------------------------------- */
+#hardware-controls, #group-hardware-controls {
+    margin: 8px 3px;
+    padding: 0 4px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
+    border-bottom: 2px solid @ice_blue;
+    box-shadow: 0 0 6px @controls_glow;
+}
+
+#pulseaudio { 
+    color: @soft_blue; 
+}
+#backlight  { 
+    color: @frost_white; 
+}
+#pulseaudio.muted { 
+    color: @gray; 
+}
+
+
+/* -----------------------------------------------------------------------------
+   GROUP 3: POWER MANAGEMENT (Battery | Profiles)
+   Identity: Seafoam Ice/Cyan with Intense Glow
+   ----------------------------------------------------------------------------- */
+#power-management, #group-power-management {
+    margin: 8px 3px;
+    padding: 0 4px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
+    border-bottom: 2px solid @seafoam;
+    box-shadow: 0 0 12px @power_glow; 
+}
+
+/* Battery text is white */
+#battery { 
+    color: @white; 
+    font-size: 15px;
+}
+
+/* Special battery states */
+#battery.charging { 
+    color: @mint_green; 
+}
+#battery.critical:not(.charging) { 
+    color: @red; animation: blink 0.5s steps(10) infinite alternate; 
+}
+
+/* Default power profile icon (Balanced) */
+#power-management #power-profiles-daemon,
+#group-power-management #power-profiles-daemon { 
+    color: @peach; 
+    padding-left: 4px;
+    padding-right: 8px;
+}
+
+/* High specificity override for individual profiles */
+#power-management #power-profiles-daemon.power-saver,
+#group-power-management #power-profiles-daemon.power-saver { 
+    color: @mint_green; 
+}
+
+#power-management #power-profiles-daemon.performance,
+#group-power-management #power-profiles-daemon.performance { 
+    color: @red; 
+}
+
+
+/* -----------------------------------------------------------------------------
+   GROUP 4: CONNECTIVITY (Wi-Fi | Bluetooth)
+   Identity: Sky Blue/Electric Pink (Subtle Glow)
+   ----------------------------------------------------------------------------- */
+#connectivity, #group-connectivity {
+    margin: 8px 3px;
+    padding: 0 4px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
+    border-bottom: 2px solid @sky_blue;
+    box-shadow: 0 0 6px @connectivity_glow; 
+}
+
+#network   { 
+    color: @sky_blue; 
+    font-size: 14.5px;
+}
+#bluetooth { 
+    color: @flamingo_pink; 
+    font-size: 14.5px;
+}
+
+#network.disconnected, #bluetooth.disconnected { 
+    color: @red; 
+}
+#network.disabled, #bluetooth.disabled, #bluetooth.off { 
+    color: @gray; 
+}
+#bluetooth.connected { 
+    color: @mauve; 
+}
+
+
+
+/* =============================================================================
+   STANDALONE RIGHT MODULES (Pill Style)
+   ============================================================================= */
+
+#privacy, #idle_inhibitor, #mpris, #tray, #clock, #custom-power {
+    margin: 8px 3px;
+    padding: 0 15px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
+}
+
+/* --- PRIVACY INDICATOR --- */
+#privacy {
+    padding: 0 10px;
+    border-bottom: 2px solid @red;
+}
+#privacy-item {
+    padding: 0 5px;
+    color: @red;
+}
+
+/* --- IDLE INHIBITOR --- */
+#idle_inhibitor {
+    color: @lavender;
+    font-size: 14px;
+}
+
+/* --- MPRIS (Media Player) --- */
+#mpris {
+    background: @mpris_bg;
+    color: @lavender;
+    border-bottom: 2px solid @lavender;
+}
+#mpris.paused {
+    color: @gray;
+    border-bottom: 2px solid @gray;
+}
+
+/* --- SYSTEM TRAY --- */
+#tray {
+    border-bottom: 2px solid @neon_cyan;
+    box-shadow: 0 0 8px @cyan_glow;
+}
+
+#tray menu {
+    background: @tray_menu_bg;
+    color: @white;
+    border: 3px solid @royal_violet;
+    border-radius: 18px;
+    padding: 8px;
+    margin: 10px;
+    box-shadow: 0 4px 15px @royal_violet_alpha40;
+}
+
+#tray menu menuitem:hover {
+    background: @royal_violet_alpha30;
+    border-radius: 18px;
+    color: @neon_cyan;
+}
+
+/* Hide tray when empty */
+#tray.empty {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* --- CLOCK (Focal Point Badge) --- */
+#clock {
+    color: @white;
+    background: @violet_alpha20;
+    border: 1px solid @violet_alpha50;
+    font-weight: 900;
+}
+
+/* --- CUSTOM POWER BUTTON --- */
+#custom-power {
+    margin-right: 8px;
+    padding: 0 12px;
+    color: @red;
+    border-bottom: 2px solid @red;
+    box-shadow: 0 0 6px @red_alpha50;
+    transition: all 0.3s ease;
+}
+
+#custom-power:hover {
+    background: @red_alpha50;
+    color: @white;
+    box-shadow: 0 0 12px @red;
 }

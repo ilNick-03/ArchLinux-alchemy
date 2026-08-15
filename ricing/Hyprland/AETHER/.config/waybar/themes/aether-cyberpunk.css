@@ -1,0 +1,74 @@
+/* =============================================================================
+     Waybar Color Palette (A.E.T.H.E.R. / Cyberpunk Vaporwave Edition)
+     Newton Spectrum Order: Red -> Orange -> Green -> Blue -> Indigo -> Violet
+   ============================================================================= */
+
+/* --- 1. RED / HOT PINK --- */
+@define-color red                   #f38ba8; /* Alert, critical states, disconnects, privacy */
+@define-color red_alpha50           rgba(243, 139, 168, 0.5); /* Critical alert blink background */
+@define-color cyber_pink            #ff007f; /* Apps launcher & power button neon accent */
+@define-color cyber_pink_alpha70    rgba(255, 0, 127, 0.7); /* Apps launcher hover intense shadow */
+@define-color cyber_pink_alpha45    rgba(255, 0, 127, 0.45); /* Apps launcher hover top gradient */
+@define-color cyber_pink_alpha40    rgba(255, 0, 127, 0.4); /* Apps launcher standard shadow */
+@define-color cyber_pink_alpha25    rgba(255, 0, 127, 0.25); /* Apps launcher standard top gradient */
+
+/* --- 2. ORANGE / PEACH / CORAL --- */
+@define-color peach                 #fab387; /* Temperature & power profile indicator */
+@define-color power_border          #ff9e64; /* Power Management group pill border */
+@define-color power_divider         rgba(255, 158, 100, 0.25); /* Power group internal divider */
+
+/* --- 3. GREEN / MINT / MATRIX --- */
+@define-color mint_green            #a6e3a1; /* CPU usage, battery charging, power-saver mode */
+@define-color seafoam               #94e2d5; /* Normal battery status */
+@define-color monitor_border        #2ac3de; /* Hardware Monitors group pill border */
+@define-color monitor_divider       rgba(166, 227, 161, 0.22); /* Hardware Monitors internal divider */
+@define-color monitor_glow          rgba(166, 227, 161, 0.25); /* Hardware Monitors subtle green glow */
+@define-color power_glow            rgba(148, 226, 213, 0.65); /* Power Management seafoam glow */
+
+/* --- 4. BLUE / CYAN / ICE --- */
+@define-color neon_cyan             #00f2ff; /* Cyber neon tray border & hover highlight */
+@define-color cyan_glow             rgba(0, 242, 255, 0.5); /* Tray neon glow shadow */
+@define-color sky_blue              #89dceb; /* Network active status */
+@define-color soft_blue             #89b4fa; /* Audio / Volume control */
+@define-color ice_blue              #b2ebf2; /* Backlight border */
+@define-color frost_white           #e0f7fa; /* Backlight foreground text */
+@define-color ice_glow_subtle       rgba(178, 235, 242, 0.4); /* Backlight standard glow */
+@define-color ice_glow_intense      rgba(178, 235, 242, 0.7); /* Backlight hover glow */
+@define-color controls_border       #7dcfff; /* Hardware Controls group pill border */
+@define-color controls_divider      rgba(125, 207, 255, 0.25); /* Hardware Controls internal divider */
+@define-color controls_glow         rgba(178, 235, 242, 0.25); /* Hardware Controls subtle ice glow */
+@define-color connectivity_border   #00f2ff; /* Connectivity group pill border */
+@define-color connectivity_divider  rgba(0, 242, 255, 0.25); /* Connectivity internal divider */
+@define-color connectivity_glow     rgba(137, 220, 235, 0.25); /* Connectivity subtle sky blue glow */
+
+/* --- 5. INDIGO / DARK BACKGROUNDS --- */
+@define-color bar_bg                rgba(13, 2, 33, 0.82); /* Main Waybar background */
+@define-color workspaces_bg         rgba(48, 45, 75, 0.5); /* Workspaces container background */
+@define-color tray_menu_bg          rgba(17, 27, 36, 0.92); /* Tray dropdown menu background */
+@define-color royal_violet          #5a24a1; /* Tray menu border */
+@define-color royal_violet_alpha40  rgba(90, 36, 161, 0.4); /* Tray menu box shadow */
+@define-color royal_violet_alpha30  rgba(90, 36, 161, 0.3); /* Tray menuitem hover background */
+
+/* --- 6. VIOLET / MAUVE / LAVENDER --- */
+@define-color primary_violet        #8839ef; /* Main bar bottom border, active workspace background */
+@define-color violet_alpha80        rgba(136, 57, 239, 0.8); /* Active workspace glow shadow */
+@define-color violet_alpha55        rgba(136, 57, 239, 0.55); /* Apps launcher hover bottom gradient */
+@define-color violet_alpha50        rgba(136, 57, 239, 0.5); /* Clock border */
+@define-color violet_alpha35        rgba(136, 57, 239, 0.35); /* Apps launcher standard bottom gradient */
+@define-color violet_alpha30        rgba(136, 57, 239, 0.3); /* Workspaces container border */
+@define-color violet_alpha20        rgba(136, 57, 239, 0.2); /* Clock background, workspace hover */
+@define-color lavender              #cba6f7; /* Window title, memory, mpris, idle_inhibitor */
+@define-color pastel_violet         #c0a0f0; /* Tooltip border, inactive workspace text */
+@define-color flamingo_pink         #f5c2e7; /* Bluetooth active/discoverable */
+@define-color flamingo_glow         rgba(245, 194, 231, 0.6); /* Bluetooth search glow */
+@define-color mauve                  #b48ead; /* Bluetooth connected state */
+
+/* --- 7. NEUTRALS, GRAYS & GRADIENTS --- */
+@define-color white                 #ffffff; /* Main text, active elements, clock */
+@define-color white_alpha20         rgba(255, 255, 255, 0.2); /* Generic internal divider line */
+@define-color white_alpha08         rgba(255, 255, 255, 0.08); /* Generic module hover background */
+@define-color gray                  #6c7086; /* Disabled, off, muted, or paused states */
+@define-color tooltip_bg            rgba(30, 30, 46, 0.92); /* Tooltip background */
+@define-color mpris_bg              rgba(25, 25, 35, 0.85); /* MPRIS module background */
+@define-color pill_bg_top           rgba(32, 28, 52, 0.75); /* Module pill gradient top color */
+@define-color pill_bg_bottom        rgba(16, 14, 28, 0.90); /* Module pill gradient bottom color */
