@@ -66,30 +66,29 @@ _G.status_bar           =  "waybar"
 _G.notification_daemon  =  "dunst"
 -- _G.auth_manager         =  "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"    -- GNOME agent, old and stable, X11-native, extra GTK dependencies
 _G.auth_manager         =  "/usr/lib/xfce-polkit/xfce-polkit"                                -- XFCE agent, lightweight, Wayland-native
-_G.wifi_menu            =  "nm-applet --indicator"
-_G.bluetooth_menu       =  "blueman-applet"
 -- _G.idle_daemon          =  "hypridle"                                 -- Native, sometimes crashes (libsdbus-c++ regression)
 _G.idle_daemon          =  "swayidle -w -C ~/.config/swayidle/config"    -- Stable and reliable alternative 
 _G.binds_table          =  "alacritty -T \"Keybindings Table [$(date +\'%Y%m%d-%H%M%S\')]\" --class floating_bindsmap -e " .. scripts_dir .. "/hypr-binds-map.sh"
-_G.apps_launcher        =  "wofi --show drun --conf \"" .. home_dir .. "/.config/wofi/config\" --style \"" .. home_dir .. "/.config/wofi/style.css\""
+_G.apps_launcher        =  scripts_dir .. "/apps-launcher.sh"
 
 ----   ... including Clipboard Management
 _G.clip_store_text      =  "zsh -c 'wl-paste --type text --watch cliphist store'"
-_G.clipboard_selector   =  "cliphist list | head -n 30 | awk '{print substr($0, index($0,$2))}' | wofi --dmenu --width 720 | wl-copy"
-_G.clipboard_wipe       =  "cliphist wipe && notify-send -u low 'Clipboard Registry' 'Memory completely purged.'"
-
+_G.clipboard_selector   =  scripts_dir .. "/clipboard-selector.sh"
+_G.clipboard_wipe       =  "cliphist wipe && pkill -x wofi ; notify-send -u low 'Clipboard Registry' 'Memory completely purged.'"
 
 ---  Terminal User Iterface (TUI) programds
 _G.terminal             =  "alacritty -T \"Alacritty [$(date +\'%Y%m%d-%H%M%S\')]\" -e zsh --login -c \"tmux\""
-_G.process_Monitor      =  "alacritty -T \"BTOP (Process Monitor) [$(date +\'%Y%m%d-%H%M%S\')]\" --class floating_monitor -e btop"
-_G.file_Manager_TUI     =  "alacritty -T \"Yazi (File Manager) [$(date +\'%Y%m%d-%H%M%S\')]\" -e zsh --login -c \"tmux new-session yazi\""
-_G.text_editor          =  "alacritty -T \"NeoVim (Text Editor)\" -e zsh --login -c \"tmux new-session -A -s neovim_session nvim\""
-_G.aether_logo          =  "alacritty --class aether_logo -e zsh -c \"sed -n '3,25p' " .. home_dir .. "/.config/hypr/hyprland.lua | less -r\""     -- See 'autostart.lua'
+_G.process_monitor      =  "alacritty -T \"BTOP (Process Monitor)\" --class floating_monitor -e btop"
+_G.file_manager_TUI     =  "alacritty -T \"Yazi (File Manager) [$(date +\'%Y%m%d-%H%M%S\')]\" -e zsh --login -c \"tmux new-session yazi\""
+_G.text_editor_TUI      =  "alacritty -T \"$EDITOR (Text Editor) [$(date +\'%Y%m%d-%H%M%S\')]\" -e zsh --login -c \"tmux new-session '$EDITOR'\""    -- Default text editor, multiple instances
+-- _G.text_editor_TUI      =  "alacritty -T \"Micro (Text Editor) [$(date +\'%Y%m%d-%H%M%S\')]\" -e zsh --login -c \"tmux new-session micro\""       -- Simple & intuitive, recommended, multiple instances
+_G.aether_logo          =  "alacritty --class aether_logo -t \"AETHER logo\" -e zsh -c \"sed -n '3,25p' " .. home_dir .. "/.config/hypr/hyprland.lua | less -r\""     -- See 'autostart.lua'
 
 ---  Graphical User Interface (GUI) programs
-_G.file_Manager_GUI     =  "thunar"
+_G.file_manager_GUI     =  "thunar"
 _G.browser              =  "librewolf"
--- _G.text_editor          =  "code"
+_G.text_editor_GUI      =  "kate"         -- Lightweight, for casual text editing
+-- _G.text_editor_GUI      =  "codium"    -- Complete IDE, good support for programming, heavyweight
 
 
 
@@ -100,6 +99,7 @@ local initial_WP        =  home_dir .. "/.config/hypr/splash.jpg"
 
 
 --- Set the INITIAL wallpaper, and later replace the current background with a RANDOM IMAGE
+
 ----   (a) Use 'hyprpaper' ->  native way, the most efficient, 10-bit support 
 _G.initial_WP_cmd       =  "zsh -c '" .. scripts_dir .. "/hypr-bg-setter.sh \"" .. initial_WP .. "\"'"
 _G.random_WP_cmd        =  "zsh -c '" .. scripts_dir .. "/random-wallpaper-selector.sh | " .. scripts_dir .. "/hypr-bg-setter.sh'"
@@ -125,4 +125,5 @@ _G.screen_shot_ram      =  "grim -g \"$(slurp)\" - | wl-copy --type image/png"
 ---- Uses 'obs-studio' and its 'obs-cmd' command line interface
 _G.screen_rec_start     =  "obs-cmd recording start"
 _G.screen_rec_stop      =  "obs-cmd recording stop"
-_G.screen_rec_pause     =  "obs-cmd recording toggle-pause""
+_G.screen_rec_pause     =  "obs-cmd recording toggle-pause"
+
