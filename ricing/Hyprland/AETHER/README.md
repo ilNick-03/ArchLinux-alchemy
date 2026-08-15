@@ -147,32 +147,45 @@ The interaction map is localized entirely within a [single Lua module](./.config
 To explore, alter, or enhance the keyboard layout, use this file as your definitive reference. 
 Every map entry utilizes detailed descriptions that flow straight into the dynamic interactive menu mapping script.
 
-Plus. once you have installed this "ricing", you can view keybindings in table format with relative description by pressing `SUPER + F1`.
-
-![Keybinds Table](./screenshots/AETHER_keybindings_table.jpg)
-
 See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combinations_ table, alongside more technical details.
+
 
 <br>
 
 ### Architectural Interaction Features
 
+- **Interactive Status Bar**: Powered by [***Waybar***]((https://github.com/Alexays/Waybar)), the modular pill-based interface combines system metrics, workspace switchers, media controls, and hardware toggles directly at the top of your screen. 
+  For a full breakdown of gestures, tooltips, and modular design, check out the dedicated [**Status Bar Documentation**](./StatusBar.md).
+  ![AETHER Status Bar](./screenshots/AETHER_status_bar.png)
+  <p align="center"><em>Interactive, modular Waybar status bar architecture</em></p>
+
+- **Interactive Keybindings Map**: Triggered via `SUPER + F1`, it intercepts live system mappings and instantly renders an interactive data table nested inside a distinct window class wrapper (`floating_bindsmap`).
+  ![Keybinds Table](./screenshots/AETHER_keybindings_table.jpg)
+  <p align="center"><em>Interactive TUI keybindings table inside an isolated terminal window</em></p>
+
+- **Dynamic Application Launcher**: Invoked via `SUPER + SPACE`, the system summons a fast, asynchronous application menu (`wofi`) styled with custom CSS to perfectly match the neon-drenched aesthetic.
+  ![AETHER Apps Launcher](./screenshots/AETHER_apps_launcher.jpg)
+  <p align="center"><em>Dynamic application launcher triggered asynchronously</em></p>
+
+- **Interactive Network Selection**: Accessible directly from the status bar or via keyboard shortcuts, this launches a dedicated floating terminal interface for quick, keyboard-driven Wi-Fi network management.
+  ![AETHER Wi-Fi Menu](./screenshots/AETHER_wifi_menu.jpg)
+  <p align="center"><em>Terminal-based interactive Wi-Fi network selection menu</em></p>
+
+- **Clipboard History Menu**: Invoking `SUPER + H`, this macro launches a high-performance, text-only clipboard engine. By piping `cliphist` straight through a streamlined `awk` parser, the system hides database index tracking numbers on the fly, rendering a pristine, unified history of your last copied assets inside a wide dedicated Wofi container. Purge your clipboard history registry via `SUPER + SHIFT + H`.
+  ![Clipboard Menu screenshot](./screenshots/AETHER_clipboard_selector.jpg)
+  <p align="center"><em>Clipboard history selector rendering full untruncated strings</em></p>
+
 - **Chronological Terminal Isolation**: Every time you invoke `SUPER + Return`, a new [***Alacritty***](https://alacritty.org/) interface opens inside a [***Tmux***](https://github.com/tmux/tmux) session.
   The configuration automatically titles the window with an instantaneous timestamp down to the second: `[$(date +'%Y%m%d-%H%M%S')]`.
   This facilitates perfect log tracking and terminal tracking management.
 
-- **Terminal _IDE_ Workspace**: Invoking `SUPER + E` launches a dedicated [***Neovim***](https://neovim.io/) session powered by [***NvChad***](https://nvchad.com/) inside an isolated [***Tmux***](https://github.com/tmux/tmux) environment, providing instant text editing capability without leaving the keyboard flow.
+- **Terminal _IDE_ Workspace**: Change `SUPER + E` keybinding to invoke [***VSCodium***]((https://vscodium.com/)), ready for intense programming sessions.
   
 - **The "Magic" Workspace**: Accessible via `SUPER + S`, this acts as a scratchpad overlay,
   pulling minimized assets or hidden background operations instantly to the center of your screen without disrupting your active window layouts.
   
-- **Clipboard History Menu**: Invoking `SUPER + H`, this macro invokes a high-performance, text-only clipboard engine.
-  By piping `cliphist` straight through a streamlined `awk` parser, the system hides database index tracking numbers on the fly, rendering a pristine, unified history of your last copied assets inside a wide dedicated [Wofi](https://hg.sr.ht/~scoopta/wofi) container.
-  Purge your clipboard history registry via `SUPER + SHIFT + H`.
-  ![Clipboard Menu screenshot](./screenshots/AETHER_clipboard_menu.jpg)
-  
 - **[Futuristic Audio Session](https://github.com/ilNick-03/ArchLinux-alchemy)**: Triggered with `SUPER + SHIFT + A`, this macro launches a custom script environment inside your directory structures designed specifically for high-quality music listening experience. Closed typing `SUPER + SHIFT + ALT + A`.
-  ![Futuristic Audio Session view](./screenshots/AETHER_ricing_audio_session_1.jpg)
+  ![Futuristic Audio Session view](./screenshots/AETHER_ricing_audio_session_2.jpg)
 
 
 
