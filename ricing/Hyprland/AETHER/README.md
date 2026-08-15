@@ -154,7 +154,7 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
 
 ### Architectural Interaction Features
 
-- **Interactive Status Bar**: Powered by [***Waybar***]((https://github.com/Alexays/Waybar)), the modular pill-based interface combines system metrics, workspace switchers, media controls, and hardware toggles directly at the top of your screen. 
+- **Interactive Status Bar**: Powered by [***Waybar***](https://github.com/Alexays/Waybar), the modular pill-based interface combines system metrics, workspace switchers, media controls, and hardware toggles directly at the top of your screen. 
   For a full breakdown of gestures, tooltips, and modular design, check out the dedicated [**Status Bar Documentation**](./StatusBar.md).
   ![AETHER Status Bar](./screenshots/AETHER_status_bar.png)
   <p align="center"><em>Interactive, modular Waybar status bar architecture</em></p>
