@@ -86,7 +86,7 @@ Without these core pillars, the *A.E.T.H.E.R.* environment cannot initialize or 
 | [Waybar](https://github.com/Alexays/Waybar) | The primary _CSS_-styled status bar, hosting custom script extensions and the interactive hardware monitors, including suspend inhibitor. |
 | [WirePlumber](https://pipewire.pages.freedesktop.org/wireplumber/) (`wpctl`) | Audio engine controller driving PipeWire routing settings, hardware mute states, and volume levels. |
 | [WLogout](https://github.com/ArtsyMacaw/wlogout) | A full-screen, minimal overlay menu executing clean power cycles, logouts, and sleep sequences. |
-| [Wofi](https://hg.sr.ht/~scoopta/wofi) | A menu-driven application runner styled via custom stylesheets (`style.css`) to match the colorway. |
+| [Wofi](https://hg.sr.ht/~scoopta/wofi) | A menu-driven application runner styled via custom stylesheets, orchestrated via dedicated wrapper scripts for fast dynamic menu rendering. |
 | [XFCE-Polkit](https://github.com/ncopa/xfce-polkit) / [Polkit-GNOME](https://archlinux.org/packages/extra/x86_64/polkit-gnome/) | **Authentication agents** running in the background to handle elevated system privilege requests. The setup defaults to the lightweight `xfce-polkit` which is Wayland-native, while preserving `polkit-gnome` as a rock-solid alternative as a fallback. |
 | [Zsh](https://www.zsh.org/) | The primary command interpreter driving subshell execution, interactive terminal environments, and system automation scripts. |
 
@@ -98,15 +98,16 @@ These utilities enrich the ecosystem, providing advanced multimedia, terminal-bo
 | Program | Ecosystem Role |
 | :--- | :--- |
 | [Btop](https://github.com/aristocratos/btop) | An interactive system monitor executing inside an isolated, floating window class wrapper (`floating_monitor`). |
-| [Cliphist](https://github.com/sentriz/cliphist) + [WL-Clipboard](https://github.com/bugaevc/wl-clipboard) | **Clipboard Management Subsystem**: The combined stack driving _Wayland_-native copy/paste synchronization (`wl-clipboard`) alongside a local, text-bound historical data registry (`cliphist`). |
+| [Cliphist](https://github.com/sentriz/cliphist) + [WL-Clipboard](https://github.com/bugaevc/wl-clipboard) | **Clipboard Management Subsystem**: The combined stack driving _Wayland_-native copy/paste synchronization alongside a local data registry, managed via `clipboard-selector.sh` for full content recovery. |
 | [Grim](https://sr.ht/~emersion/grim/) + [Slurp](https://github.com/emersion/slurp) | Regional and full-display screen captioning utilities paired together for accurate crop selections. |
 | [ImageMagick](https://imagemagick.org/) | Post-processing image engine (`magick` pipes) forcing raw window captures into highly compressed, 8-depth sRGB image files. |
+| [Kate](https://kate-editor.org/) | A lightweight, feature-rich GTK/Qt graphical text editor suitable for quick code edits. |
 | [Librewolf](https://librewolf.net/) | A privacy-hardened browser customized to carry out clean web navigation without telemetry bloat. |
-| [Neovim](https://neovim.io/) (or rather [NVChad](https://nvchad.com/)) | **Terminal-Bound Development Environment**: An extensible, blazingly fast _IDE_ pre-configured with _NvChad_ aesthetics and integrated straight into terminal sessions. |
-| [NM-Applet](https://gitlab.gnome.org/GNOME/network-manager-applet) / [Blueman](https://github.com/blueman-project/blueman) | Core tray indicators (`--indicator` hooks) providing unified network management and _Bluetooth_ connectivity straight from the status bar. |
+| [Micro](https://micro-editor.github.io/) | A modern, intuitive, terminal-based text editor providing standard keybindings out of the box. |
 | [Obs Studio](https://obsproject.com/download), alongside [obs-cmd](https://github.com/norihiro/obs-cmd) | A _GUI-based_ recording software for your desktop screen that works alongside a command-line client, mapping video capture keybindings straight to a background _OBS Studio_ recording _socket_. |
 | [Playerctl](https://github.com/alols/playerctl) | A unified command-line media interface mapping global track tracking (Play/Pause/Next/Prev) controls. |
 | [Thunar](https://docs.xfce.org/xfce/thunar/start) | A lightweight, responsive GTK-3 graphical file manager configured to blend into the universal dark theme. |
+| [VSCodium](https://vscodium.com/) | A telemetry-free, open-source binary distribution of _VS Code_ for full-fledged graphical _IDE_ development. |
 | [Yazi](https://github.com/sxyazi/yazi) | An asynchronous terminal file manager used for rapid, terminal-bound asset and workspace navigation. |
 
 
@@ -119,6 +120,8 @@ Rather than relying on rigid, monolithic tools, the system coordinates actions t
 | TIER | Script or Dotfile | Ecosystem Role |
 | :---: | :--- | :--- |
 | 🔵 | [.futuristic-audio-session](../../../dotfiles/shell/custom/.futuristic-audio-session) | A dedicated environment engineered for *TRVE music enthusiasts*. It orchestrates an isolated terminal workspace optimized for local-based, high-fidelity audio listening. |
+| 🟣 | [apps-launcher.sh](./.config/hypr/scripts/apps-launcher.sh) | **Dynamic Application Launcher**: Invokes `wofi` asynchronously to display applications instantly |
+| 🟣 | [clipboard-selector.sh](./.config/hypr/scripts/clipboard-selector.sh) | **Clipboard Management Wrapper**: Intercepts `cliphist` history entries, with a visual preview, and decodes full untruncated strings back into `wl-copy`. |
 | 🟣 | [hypr-binds-map.sh](./.config/hypr/scripts/hypr-binds-map.sh) | **Dynamic Keybindings Visualizer**: Intercepts live system mappings via `SUPER + F1` and instantly renders an interactive data table nested inside a distinct window class wrapper (`floating_bindsmap`). |
 | 🟣 | [hypr-bg-setter.sh](../../../scripts/desktop-enhancements/change-wallpaper/hypr-bg-setter.sh) / [sway-bg-setter.sh](../../../scripts/desktop-enhancements/change-wallpaper/sway-bg-setter.sh) | **Wallpaper Setter Pipes**: Wrappers that load and apply static image paths dynamically into the active wallpaper _daemon_. |
 | 🟣 | [random-wallpaper-selector.sh](../../../scripts/desktop-enhancements/random-wallpaper-selector.sh) | **Random Canvas Selector**: Triggered via `SUPER + ALT + W`, this utility randomly selects a background asset from your wallpaper collection and pipes it straight into the active "_setter wrapper_". |
