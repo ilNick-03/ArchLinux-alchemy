@@ -101,6 +101,7 @@ These utilities enrich the ecosystem, providing advanced multimedia, terminal-bo
 | :--- | :--- |
 | [Btop](https://github.com/aristocratos/btop) | An interactive system monitor executing inside an isolated, floating window class wrapper (`floating_monitor`). |
 | [Cliphist](https://github.com/sentriz/cliphist) + [WL-Clipboard](https://github.com/bugaevc/wl-clipboard) | **Clipboard Management Subsystem**: The combined stack driving _Wayland_-native copy/paste synchronization alongside a local data registry, managed via `clipboard-selector.sh` for full content recovery. |
+| [Fastfetch](https://github.com/fastfetch-cli/fastfetch) | A high-performance, custom-styled system information display tool tailored to mirror the *A.E.T.H.E.R.* aesthetic palette inside the terminal. |
 | [Grim](https://sr.ht/~emersion/grim/) + [Slurp](https://github.com/emersion/slurp) | Regional and full-display screen captioning utilities paired together for accurate crop selections. |
 | [ImageMagick](https://imagemagick.org/) | Post-processing image engine (`magick` pipes) forcing raw window captures into highly compressed, 8-depth sRGB image files. |
 | [Kate](https://kate-editor.org/) | A lightweight, feature-rich GTK/Qt graphical text editor suitable for quick code edits. |
@@ -156,37 +157,56 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
 
 ### Architectural Interaction Features
 
-- **Interactive Status Bar**: Powered by [***Waybar***](https://github.com/Alexays/Waybar), the modular pill-based interface combines system metrics, workspace switchers, media controls, and hardware toggles directly at the top of your screen. 
+- **Interactive Status Bar**:
+  Powered by [***Waybar***](https://github.com/Alexays/Waybar), the modular pill-based interface combines system metrics, workspace switchers, media controls, and hardware toggles directly at the top of your screen. 
   For a full breakdown of gestures, tooltips, and modular design, check out the dedicated [**Status Bar Documentation**](./StatusBar.md).
   ![AETHER Status Bar](./screenshots/AETHER_status_bar.png)
   <p align="center"><em>Interactive, modular Waybar status bar architecture</em></p>
 
-- **Interactive Keybindings Map**: Triggered via `SUPER + F1`, it intercepts live system mappings and instantly renders an interactive data table nested inside a distinct window class wrapper (`floating_bindsmap`).
+- **Interactive Keybindings Map**:
+  Triggered via `SUPER + F1`, it intercepts live system mappings and instantly renders an interactive data table nested inside a distinct window class wrapper (`floating_bindsmap`).
   ![Keybinds Table](./screenshots/AETHER_keybindings_table.jpg)
   <p align="center"><em>Interactive TUI keybindings table inside an isolated terminal window</em></p>
 
-- **Dynamic Application Launcher**: Invoked via `SUPER + SPACE`, the system summons a fast, asynchronous application menu (`wofi`) styled with custom CSS to perfectly match the neon-drenched aesthetic.
+- **Dynamic Application Launcher**:
+  Invoked via `SUPER + SPACE`, the system summons a fast, asynchronous application menu (`wofi`) styled with custom CSS to perfectly match the neon-drenched aesthetic.
   ![AETHER Apps Launcher](./screenshots/AETHER_apps_launcher.jpg)
   <p align="center"><em>Dynamic application launcher triggered asynchronously</em></p>
 
-- **Interactive Network Selection**: Accessible directly from the status bar or via keyboard shortcuts, this launches a dedicated floating terminal interface for quick, keyboard-driven Wi-Fi network management.
+- **Interactive Network Selection**:
+  Accessible directly from the status bar or via keyboard shortcuts, this launches a dedicated floating terminal interface for quick, keyboard-driven Wi-Fi network management.
   ![AETHER Wi-Fi Menu](./screenshots/AETHER_wifi_menu.jpg)
   <p align="center"><em>Terminal-based interactive Wi-Fi network selection menu</em></p>
 
-- **Clipboard History Menu**: Invoking `SUPER + H`, this macro launches a high-performance, text-only clipboard engine. By piping `cliphist` straight through a streamlined `awk` parser, the system hides database index tracking numbers on the fly, rendering a pristine, unified history of your last copied assets inside a wide dedicated Wofi container. Purge your clipboard history registry via `SUPER + SHIFT + H`.
+- **Clipboard History Menu**:
+  Invoking `SUPER + H`, this macro launches a high-performance, text-only clipboard engine.
+  By piping `cliphist` straight through a streamlined `awk` parser, the system hides database index tracking numbers on the fly, rendering a pristine, unified history of your last copied assets inside a wide dedicated Wofi container.
+  Purge your clipboard history registry via `SUPER + SHIFT + H`.
   ![Clipboard Menu screenshot](./screenshots/AETHER_clipboard_selector.jpg)
   <p align="center"><em>Clipboard history selector rendering full untruncated strings</em></p>
 
-- **Chronological Terminal Isolation**: Every time you invoke `SUPER + Return`, a new [***Alacritty***](https://alacritty.org/) interface opens inside a [***Tmux***](https://github.com/tmux/tmux) session.
+- **Chronological Terminal Isolation**:
+  Every time you invoke `SUPER + Return`, a new [***Alacritty***](https://alacritty.org/) interface opens inside a [***Tmux***](https://github.com/tmux/tmux) session.
   The configuration automatically titles the window with an instantaneous timestamp down to the second: `[$(date +'%Y%m%d-%H%M%S')]`.
   This facilitates perfect log tracking and terminal tracking management.
 
-- **Terminal _IDE_ Workspace**: Change `SUPER + E` keybinding to invoke [***VSCodium***]((https://vscodium.com/)), ready for intense programming sessions.
+- **Cyberpunk System Overview (FastFetch)**:
+  A custom system summary powered by [***FastFetch***](https://github.com/fastfetch-cli/fastfetch), tailored to match the exact color palette, neon mood, and visual identity of *A.E.T.H.E.R.*.
+  Designed with bold rounded borders, dynamic gradient dividers, and cohesive icon sets, it seamlessly integrates hardware specs into the overall terminal aesthetic.
+  Inspirations and architectural references: [EnthusiastNewbie](https://github.com/EnthusiastNewbie/MyLab/tree/main/Newbie_Shell) and [miketester10](https://github.com/miketester10/fastfetch-config-arch-linux).
+  ![AETHER fastfetch setup](./screenshots/AETHER_fastfetch.jpg)
+  <p align="center"><em>Custom FastFetch layout harmonized with the A.E.T.H.E.R. color scheme and terminal aesthetic</em></p>
+
+- **_IDE_ Workspace**:
+  Change `SUPER + E` keybinding to invoke [***VSCodium***]((https://vscodium.com/)), ready for intense programming sessions.
   
-- **The "Magic" Workspace**: Accessible via `SUPER + S`, this acts as a scratchpad overlay,
+- **The "Magic" Workspace**:
+  Accessible via `SUPER + S`, this acts as a scratchpad overlay,
   pulling minimized assets or hidden background operations instantly to the center of your screen without disrupting your active window layouts.
   
-- **[Futuristic Audio Session](https://github.com/ilNick-03/ArchLinux-alchemy)**: Triggered with `SUPER + SHIFT + A`, this macro launches a custom script environment inside your directory structures designed specifically for high-quality music listening experience. Closed typing `SUPER + SHIFT + ALT + A`.
+- **[Futuristic Audio Session](https://github.com/ilNick-03/ArchLinux-alchemy)**:
+  Triggered with `SUPER + SHIFT + A`, this macro launches a custom script environment inside your directory structures designed specifically for high-quality music listening experience.
+  Closed typing `SUPER + SHIFT + ALT + A`.
   ![Futuristic Audio Session view](./screenshots/AETHER_ricing_audio_session_2.jpg)
 
 
