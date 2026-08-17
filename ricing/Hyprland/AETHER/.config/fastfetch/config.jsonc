@@ -1,0 +1,160 @@
+// Copyright (C) 2026, Nicolas Scalese
+// Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html
+//
+// Fastfetch configuration - A.E.T.H.E.R. Cyberpunk Edition
+// 
+// Inspirations and architectural references:
+//   - EnthusiastNewbie: https://github.com/EnthusiastNewbie/MyLab/tree/main/Newbie_Shell
+//   - miketester10:     https://github.com/miketester10/fastfetch-config-arch-linux
+
+
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/logo.png",
+    "type": "auto",
+    "height": 18,
+    "width": 30,
+    "padding": { "top": 1, "left": 1, "right": 3 }
+  },
+  "display": {
+    "separator": "  ",
+    "key": {
+      "width": 17
+    }
+  },
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "format": "  \u001b[1;38;2;255;0;127m󰊠 \u001b[1;38;2;243;139;168m󰊠 \u001b[1;38;2;255;158;100m󰊠 \u001b[1;38;2;250;179;135m󰊠 \u001b[1;38;2;166;227;161m󰊠 \u001b[1;38;2;148;226;213m󰊠 \u001b[1;38;2;0;242;255m󰊠 \u001b[1;38;2;137;180;250m󰊠 \u001b[1;38;2;203;166;247m󰮯 \u001b[1;38;2;108;112;134m· · · · \u001b[1;38;2;255;0;127mA.E.T.H.E.R. \u001b[38;2;108;112;134m// \u001b[1;38;2;0;242;255mCYBER MATRIX\u001b[0m"
+    },
+    {
+      "type": "custom",
+      "format": "  \u001b[1;38;2;136;57;239m╭──────────────────────────────────────────────────────╮\u001b[0m"
+    },
+    {
+      "type": "custom",
+      "format": "  \u001b[1;38;2;136;57;239m│ \u001b[1;38;2;203;166;247m󰍹 SYSTEM & HOST STATUS\u001b[0m"
+    },
+    {
+      "type": "os",
+      "key": "  \u001b[1;38;2;136;57;239m│  \u001b[1;38;2;243;139;168m󰣇 \u001b[1;38;2;0;242;255mOS\u001b[0m",
+      "format": "{2} {8}"
+    },
+    {
+      "type": "host",
+      "key": "  \u001b[1;38;2;136;57;239m│  \u001b[1;38;2;255;158;100m󰌢 \u001b[1;38;2;137;220;235mHost\u001b[0m",
+      "format": "{2}"
+    },
+    {
+      "type": "kernel",
+      "key": "  \u001b[1;38;2;136;57;239m│  \u001b[1;38;2;180;142;173m󰌽 \u001b[1;38;2;178;235;242mKernel\u001b[0m",
+      "format": "{2}"
+    },
+    {
+      "type": "uptime",
+      "key": "  \u001b[1;38;2;136;57;239m│  \u001b[1;38;2;250;179;135m \u001b[1;38;2;148;226;213mUptime\u001b[0m"
+    },
+    {
+      "type": "packages",
+      "key": "  \u001b[1;38;2;136;57;239m│  \u001b[1;38;2;166;227;161m󰏖 \u001b[1;38;2;137;180;250mPackages\u001b[0m",
+      "format": "{pacman} (pacman) + {flatpak-all} (flatpak)"
+    },
+    {
+      "type": "command",
+      "key": "  \u001b[1;38;2;136;57;239m│  \u001b[1;38;2;192;160;240m󰅐 \u001b[1;38;2;245;194;231mOS Age\u001b[0m",
+      "text": "echo $(($(($(date +%s) - $(stat -c %W /))) / 86400)) days",
+      "format": "{1}"
+    },
+    {
+      "type": "custom",
+      "format": "  \u001b[1;38;2;136;57;239m├\u001b[1;38;2;125;207;255m──────────────────────────────────────────────────────\u001b[1;38;2;125;207;255m┤\u001b[0m"
+    },
+    {
+      "type": "custom",
+      "format": "  \u001b[1;38;2;125;207;255m│ \u001b[1;38;2;250;179;135m⚙ HARDWARE ARCHITECTURE\u001b[0m"
+    },
+    {
+      "type": "cpu",
+      "key": "  \u001b[1;38;2;125;207;255m│  \u001b[1;38;2;166;227;161m \u001b[1;38;2;125;207;255mCPU\u001b[0m",
+      "short": true,
+      "show-name-only": true,
+      "format": "{name}"
+    },
+    {
+      "type": "gpu",
+      "key": "  \u001b[1;38;2;125;207;255m│  \u001b[1;38;2;148;226;213m󱤓 \u001b[1;38;2;137;220;235mGPU\u001b[0m",
+      "short": true,
+      "show-name-only": true,
+      "format": "{name}"
+    },
+    {
+      "type": "memory",
+      "key": "  \u001b[1;38;2;125;207;255m│  \u001b[1;38;2;42;195;222m󰍛 \u001b[1;38;2;203;166;247mMemory\u001b[0m",
+      "format": "{1} / {2} ({3})"
+    },
+    {
+      "type": "swap",
+      "key": "  \u001b[1;38;2;125;207;255m│  \u001b[1;38;2;178;235;242m󰓡 \u001b[1;38;2;180;142;173mSwap\u001b[0m",
+      "format": "{1} / {2} ({3})"
+    },
+    {
+      "type": "disk",
+      "key": "  \u001b[1;38;2;125;207;255m│  \u001b[1;38;2;137;180;250m \u001b[1;38;2;255;158;100mDisk\u001b[0m",
+      "format": "{1} / {2} ({3})"
+    },
+    {
+      "type": "custom",
+      "format": "  \u001b[1;38;2;125;207;255m├\u001b[1;38;2;255;0;127m──────────────────────────────────────────────────────\u001b[1;38;2;255;0;127m┤\u001b[0m"
+    },
+    {
+      "type": "custom",
+      "format": "  \u001b[1;38;2;255;0;127m│ \u001b[1;38;2;0;242;255m ENVIRONMENT & SOFTWARE\u001b[0m"
+    },
+    {
+      "type": "display",
+      "key": "  \u001b[1;38;2;255;0;127m│  \u001b[1;38;2;125;207;255m󰍹 \u001b[1;38;2;166;227;161mDisplay\u001b[0m",
+      "format": "{1}x{2} @ {3}Hz"
+    },
+    {
+      "type": "sound",
+      "key": "  \u001b[1;38;2;255;0;127m│  \u001b[1;38;2;137;180;250m󰓃 \u001b[1;38;2;203;166;247mAudio\u001b[0m",
+      "format": "{2}"
+    },
+    {
+      "type": "wm",
+      "key": "  \u001b[1;38;2;255;0;127m│  \u001b[1;38;2;136;57;239m \u001b[1;38;2;245;194;231mWM\u001b[0m",
+      "format": "{2}"
+    },
+    {
+      "type": "de",
+      "key": "  \u001b[1;38;2;255;0;127m│  \u001b[1;38;2;203;166;247m \u001b[1;38;2;148;226;213mDE\u001b[0m",
+      "format": "{2}"
+    },
+    {
+      "type": "terminal",
+      "key": "  \u001b[1;38;2;255;0;127m│  \u001b[1;38;2;255;0;127m \u001b[1;38;2;137;220;235mTerminal\u001b[0m",
+      "format": "{3}"
+    },
+    {
+      "type": "shell",
+      "key": "  \u001b[1;38;2;255;0;127m│  \u001b[1;38;2;166;227;161m \u001b[1;38;2;125;207;255mShell\u001b[0m",
+      "format": "{1} {2}"
+    },
+    {
+      "type": "editor",
+      "key": "  \u001b[1;38;2;255;0;127m│  \u001b[1;38;2;245;194;231m \u001b[1;38;2;250;179;135mEditor\u001b[0m"
+    },
+    {
+      "type": "custom",
+      "format": "  \u001b[1;38;2;255;0;127m╰──────────────────────────────────────────────────────╯\u001b[0m"
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle"
+    },
+    "break"
+  ]
+}
