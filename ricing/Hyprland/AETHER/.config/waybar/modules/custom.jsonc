@@ -20,6 +20,15 @@
         "on-click": "alacritty -T \"Keybindings Table [$(date +'%Y%m%d-%H%M%S')]\" --class floating_bindsmap -e ~/.config/hypr/scripts/hypr-binds-map.sh"
     },
 
+    "custom/cam": {
+        "format": "󰄀 ",
+        "exec": "fuser /dev/video* 2>/dev/null",
+        "exec-if": "fuser /dev/video* 2>/dev/null",
+        "interval": 2,
+        "tooltip": true,
+        "tooltip-format": "Camera is IN USE"
+    },
+
     // Disk storage usage monitor  (Manual refresh via click)
     "custom/disk": {
         "format": "{}% 󰋊",
