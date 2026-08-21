@@ -135,6 +135,7 @@
             // "mpv": "󰿈"     
         },
         "status-icons": {
+            // "playing": "󰐊",
             "paused": "󰏤"
         },
         
@@ -180,12 +181,17 @@
         "on-scroll-down": "powerprofilesctl set $(powerprofilesctl get | awk '/performance/{print \"balanced\"} /balanced/{print \"power-saver\"} /power-saver/{print \"performance\"}')"
     },
 
-    // Privacy module for mic and webcam indicators
-    "privacy": {
-        "icon-size": 14,
-        "nodes": [
-            { "type": "audio-in" },
-            { "type": "video-in" }
+    // Microphone privacy module
+    "privacy#mic": {
+        "icon-spacing": 4,
+        "icon-size": 15,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
         ]
     },
 
