@@ -25,9 +25,8 @@
     ],
     
     "modules-right": [
-        "privacy",                  // Monitors mic and cam usage
         "idle_inhibitor",           // Toggles auto-suspend 
-        "mpris",                    // Which audio is playing now?
+        "group/multimedia",         // Multimedia: camera, microphone, audio playback
         "group/hardware-monitors",  // RAM & CPU usage, temperature,
         "group/hardware-controls",  // Audio & backlight controls
         "group/power-management",   // Power & battery management
@@ -41,6 +40,15 @@
 
     // --- MODULE GROUPS --- //
 
+    // Multimedia: camera, microphone, audio playback
+    "group/multimedia": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/cam",           // Native privacy indicator for camera only
+            "privacy#mic",          // Native privacy indicator for microphone only
+            "mpris"                 // Active media player indicator
+        ]
+    },
 
     // HARDWARE MONITORING STRATEGY & BATTERY OPTIMIZATION:
     // - Real-time (interval <= 1s) :          Highly informative but disrupts CPU C-States (battery drain).
