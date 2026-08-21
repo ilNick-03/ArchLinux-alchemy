@@ -163,7 +163,8 @@ window#waybar.empty #window {
 #group-hardware-monitors widget > *,
 #group-hardware-controls widget > *,
 #group-connectivity widget > *,
-#group-power-management widget > * {
+#group-power-management wodget > *,
+#group-multimedia widget > * {
     background: transparent;
     margin: 0;
     padding: 0 12px; 
@@ -180,13 +181,14 @@ window#waybar.empty #window {
 #group-hardware-monitors widget > *:hover,
 #group-hardware-controls widget > *:hover,
 #group-connectivity widget > *:hover,
-#group-power-management widget > *:hover {
+#group-power-management widget > *:hover,
+#group-multimedia widget > *:hover {
     background: @white_alpha08;
     border-radius: 6px;
 }
 
 /* MICRO-REFINED DIVIDERS: Spacing and internal dividing lines */
-#custom-disk, #memory, #cpu, #pulseaudio, #battery, #network {
+#custom-disk, #memory, #cpu, #privacy-cam, #privacy-mic, #pulseaudio, #battery, #network {
     border-right: 1px solid @white_alpha20;
     padding-right: 14px;
     margin-right: 4px;
@@ -194,7 +196,57 @@ window#waybar.empty #window {
 
 
 /* -----------------------------------------------------------------------------
-   GROUP 1: HARDWARE MONITORS
+   GROUP 1: MULTIMEDIA (Camera | Microphone | MPRIS)
+   Identity: Vibrant Magenta Accent with High Contrast Indicators
+   ----------------------------------------------------------------------------- */
+#multimedia, #group-multimedia {
+    margin: 8px 3px;
+    padding: 0 8px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
+    border-bottom: 2px solid @cyber_pink;
+    box-shadow: 0 0 6px @cyber_pink_alpha40;
+}
+
+/* 1. CAMERA MODULE (custom/cam) */
+#custom-cam {
+    color: @neon_cyan;
+    font-size: 15px;
+    padding-left: 4px;
+    padding-right: 8px;
+    margin-right: 6px;
+    border-right: 1px solid @white_alpha20;
+}
+
+/* 2. PRIVACY / MICROPHONE MODULE (Native) */
+#group-multimedia #privacy {
+    padding-left: 2px;
+    padding-right: 6px;
+}
+
+#privacy #privacy-item,
+#privacy .audio-in {
+    color: @red;
+    padding-right: 8px;
+    margin-right: 6px;
+    border-right: 1px solid @white_alpha20;
+}
+
+/* 3. MPRIS (MEDIA PLAYER) MODULE - Clean GTK Specificity */
+#mpris {
+    background: transparent;
+    color: @lavender;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#mpris.paused {
+    color: @gray;
+}
+
+
+/* -----------------------------------------------------------------------------
+   GROUP 2: HARDWARE MONITORS
    ----------------------------------------------------------------------------- */
 #hardware-monitors, #group-hardware-monitors {
     margin: 8px 3px;
@@ -220,9 +272,9 @@ window#waybar.empty #window {
 
 
 /* -----------------------------------------------------------------------------
-   GROUP 2: HARDWARE CONTROLS
+   GROUP 3: HARDWARE CONTROLS
    ----------------------------------------------------------------------------- */
-#hardware-controls, #group-hardware-controls {
+#hardware-controls {
     margin: 8px 3px;
     padding: 0 4px;
     border-radius: 10px;
@@ -231,19 +283,20 @@ window#waybar.empty #window {
     box-shadow: 0 0 6px @controls_glow;
 }
 
+/* --- OTHER INDICATORS (Static) --- */
 #pulseaudio { 
     color: @soft_blue; 
-}
-#backlight  { 
-    color: @frost_white; 
 }
 #pulseaudio.muted { 
     color: @gray; 
 }
+#backlight  { 
+    color: @frost_white; 
+}
 
 
 /* -----------------------------------------------------------------------------
-   GROUP 3: POWER MANAGEMENT (Battery | Profiles)
+   GROUP 4: POWER MANAGEMENT (Battery | Profiles)
    Identity: Seafoam Ice/Cyan with Intense Glow
    ----------------------------------------------------------------------------- */
 #power-management, #group-power-management {
@@ -290,7 +343,7 @@ window#waybar.empty #window {
 
 
 /* -----------------------------------------------------------------------------
-   GROUP 4: CONNECTIVITY (Wi-Fi | Bluetooth)
+   GROUP 5: CONNECTIVITY (Wi-Fi | Bluetooth)
    Identity: Sky Blue/Electric Pink (Subtle Glow)
    ----------------------------------------------------------------------------- */
 #connectivity, #group-connectivity {
@@ -327,38 +380,17 @@ window#waybar.empty #window {
    STANDALONE RIGHT MODULES (Pill Style)
    ============================================================================= */
 
-#privacy, #idle_inhibitor, #mpris, #tray, #clock, #custom-power {
+#idle_inhibitor, #tray, #clock, #custom-power {
     margin: 8px 3px;
     padding: 0 15px;
     border-radius: 10px;
     background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
 }
 
-/* --- PRIVACY INDICATOR --- */
-#privacy {
-    padding: 0 10px;
-    border-bottom: 2px solid @red;
-}
-#privacy-item {
-    padding: 0 5px;
-    color: @red;
-}
-
 /* --- IDLE INHIBITOR --- */
 #idle_inhibitor {
     color: @lavender;
     font-size: 14px;
-}
-
-/* --- MPRIS (Media Player) --- */
-#mpris {
-    background: @mpris_bg;
-    color: @lavender;
-    border-bottom: 2px solid @lavender;
-}
-#mpris.paused {
-    color: @gray;
-    border-bottom: 2px solid @gray;
 }
 
 /* --- SYSTEM TRAY --- */
