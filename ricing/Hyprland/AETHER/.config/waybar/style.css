@@ -61,7 +61,7 @@ tooltip {
 
 /* --- APPS LAUNCHER ("Apps") --- */
 #custom-apps-launcher {
-    margin: 8px 3px 8px 8px;
+    margin: 8px 3px 8px 10px;
     padding: 0 16px;
     border-radius: 10px;
     background: linear-gradient(180deg, @cyber_pink_alpha25 0%, @violet_alpha35 100%);
@@ -78,10 +78,10 @@ tooltip {
 
 /* --- KEYBINDINGS CHEAT-SHEET ICON --- */
 #custom-binds-table {
-    font-size: 16;
-    margin: 8px 3px;
-    padding: 0 14px; /* Reduced to balance pill width */
-    border-radius: 10px;
+    font-size: 16px;
+    margin: 8px 7px 8px 3px;
+    padding: 0 17px 0 14px;  
+    border-radius: 16px;  /* More roundness */
     background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
     color: @neon_cyan;
     border-bottom: 2px solid @neon_cyan;
@@ -98,7 +98,8 @@ tooltip {
 #workspaces {
     background-color: @workspaces_bg;
     margin: 8px 4px;
-    border-radius: 10px;
+    padding: 0 2px;
+    border-radius: 24px;
     border: 1px solid @violet_alpha30;
 }
 
@@ -111,11 +112,12 @@ tooltip {
 #workspaces button.active {
     color: @white;
     background-color: @primary_violet;
-    border-radius: 8px;
+    border-radius: 16px;
     box-shadow: 0 0 10px @violet_alpha80;
 }
 
 #workspaces button:hover {
+    border-radius: 16px;
     background-color: @violet_alpha20;
     color: @white;
 }
@@ -129,10 +131,9 @@ tooltip {
 #window {
     margin: 8px 15px;
     padding: 2px 18px;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: @primary_violet; /* Highlighted solid matte color */
     color: @white;
-    /* font-size: 13px; */
     font-weight: bold;
     border: none;
     box-shadow: none; /* No glare/halo */
@@ -196,48 +197,52 @@ window#waybar.empty #window {
 
 
 /* -----------------------------------------------------------------------------
-   GROUP 1: MULTIMEDIA (Camera | Microphone | MPRIS)
+   GROUP 1: MULTIMEDIA (Idle Inhibitor | Camera | Microphone | MPRIS)
    Identity: Vibrant Magenta Accent with High Contrast Indicators
    ----------------------------------------------------------------------------- */
 #multimedia, #group-multimedia {
     margin: 8px 3px;
-    padding: 0 8px;
+    padding: 0 4px; 
     border-radius: 10px;
     background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
     border-bottom: 2px solid @cyber_pink;
     box-shadow: 0 0 6px @cyber_pink_alpha40;
 }
 
-/* 1. CAMERA MODULE (custom/cam) */
-#custom-cam {
-    color: @neon_cyan;
+/* 1. AUTO SUSPEND vs ALWAYS-ON screen (Ancora fissa iniziale) */
+#idle_inhibitor {
+    color: @lavender;
     font-size: 15px;
-    padding-left: 4px;
-    padding-right: 8px;
-    margin-right: 6px;
-    border-right: 1px solid @white_alpha20;
+    padding: 0 10px; 
 }
 
-/* 2. PRIVACY / MICROPHONE MODULE (Native) */
+/* 2. CAMERA MODULE (custom/cam) */
+#custom-cam {
+    color: @neon_cyan;
+    font-size: 16px;
+    padding: 0 6px 0 12px;
+    border-left: 1px solid @white_alpha20;
+}
+
+/* 3. PRIVACY / MICROPHONE MODULE (Native) */
 #group-multimedia #privacy {
-    padding-left: 2px;
-    padding-right: 6px;
+    padding: 0; 
+    margin: 0;
 }
 
 #privacy #privacy-item,
 #privacy .audio-in {
     color: @red;
-    padding-right: 8px;
-    margin-right: 6px;
-    border-right: 1px solid @white_alpha20;
+    padding: 0 9px 0 10px;
+    border-left: 1px solid @white_alpha20;
 }
 
-/* 3. MPRIS (MEDIA PLAYER) MODULE - Clean GTK Specificity */
+/* 4. MPRIS (MEDIA PLAYER) MODULE */
 #mpris {
     background: transparent;
     color: @lavender;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding: 0 8px 0 10px;
+    border-left: 1px solid @white_alpha20;
 }
 
 #mpris.paused {
@@ -380,17 +385,11 @@ window#waybar.empty #window {
    STANDALONE RIGHT MODULES (Pill Style)
    ============================================================================= */
 
-#idle_inhibitor, #tray, #clock, #custom-power {
+   #tray, #clock, #custom-power {
     margin: 8px 3px;
     padding: 0 15px;
     border-radius: 10px;
     background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
-}
-
-/* --- IDLE INHIBITOR --- */
-#idle_inhibitor {
-    color: @lavender;
-    font-size: 14px;
 }
 
 /* --- SYSTEM TRAY --- */
@@ -434,8 +433,9 @@ window#waybar.empty #window {
 
 /* --- CUSTOM POWER BUTTON --- */
 #custom-power {
-    margin-right: 8px;
-    padding: 0 12px;
+    margin-right: 10px;
+    padding: 0 16px 0 13px;
+    border-radius: 8px;  /* More roundness */
     color: @red;
     border-bottom: 2px solid @red;
     box-shadow: 0 0 6px @red_alpha50;
