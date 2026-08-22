@@ -78,8 +78,10 @@ Without these core pillars, the *A.E.T.H.E.R.* environment cannot initialize or 
 | Program | Ecosystem Role |
 | :--- | :--- |
 | [Alacritty](https://alacritty.org/) | The _GPU_-accelerated terminal emulator acting as the default interface wrapper for all _CLI_ interactions. |
+| [Blueman](https://github.com/blueman-project/blueman) | GTK-based **Bluetooth manager** providing applet status tray integration and device management menu routines. |
 | [Brightnessctl](https://github.com/Adisbladis/brightnessctl) | Screen backlight brightness adjustments tied directly to laptop hardware keys. |
 | [Dunst](https://dunst-project.org/) | A low-overhead notification daemon configured for clean, geometric pop-up alerts. |
+| [GTK-3](https://gitlab.gnome.org/GNOME/gtk) and [GTK-4](https://gitlab.gnome.org/GNOME/gtk) | **UI Toolkit Engine**: Core graphical libraries handling window rendering, widget styling, and custom CSS themes across applications. |
 | [HyprIdle](https://github.com/hyprwm/hypridle) / [SwayIdle](https://github.com/swaywm/swayidle) | **Idle Management Daemons**: The core sub-systems driving automated display dimming and suspend activation. This project prefers `swayidle` as a rock-solid, _C_-based alternative; while maintaining full compatibility with `hypridle`. Each is used within an abstraction layer (a shell script). |
 | [Hyprland](https://hyprland.org/) | The core dynamic tiling Wayland compositor and hardware-accelerated window layout engine. |
 | [HyprPaper](https://github.com/hyprwm/hyprpaper) / [SwayBG](https://github.com/swaywm/swaybg) | **Wallpaper Backends**: The core rendering layers for background imagery. The configuration defaults to `hyprpaper` for native compatibility and efficiency; while leaving `swaybg` as an on-the-fly _Wayland_ alternative. |
