@@ -25,8 +25,7 @@
     ],
     
     "modules-right": [
-        "idle_inhibitor",           // Toggles auto-suspend 
-        "group/multimedia",         // Multimedia: camera, microphone, audio playback
+        "group/multimedia",         // Multimedia: auto-suspend, camera, microphone, audio playback
         "group/hardware-monitors",  // RAM & CPU usage, temperature,
         "group/hardware-controls",  // Audio & backlight controls
         "group/power-management",   // Power & battery management
@@ -40,10 +39,11 @@
 
     // --- MODULE GROUPS --- //
 
-    // Multimedia: camera, microphone, audio playback
+    // Multimedia: auto-suspend, camera, microphone, audio playback
     "group/multimedia": {
         "orientation": "inherit",
         "modules": [
+            "idle_inhibitor",       // Toggles auto-suspend
             "custom/cam",           // Native privacy indicator for camera only
             "privacy#mic",          // Native privacy indicator for microphone only
             "mpris"                 // Active media player indicator
