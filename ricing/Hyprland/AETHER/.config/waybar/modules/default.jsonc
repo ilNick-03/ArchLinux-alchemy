@@ -27,8 +27,8 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% 󰂄",
-        "format-charging": "{capacity}% ",
+        "format-full": "{capacity}% 󱊣",
+        "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
@@ -132,7 +132,10 @@
             "firefox": "",
             "librewolf": "",
             "chrome": "",
-            // "mpv": "󰿈"     
+            "chromium": "",
+            "mpv": "󰎆",
+            "vlc": "󰕼"    
+
         },
         "status-icons": {
             // "playing": "󰐊",
@@ -198,22 +201,22 @@
     "pulseaudio": {
         "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-muted": "Muted ",
+        "format-muted": "Muted ",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
+            "hands-free": " 󰍮",
             "headset": "",
             "default": ["", "", ""]
         },
 
         // LEFT CLICK: Toggle Mute/Unmute (restores previous volume)
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         // RIGHT CLICK: Open audio control panel
         "on-click-right": "pavucontrol",
 
-        // SCROLL up/down to increase/decrease volume by 2%
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+        // SCROLL up/down to increase/decrease volume by 2%.  Max: 100%
+        "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 2%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
     },
 
     "temperature": {
