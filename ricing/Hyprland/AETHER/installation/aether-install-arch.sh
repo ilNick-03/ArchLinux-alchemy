@@ -53,14 +53,15 @@ if ! command -v yay &> /dev/null; then
 fi
 
 log_info "Resolving system dependencies (Essential & Optional Stack)..."
+# Extracted directly from README.md and vars.lua requirements
 DEPS=(
     alacritty brightnessctl dunst swayidle hyprland hyprpaper qt6ct tmux 
-    waybar wireplumber wlogout wofi xfce-polkit zsh
-    btop cliphist wl-clipboard grim slurp imagemagick librewolf neovim 
-    network-manager-applet obs-studio obs-cmd playerctl thunar yazi
+    waybar pipewire wireplumber wlogout wofi xfce-polkit zsh tmux
+    btop cliphist wl-clipboard fastfetch grim slurp imagemagick kate librewolf 
+    blueman obs-studio obs-cmd playerctl thunar yazi
 )
 # We use --needed to skip already installed packages and avoid unnecessary recompilations
-yay -S --needed --noconfirm "${DEPS[@]}"
+yay -Sy --needed --noconfirm "${DEPS[@]}"
 log_success "All dependencies satisfied."
 
 
@@ -92,9 +93,9 @@ fi
 # --- 3. DEPLOYING CONFIGURATION FILES ---
 log_info "Phase 3: Deploying Core Configuration Nodes..."
 
-# Step I: Clean pre-existing targets
+# Step I: Clean pre-existing targets (including fastfetch as seen in immagine_2.png)
 log_info "Cleaning pre-existing configuration directories to prevent collisions..."
-rm -rf "$HOME/.config/dunst" "$HOME/.config/hypr" "$HOME/.config/swayidle" \
+rm -rf "$HOME/.config/dunst" "$HOME/.config/fastfetch" "$HOME/.config/hypr" "$HOME/.config/swayidle" \
        "$HOME/.config/waybar" "$HOME/.config/wlogout" "$HOME/.config/wofi"
 
 # Step II: Deploy via Symlinks (Option A - Best for development)
@@ -102,6 +103,7 @@ log_info "Grafting symbolic links..."
 mkdir -p "$HOME/.config"
 # Note: Using -sfn to force overwrite and prevent symlink nesting issues
 ln -sfn "$AETHER_DIR/.config/dunst" "$HOME/.config/dunst"
+ln -sfn "$AETHER_DIR/.config/fastfetch" "$HOME/.config/fastfetch"
 ln -sfn "$AETHER_DIR/.config/hypr" "$HOME/.config/hypr"
 ln -sfn "$AETHER_DIR/.config/swayidle" "$HOME/.config/swayidle"
 ln -sfn "$AETHER_DIR/.config/waybar" "$HOME/.config/waybar"
@@ -128,16 +130,17 @@ fi
 log_info "Phase 4: Establishing Script Automation Pointers..."
 mkdir -p "$HOME/.config/hypr/scripts"
 
-ln -sfn "$REPO_DIR/scripts/desktop-enhancements/random-wallpaper-selector.sh" "$HOME/.config/hypr/scripts/"
-ln -sfn "$REPO_DIR/scripts/desktop-enhancements/change-wallpaper/hypr-bg-setter.sh" "$HOME/.config/hypr/scripts/"
-ln -sfn "$REPO_DIR/scripts/desktop-enhancements/change-wallpaper/sway-bg-setter.sh" "$HOME/.config/hypr/scripts/"
+# Force symlinks with explicit target names to prevent nesting bugs
+ln -sf "$REPO_DIR/scripts/desktop-enhancements/random-wallpaper-selector.sh" "$HOME/.config/hypr/scripts/random-wallpaper-selector.sh"
+ln -sf "$REPO_DIR/scripts/desktop-enhancements/change-wallpaper/hypr-bg-setter.sh" "$HOME/.config/hypr/scripts/hypr-bg-setter.sh"
+ln -sf "$REPO_DIR/scripts/desktop-enhancements/change-wallpaper/sway-bg-setter.sh" "$HOME/.config/hypr/scripts/sway-bg-setter.sh"
 
 chmod +x "$HOME/.config/hypr/scripts/"*.sh
 log_success "Script nodes synced and execution permissions granted."
 
 
 # --- 5. OPTIONAL: FUTURISTIC AUDIO SESSION ---
-echo -e "\n${CYAN}[?]${NC} Do you want to enable the 'Futuristic Audio Session' keybindings and shell setup? (y/n)"
+echo -e "\n${CYAN}[?]${NC} Do you want to enable the (optional) 'Futuristic Audio Session' keybindings and shell setup? (y/n)"
 read -r -p " > " enable_audio
 
 if [[ "$enable_audio" =~ ^[Yy]$ ]]; then
@@ -145,7 +148,7 @@ if [[ "$enable_audio" =~ ^[Yy]$ ]]; then
     
     # Inject into .zshrc if exists
     if [ -f "$HOME/.zshrc" ]; then
-        if ! grep -q ".futuristic-audio-session" "$HOME/.zshrc"; then
+        if ! grep -q "\.futuristic-audio-session" "$HOME/.zshrc"; then
             echo -e "\n# Source A.E.T.H.E.R. 'Futuristic Audio Session' functions" >> "$HOME/.zshrc"
             echo "[[ -f \"\$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session\" ]] && source \"\$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session\"" >> "$HOME/.zshrc"
             log_success "Injected into .zshrc"
@@ -154,17 +157,17 @@ if [[ "$enable_audio" =~ ^[Yy]$ ]]; then
 
     # Inject into .bashrc if exists
     if [ -f "$HOME/.bashrc" ]; then
-        if ! grep -q ".futuristic-audio-session" "$HOME/.bashrc"; then
+        if ! grep -q "\.futuristic-audio-session" "$HOME/.bashrc"; then
             echo -e "\n# Source A.E.T.H.E.R. 'Futuristic Audio Session' functions" >> "$HOME/.bashrc"
             echo "[[ -f \"\$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session\" ]] && source \"\$HOME/ArchLinux-alchemy/dotfiles/shell/custom/.futuristic-audio-session\"" >> "$HOME/.bashrc"
             log_success "Injected into .bashrc"
         fi
     fi
 
-    # Uncomment keybindings in lua using regex to find and strip the leading '-- ' 
+    # Uncomment keybindings in lua using regex to find and strip the leading '-- ' (handling possible spaces)
     KEYBIND_FILE="$AETHER_DIR/.config/hypr/modules/keybindings.lua"
     if [ -f "$KEYBIND_FILE" ]; then
-        sed -i -E 's/^-- (map\.bind.*audio-session.*)/\1/g' "$KEYBIND_FILE"
+        sed -i -E 's/^--[[:space:]]*(map\.bind.*audio-session.*)/\1/g' "$KEYBIND_FILE"
         log_success "Keybindings successfully uncommented in keybindings.lua"
     fi
 else
