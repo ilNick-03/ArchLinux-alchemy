@@ -55,10 +55,10 @@ fi
 log_info "Resolving system dependencies (Essential & Optional Stack)..."
 # Extracted directly from README.md and vars.lua requirements
 DEPS=(
-    alacritty brightnessctl dunst swayidle hyprland hyprpaper qt6ct tmux 
-    waybar pipewire wireplumber wlogout wofi xfce-polkit zsh tmux
-    btop cliphist wl-clipboard fastfetch grim slurp imagemagick kate librewolf 
-    blueman obs-studio obs-cmd playerctl thunar yazi
+    alacritty blueman brightnessctl dunst gtk3 gtk4 swayidle hyprland hyprpaper 
+    pipewire wireplumber qt6ct tmux waybar wlogout wofi xfce-polkit zsh
+    btop cliphist wl-clipboard fastfetch grim slurp imagemagick kate 
+    librewolf obs-studio obs-cmd playerctl thunar yazi
 )
 # We use --needed to skip already installed packages and avoid unnecessary recompilations
 yay -Sy --needed --noconfirm "${DEPS[@]}"
