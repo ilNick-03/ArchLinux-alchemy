@@ -160,7 +160,7 @@ hl.window_rule({
     name             =  "apps-solid-view",
     
     match = {
-        class        =  "^(darktable|org.darktable.darktable|imv|librewolf|mpv|obsidian|md.Obsidian|obs-studio|soffice|libreoffice.*|okular|org.kde.okular)"
+        class        =  "^(darktable|org.darktable.darktable|imv|librewolf|mpv|obsidian|md.obsidian.Obsidian|obs-studio|soffice|libreoffice.*|okular|org.kde.okular)"
     },
     
     -- Ensure windows are 100% opaque and disable background blurring
