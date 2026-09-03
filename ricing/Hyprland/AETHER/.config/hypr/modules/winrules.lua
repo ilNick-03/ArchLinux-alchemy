@@ -81,14 +81,24 @@ hl.window_rule({
 
 -- ... [2.1.1] System Utilities & Security .......................................
 
---- Force ALL floating windows to be centered automatically on open
+--- Force ALL FLOATING windows to be centered automatically on open
 hl.window_rule({
-    name             =  "center-all-floating-windows",
+    name  = "center-main-floating-windows",
     match = {
-        class        =  ".*",
-        float        =  true
+        class = "^(?!\\s*$).+",    -- Excludes empty class names
+        title = "^(?!\\s*$).+",    -- Excludes empty titles or titles with whitespace only (menus & popups)
+        float = true,
     },
-    center           =  true
+    center = true
+})
+-- Safeguard rule: forces NATIVE relative positioning for MENUS and SUBMENU
+hl.window_rule({
+    name  = "preserve-submenu-anchors",
+    match = {
+        title = "^\\s*$",          -- Matches title-less dropdowns and popups
+        float = true,
+    },
+    center = false
 })
 
 --- Display some windows as "floating" (we don't want them fullscreen, nor tiling)
