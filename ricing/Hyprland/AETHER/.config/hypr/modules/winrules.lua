@@ -81,6 +81,16 @@ hl.window_rule({
 
 -- ... [2.1.1] System Utilities & Security .......................................
 
+--- Force ALL floating windows to be centered automatically on open
+hl.window_rule({
+    name             =  "center-all-floating-windows",
+    match = {
+        class        =  ".*",
+        float        =  true
+    },
+    center           =  true
+})
+
 --- Display some windows as "floating" (we don't want them fullscreen, nor tiling)
 hl.window_rule({
     name             =  "floating-window-on-default",
@@ -160,7 +170,7 @@ hl.window_rule({
     name             =  "apps-solid-view",
     
     match = {
-        class        =  "^(darktable|org.darktable.darktable|imv|librewolf|mpv|obsidian|md.obsidian.Obsidian|obs-studio|soffice|libreoffice.*|okular|org.kde.okular)"
+        class        =  "^(anythingllm-desktop|darktable|org.darktable.darktable|imv|librewolf|mpv|obsidian|md.obsidian.Obsidian|obs-studio|soffice|libreoffice.*|okular|org.kde.okular)"
     },
     
     -- Ensure windows are 100% opaque and disable background blurring
