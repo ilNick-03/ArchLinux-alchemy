@@ -83,22 +83,22 @@ hl.window_rule({
 
 --- Force ALL FLOATING windows to be centered automatically on open
 hl.window_rule({
-    name  = "center-main-floating-windows",
+    name             =  "center-main-floating-windows",
     match = {
-        class = "^(?!\\s*$).+",    -- Excludes empty class names
-        title = "^(?!\\s*$).+",    -- Excludes empty titles or titles with whitespace only (menus & popups)
-        float = true,
+        class        =  "^(?!\\s*$).+",    -- Excludes empty class names
+        title        =  "^(?!\\s*$).+",    -- Excludes empty titles or titles with whitespace only (menus & popups)
+        float        =  true,
     },
-    center = true
+    center           =  true
 })
 -- Safeguard rule: forces NATIVE relative positioning for MENUS and SUBMENU
 hl.window_rule({
-    name  = "preserve-submenu-anchors",
+    name             =  "preserve-submenu-anchors",
     match = {
-        title = "^\\s*$",          -- Matches title-less dropdowns and popups
-        float = true,
+        title        =  "^\\s*$",          -- Matches title-less dropdowns and popups
+        float        =  true,
     },
-    center = false
+    center           =  false
 })
 
 --- Display some windows as "floating" (we don't want them fullscreen, nor tiling)
@@ -106,7 +106,7 @@ hl.window_rule({
     name             =  "floating-window-on-default",
     
     match = {
-        class = "^(blueman-manager|nm-connection-editor|pavucontrol|org.pulseaudio.pavucontrol)"
+        class        =  "^(blueman-manager|nm-connection-editor|pavucontrol|org.pulseaudio.pavucontrol)"
     },
 
     -- Set behavior: float them and keep them centered
