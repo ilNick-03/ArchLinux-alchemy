@@ -1,71 +1,186 @@
 /* Copyright (C) 2026, Nicolas Scalese
-   Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html  */
+   Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html */ 
 
 
-/* --- CYBERPUNK STYLE - MAXIMUM SPACING --- */
+/* Import external color palette definitions */
+@import "../hypr/themes/aether-cyberpunk.css";
 
+
+/* --- OVERLAY WINDOW & GRID LAYOUT --- */
 window {
-    background-color: rgba(13, 2, 33, 0.75);    /* Deep indigo */
+    background-color: @bg_overlay;
 }
 
 grid {
-    margin: 200px 300px; 
+    margin: 220px 420px; 
 }
 
+/* --- BASE BUTTON ARCHITECTURE --- */
 button {
-    background: linear-gradient(180deg, rgba(40, 40, 60, 0.6) 0%, rgba(20, 20, 35, 0.8) 100%);
-    color: #ffffff;
-    border: 2px solid #8839ef;
-    border-radius: 15px;
-    margin: 15px;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    background-color: rgba(20, 16, 35, 0.88);
+    border-radius: 28px;
+    margin: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     
-    /* ICON POSITIONING:
-       'center 15%' moves the icon even higher to the top edge.
-       '25%' size makes it slightly smaller to increase the gap. */
     background-repeat: no-repeat;
-    background-position: center 15%; 
-    background-size: 25%; 
+    background-position: center 20%; 
+    background-size: 26%; 
     
-    transition: all 0.2s ease-in-out;
+    /* Disattiva l'anello di focus nativo GTK che creava la cupola bianca */
+    outline: none;
+    
+    /* Transizione mirata per evitare deformazioni e stretch del pulsante */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-button:hover {
-    background-color: rgba(136, 57, 239, 0.2);
-    border-color: #89dceb;
-    box-shadow: 0 0 15px rgba(137, 220, 235, 0.5);
+button:focus {
+    outline: none;
 }
 
-/* TEXT LABEL:
-   'margin-top' set to 90px effectively forces the text to the 
-    very bottom of the button container. */
+/* Base Label Styling */
 label {
     font-family: "JetBrainsMono Nerd Font", sans-serif;
     font-size: 15px;
     font-weight: bold;
-    color: #cba6f7;
-    margin-top: 95px;   /* Extreme distance to prevent overlap */
+    margin-top: 92px;
+    transition: color 0.2s ease;
 }
 
-/* --- ICON MAPPING --- */
-#lock { 
+
+
+/* =============================================================================
+   INDIVIDUAL NEON BUTTON IDENTITIES & STATES
+   ============================================================================= */
+
+/* 1. LOCK (Neon Cyan) */
+#lock {
+    border-color: rgba(0, 242, 255, 0.45);
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.15);
     background-image: image(url("/usr/share/wlogout/icons/lock.png"));
 }
+#lock label { 
+    color: @cyan_text;
+}
 
-#logout { 
+#lock:hover, #lock:focus {
+    background-color: rgba(0, 242, 255, 0.18);
+    border-color: @neon_cyan;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.45);
+}
+#lock:active {
+    background-color: rgba(0, 242, 255, 0.35);
+    border-color: #ffffff;
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.7);
+}
+
+
+/* 2. LOGOUT (Primary Violet) */
+#logout {
+    border-color: rgba(136, 57, 239, 0.45);
+    box-shadow: 0 0 10px rgba(136, 57, 239, 0.15);
     background-image: image(url("/usr/share/wlogout/icons/logout.png"));
 }
-#suspend { 
+#logout label { 
+    color: @violet_text;
+}
+
+#logout:hover, #logout:focus {
+    background-color: rgba(136, 57, 239, 0.18);
+    border-color: @primary_violet;
+    box-shadow: 0 0 20px rgba(136, 57, 239, 0.45);
+}
+#logout:active {
+    background-color: rgba(136, 57, 239, 0.35);
+    border-color: #ffffff;
+    box-shadow: 0 0 30px rgba(136, 57, 239, 0.7);
+}
+
+
+/* 3. SUSPEND (Cyber Cobalt) */
+#suspend {
+    border-color: rgba(84, 132, 247, 0.45);
+    box-shadow: 0 0 10px rgba(84, 132, 247, 0.15);
     background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
 }
+#suspend label {
+    color: @cobalt_text;
+}
 
-#hibernate { 
+#suspend:hover, #suspend:focus {
+    background-color: rgba(84, 132, 247, 0.18);
+    border-color: @cyber_cobalt;
+    box-shadow: 0 0 20px rgba(84, 132, 247, 0.45);
+}
+#suspend:active {
+    background-color: rgba(84, 132, 247, 0.35);
+    border-color: #ffffff;
+    box-shadow: 0 0 30px rgba(84, 132, 247, 0.7);
+}
+
+
+/* 4. HIBERNATE (Mint Green) */
+#hibernate {
+    border-color: rgba(166, 227, 161, 0.45);
+    box-shadow: 0 0 10px rgba(166, 227, 161, 0.15);
     background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
 }
-
-#shutdown { 
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+#hibernate label {
+    color: @mint_green;
 }
 
-#reboot { 
+#hibernate:hover, #hibernate:focus {
+    background-color: rgba(166, 227, 161, 0.18);
+    border-color: @mint_green;
+    box-shadow: 0 0 20px rgba(166, 227, 161, 0.45);
+}
+#hibernate:active {
+    background-color: rgba(166, 227, 161, 0.35);
+    border-color: #ffffff;
+    box-shadow: 0 0 30px rgba(166, 227, 161, 0.7);
+}
+
+
+/* 5. SHUTDOWN (Cyber Pink / Magenta) */
+#shutdown {
+    border-color: rgba(255, 0, 127, 0.45);
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.15);
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+}
+#shutdown label {
+    color: @pink_text;
+}
+
+#shutdown:hover, #shutdown:focus {
+    background-color: rgba(255, 0, 127, 0.18);
+    border-color: @cyber_pink;
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.45);
+}
+#shutdown:active {
+    background-color: rgba(255, 0, 127, 0.35);
+    border-color: #ffffff;
+    box-shadow: 0 0 30px rgba(255, 0, 127, 0.7);
+}
+
+
+/* 6. REBOOT (Peach / Coral) */
+#reboot {
+    border-color: rgba(255, 158, 100, 0.45);
+    box-shadow: 0 0 10px rgba(255, 158, 100, 0.15);
     background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+}
+#reboot label {
+    color: @peach_text;
+}
+
+#reboot:hover, #reboot:focus {
+    background-color: rgba(255, 158, 100, 0.18);
+    border-color: @peach;
+    box-shadow: 0 0 20px rgba(255, 158, 100, 0.45);
+}
+#reboot:active {
+    background-color: rgba(255, 158, 100, 0.35);
+    border-color: #ffffff;
+    box-shadow: 0 0 30px rgba(255, 158, 100, 0.7);
 }
