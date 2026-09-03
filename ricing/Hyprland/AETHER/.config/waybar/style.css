@@ -1,8 +1,9 @@
 /* Copyright (C) 2026, Nicolas Scalese
-   Licensed under the GNU GPL v3 or later. Info: https://www.gnu.org/licenses/gpl-3.0.html */
+   Licensed under the GNU GPL v3 or later. Info:  https://www.gnu.org/licenses/gpl-3.0.html */
 
+   
 /* Import external color palette definitions */
-@import "themes/aether-cyberpunk.css";
+@import "../hypr/themes/aether-cyberpunk.css";
 
 
 /* --- DARK VIOLET DREAMS - FUTURISTIC VAPORWAVE STYLE --- */
@@ -30,10 +31,8 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 5px;
+    margin: 2px 0;
 }
 
 /* Critical Alert Animation */
@@ -164,7 +163,7 @@ window#waybar.empty #window {
 #group-hardware-monitors widget > *,
 #group-hardware-controls widget > *,
 #group-connectivity widget > *,
-#group-power-management wodget > *,
+#group-power-management widget > *,
 #group-multimedia widget > * {
     background: transparent;
     margin: 0;
@@ -284,8 +283,8 @@ window#waybar.empty #window {
     padding: 0 4px;
     border-radius: 10px;
     background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
-    border-bottom: 2px solid @ice_blue;
-    box-shadow: 0 0 6px @controls_glow;
+    border-bottom: 2px solid @pastel_violet;
+    box-shadow: 0 0 6px @royal_violet_alpha30;
 }
 
 /* --- OTHER INDICATORS (Static) --- */
@@ -302,15 +301,15 @@ window#waybar.empty #window {
 
 /* -----------------------------------------------------------------------------
    GROUP 4: POWER MANAGEMENT (Battery | Profiles)
-   Identity: Seafoam Ice/Cyan with Intense Glow
+   Identity: Softened Seafoam/Cyan Glow
    ----------------------------------------------------------------------------- */
 #power-management, #group-power-management {
     margin: 8px 3px;
     padding: 0 4px;
     border-radius: 10px;
     background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
-    border-bottom: 2px solid @seafoam;
-    box-shadow: 0 0 12px @power_glow; 
+    border-bottom: 2px solid @ice_blue;
+    box-shadow: 0 0 8px @power_glow; 
 }
 
 /* Battery text is white */
@@ -349,14 +348,14 @@ window#waybar.empty #window {
 
 /* -----------------------------------------------------------------------------
    GROUP 5: CONNECTIVITY (Wi-Fi | Bluetooth)
-   Identity: Sky Blue/Electric Pink (Subtle Glow)
+   Identity: Vivid Cobalt Border with Subdued Dark Shadow (alpha20)
    ----------------------------------------------------------------------------- */
 #connectivity, #group-connectivity {
     margin: 8px 3px;
     padding: 0 4px;
     border-radius: 10px;
     background: linear-gradient(180deg, @pill_bg_top 0%, @pill_bg_bottom 100%);
-    border-bottom: 2px solid @sky_blue;
+    border-bottom: 2px solid @connectivity_border;
     box-shadow: 0 0 6px @connectivity_glow; 
 }
 
@@ -385,7 +384,7 @@ window#waybar.empty #window {
    STANDALONE RIGHT MODULES (Pill Style)
    ============================================================================= */
 
-   #tray, #clock, #custom-power {
+#tray, #clock, #custom-power {
     margin: 8px 3px;
     padding: 0 15px;
     border-radius: 10px;
