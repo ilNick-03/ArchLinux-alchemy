@@ -78,13 +78,14 @@ Without these core pillars, the *A.E.T.H.E.R.* environment cannot initialize or 
 | Program | Ecosystem Role |
 | :--- | :--- |
 | [Alacritty](https://alacritty.org/) | The _GPU_-accelerated terminal emulator acting as the default interface wrapper for all _CLI_ interactions. |
-| [Blueman](https://github.com/blueman-project/blueman) | GTK-based **Bluetooth manager** providing applet status tray integration and device management menu routines. |
+| [Blueman](https://github.com/blueman-project/blueman) | _GTK_-based **Bluetooth manager** providing applet status tray integration and device management menu routines. |
 | [Brightnessctl](https://github.com/Adisbladis/brightnessctl) | Screen backlight brightness adjustments tied directly to laptop hardware keys. |
 | [Dunst](https://dunst-project.org/) | A low-overhead notification daemon configured for clean, geometric pop-up alerts. |
 | [GTK-3](https://gitlab.gnome.org/GNOME/gtk) and [GTK-4](https://gitlab.gnome.org/GNOME/gtk) | **UI Toolkit Engine**: Core graphical libraries handling window rendering, widget styling, and custom CSS themes across applications. |
 | [HyprIdle](https://github.com/hyprwm/hypridle) / [SwayIdle](https://github.com/swaywm/swayidle) | **Idle Management Daemons**: The core sub-systems driving automated display dimming and suspend activation. This project prefers `swayidle` as a rock-solid, _C_-based alternative; while maintaining full compatibility with `hypridle`. Each is used within an abstraction layer (a shell script). |
 | [Hyprland](https://hyprland.org/) | The core dynamic tiling Wayland compositor and hardware-accelerated window layout engine. |
 | [HyprPaper](https://github.com/hyprwm/hyprpaper) / [SwayBG](https://github.com/swaywm/swaybg) | **Wallpaper Backends**: The core rendering layers for background imagery. The configuration defaults to `hyprpaper` for native compatibility and efficiency; while leaving `swaybg` as an on-the-fly _Wayland_ alternative. |
+| [HyprShutdown](https://github.com/hyprwm/hyprshutdown) | **Graceful Shutdown**: Ensures clean session teardowns, closing _Wayland_ clients and flushing states reliably before poweroff or reboot. |
 | [PipeWire](https://pipewire.org/) / [WirePlumber](https://pipewire.pages.freedesktop.org/wireplumber/) (`wpctl`) | **Audio Architecture Stack**: _PipeWire_ serves as the low-latency multimedia server backend, while _WirePlumber_ manages dynamic session routing, hardware mute states, and volume levels via `wpctl`. |
 | [QT6CT](https://github.com/trialuser02/qt6ct) | The central configuration controller forcing cross-toolkit UI elements to render via uniform theme rules. |
 | [Tmux](https://github.com/tmux/tmux) | The terminal multiplexer handling persistent terminal sessions, workspace isolation, and automated environment spawn logic across CLI tools. |
@@ -165,6 +166,11 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
   ![AETHER Status Bar](./screenshots/AETHER_status_bar.png)
   <p align="center"><em>Interactive, modular Waybar status bar architecture</em></p>
 
+- **Minimal Logout Overlay ([***WLogout***](https://github.com/ArtsyMacaw/wlogout))**:
+  By clicking the power button on the far right of Waybar, a modern, full-screen blur overlay provides quick, stylized actions for system shutdown, reboot, lock, and session logout.
+  ![AETHER Logout Menu](./screenshots/AETHER_logout_menu.jpg)
+  <p align="center"><em>Full-screen wlogout overlay interface</em></p>
+
 - **Interactive Keybindings Map**:
   Triggered via `SUPER + F1`, it intercepts live system mappings and instantly renders an interactive data table nested inside a distinct window class wrapper (`floating_bindsmap`).
   ![Keybinds Table](./screenshots/AETHER_keybindings_table.jpg)
@@ -226,65 +232,6 @@ For detailed, step-by-step setup and configuration instructions, please refer to
 <br>
 
 ---
-
-
-## 🚀 Post-Installation & Manual Adjustments
-
-*A.E.T.H.E.R.* is configured out of the box, but requires minimal path alignment and asset positioning to conform to your specific hardware layout.
-
-### 1. Wallpaper Gallery Setup & Default Background Initialization
-
-*A.E.T.H.E.R.* manages wallpaper rotation through native daemons (`hyprpaper` or `swaybg`) controlled via [hypr-bg-setter.sh](../../../scripts/desktop-enhancements/change-wallpaper/hypr-bg-setter.sh) / [sway-bg-setter.sh](../../../scripts/desktop-enhancements/change-wallpaper/sway-bg-setter.sh) and [random-wallpaper-selector.sh](../../../scripts/desktop-enhancements/random-wallpaper-selector.sh) ..
-
-1. Read the [dedicated wallpaper guide]((./Wallpapers.md) ) to obtain the recommended high-resolution artwork collection.
-2. Place your downloaded wallpapers into your preferred picture directory (e.g., `~/Pictures/Wallpapers/`).
-3. Set your default startup wallpaper by placing an image named `splash.jpg` inside `$HOME/.config/hypr/` **OR** update the initial wallpaper path in `./.config/hypr/modules/vars.lua`:
-
-```lua
--- Initial wallpaper rendered upon compositor startup
-local initial_WP = os.getenv("HOME") .. "/.config/hypr/splash.jpg"
-```
-
-
-### 2. Align Environment Directories in [vars.lua](../../../ricing/Hyprland/AETHER/.config/hypr/modules/vars.lua)
-
-Open the global variables module located at `./.config/hypr/modules/vars.lua`.
-Confirm or update the script and wallpaper root directories to reflect your system layout:
-
-```lua
--- Set your relevant root directories
-_G.home_dir     =  os.getenv("HOME")
-_G.scripts_dir  =  os.getenv("HOME") .. "/scripts"  -- Points directly to your custom executable layers
-```
-
-### 3. Tailor Your Graphic Profile (Dual-GPU Configuration)
-
-*A.E.T.H.E.R.* provides a split variable map to toggle hardware rendering profiles.
-If you are running an NVIDIA or Intel dedicated card (`dGPU`), open `./.config/hypr/modules/vars.lua`, un-comment the relative driver strategy:
-
-```lua
--- === Rendering with dGPU NVIDIA - performance ===
-hl.env("LIBVA_DRIVER_NAME",         "nvidia")
-hl.env("GBM_BACKEND",               "nvidia-drm")
-hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
-```
-
-
-### 4. Apply Unified Styling Across UI Engines
-
-To prevent mixed fonts and inconsistent white window frames from breaking the Synthwave theme immersion:
-
-1. Confirm that `qt6ct` and/or `Kvantum` are configured as your primary theme engines.
-2. If needed, uncomment `hl.env("QT_STYLE_OVERRIDE" , "kvantum")` in [vars.lua](../../../ricing/Hyprland/AETHER/.config/hypr/modules/vars.lua).
-   The Lua configuration enforces `kvantum` theme across all _QT_-based _GUI_ applications.
-4. Verify that your `$HOME/.config/gtk-3.0/gtk.css` file properly includes `@import url('aether-win-menu.css');` as configured during deployment.
-
-
-
-<br>
-
----
-
 
 ## ⚖️ License
 
