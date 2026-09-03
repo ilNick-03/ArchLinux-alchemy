@@ -40,7 +40,7 @@
     {
       "type": "os",
       "key": "  \u001b[1;38;2;136;57;239m│  \u001b[1;38;2;243;139;168m󰣇 \u001b[1;38;2;0;242;255mOS\u001b[0m",
-      "format": "{2} {8}"
+      "format": "{2} ({8})"
     },
     {
       "type": "host",
@@ -133,14 +133,16 @@
       "format": "{2}"
     },
     {
-      "type": "terminal",
+      // Terminal info
+      "type": "command",
       "key": "  \u001b[1;38;2;255;0;127m│  \u001b[1;38;2;255;0;127m \u001b[1;38;2;137;220;235mTerminal\u001b[0m",
-      "format": "{3}"
+      "text": "if [ -n \"$TMUX\" ]; then echo \"Alacritty (tmux)\"; else echo \"Alacritty\"; fi",
+      "format": "{1}"
     },
     {
       "type": "shell",
       "key": "  \u001b[1;38;2;255;0;127m│  \u001b[1;38;2;166;227;161m \u001b[1;38;2;125;207;255mShell\u001b[0m",
-      "format": "{1} {2}"
+      "format": "{1}"
     },
     {
       "type": "editor",
