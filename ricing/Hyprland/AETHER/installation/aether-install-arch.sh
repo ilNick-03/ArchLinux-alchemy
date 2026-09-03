@@ -8,8 +8,7 @@
 # Designed for: Arch Linux + Hyprland
 #
 # -- WARNING --
-#  This code is AI-generated and not tested.
-#  The A.E.T.H.E.R. auto-installation is experimental.
+#  This code is not tested. The auto-install feature is experimental.
 #  Execute it at your own risk. Otherwise, follow Installation.md for manual setup
 # ==================================================================================
 
@@ -31,11 +30,17 @@ log_err() { echo -e "${RED}[X]${NC} $1"; }
 
 echo -e "${CYAN}"
 cat << "EOF"
-    ___       ______  ______  __  __  ______  ____   
-   /   |     /  ___/ /_  __/ / / / / /  ___/ / __ \  
-  / /| |     \__ \    / /   / /_/ /  \__ \  / /_/ /  
- / ___ |    ___/ /   / /   / __  /  ___/ / / _, _/   
-/_/  |_|   /____/   /_/   /_/ /_/  /____/ /_/ |_|    
+    _    _____ _____ _   _ _____ ____
+   / \  | ____|_   _| | | | ____|  _ \
+  / _ \ |  _|   | | | |_| |  _| | |_) |
+ / ___ \| |___  | | |  _  | |___|  _ <
+/_/   \_\_____| |_| |_| |_|_____|_| \_\
+
+            __           _          __       ____
+ ___ ___ __/ /____  ____(_)__  ___ / /____ _/ / /
+/ _ `/ // / __/ _ \/___/ / _ \(_-</ __/ _ `/ / /
+\_,_/\_,_/\__/\___/   /_/_//_/___/\__/\_,_/_/_/
+
 EOF
 echo -e "${NC}Automated Deployment Protocol Initiated...\n"
 
@@ -56,7 +61,7 @@ log_info "Resolving system dependencies (Essential & Optional Stack)..."
 # Extracted directly from README.md and vars.lua requirements
 DEPS=(
     alacritty blueman brightnessctl dunst gtk3 gtk4 swayidle hyprland hyprpaper 
-    pipewire wireplumber qt6ct tmux waybar wlogout wofi xfce-polkit zsh
+    hyprshutdown pipewire wireplumber qt6ct tmux waybar wlogout wofi xfce-polkit zsh
     btop cliphist wl-clipboard fastfetch grim slurp imagemagick kate 
     librewolf obs-studio obs-cmd playerctl thunar yazi
 )
