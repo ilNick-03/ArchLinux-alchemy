@@ -4,8 +4,10 @@
 The **_A.E.T.H.E.R._** status bar is built with _Waybar_ and engineered as a modular, pill-based interactive interface. Modules are organized logically from left to right, seamlessly combining real-time hardware telemetry, quick-action controls, privacy sentinels, and system dispatchers.
 
 <p align="center">
-  <img src="./screenshots/AETHER_status_bar.png" alt="Updated A.E.T.H.E.R. status bar" width="100%">
+  <img src="./visual-showcase/AETHER_status_bar.png" alt="The latest A.E.T.H.E.R. status bar" width="100%">
 </p>
+
+<br>
 
 > [!NOTE]
 > The screenshot above represents the **latest, active design and layout** of the status bar. Please always refer to this live visual preview and documentation as the up-to-date baseline reference for module structure and styling.
