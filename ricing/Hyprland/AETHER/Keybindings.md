@@ -35,7 +35,7 @@ Toggled at the top of `modules/keybindings.lua`, the binding engine supports two
 
 ## Command Dispatch Matrix
 
-![AETHER keybindings table](./screenshots/AETHER_keybindings_table.jpg)
+![AETHER keybindings table](./visual-showcase/AETHER_keybindings_table_1.jpg)
 <p align="center"><em>Interactive TUI Keybindings Visualizer invoked via</em> SUPER + F1</p>
 
 <br>
