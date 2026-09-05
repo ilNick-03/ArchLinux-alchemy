@@ -97,7 +97,7 @@ Without these core pillars, the *A.E.T.H.E.R.* environment cannot initialize or 
 | [HyprPaper](https://github.com/hyprwm/hyprpaper) / [SwayBG](https://github.com/swaywm/swaybg) | **Wallpaper Backends**: The core rendering layers for background imagery. The configuration defaults to `hyprpaper` for native compatibility and efficiency; while leaving `swaybg` as an on-the-fly _Wayland_ alternative. |
 | [HyprShutdown](https://github.com/hyprwm/hyprshutdown) | **Graceful Shutdown**: Ensures clean session teardowns, closing _Wayland_ clients and flushing states reliably before poweroff or reboot. |
 | [PipeWire](https://pipewire.org/) / [WirePlumber](https://pipewire.pages.freedesktop.org/wireplumber/) (`wpctl`) | **Audio Architecture Stack**: _PipeWire_ serves as the low-latency multimedia server backend, while _WirePlumber_ manages dynamic session routing, hardware mute states, and volume levels via `wpctl`. |
-| [Power-profiles-daemon](https://gitlab.freedesktop.org/upower/power-profiles-daemon) | **Power Management Engine**: Handles system power profiles (Performance, Balanced, Power Saver) and communicates hardware battery states to status bars like Waybar. |
+| [Power Profiles Daemon](https://gitlab.freedesktop.org/upower/power-profiles-daemon) | **Power Management Engine**: Handles system power profiles (Performance, Balanced, Power Saver) and communicates hardware battery states to status bars like Waybar. |
 | [QT6CT](https://github.com/trialuser02/qt6ct) | The central configuration controller forcing cross-toolkit UI elements to render via uniform theme rules. |
 | [Tmux](https://github.com/tmux/tmux) | The terminal multiplexer handling persistent terminal sessions, workspace isolation, and automated environment spawn logic across CLI tools. |
 | [Waybar](https://github.com/Alexays/Waybar) | The primary _CSS_-styled status bar, hosting custom script extensions and the interactive hardware monitors, including suspend inhibitor. |
@@ -177,10 +177,10 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
   ![AETHER Status Bar](./visual-showcase/AETHER_status_bar.png)
   <p align="center"><em>Interactive, modular Waybar status bar architecture</em></p>
 
-- **Minimal Logout Overlay ([***WLogout***](https://github.com/ArtsyMacaw/wlogout))**:
-  By clicking the power button on the far right of Waybar, a modern, full-screen blur overlay provides quick, stylized actions for system shutdown, reboot, lock, and session logout.
+- **Minimal Logout Overlay**:
+  Clicking the power button on the far right of [*Waybar*](https://github.com/Alexays/Waybar), will open ([***WLogout***](https://github.com/ArtsyMacaw/wlogout)) a modern, full-screen blur overlay provides quick, stylized actions for system shutdown, reboot, lock, and session logout.
   ![AETHER Logout Menu](./visual-showcase/AETHER_logout_menu.jpg)
-  <p align="center"><em>Full-screen wlogout overlay interface</em></p>
+  <p align="center"><em>Full-screen WLogout overlay interface. The "Lock" button actually does nothing, since the AETHER minimalism does not include lock screen.</em></p>
 
 - **Interactive Keybindings Map**:
   Triggered via `SUPER + F1`, it intercepts live system mappings and instantly renders an interactive data table nested inside a distinct window class wrapper (`floating_bindsmap`).
@@ -227,6 +227,7 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
   Triggered with `SUPER + SHIFT + A`, this macro launches a custom script environment inside your directory structures designed specifically for high-quality music listening experience.
   Closed typing `SUPER + SHIFT + ALT + A`.
   ![Futuristic Audio Session view](./visual-showcase/AETHER_ricing_audio_session_2.jpg)
+  <p align="center"><em>A dotfile which opens 4 Tmux panels inside your terminal: yazi and fzf-music (search music), btop and cava (visual decoration)</em></p>
 
 
 
