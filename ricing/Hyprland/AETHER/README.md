@@ -34,25 +34,35 @@ Made in Italy 🇮🇹 with ❤️ .
 Every layout is mathematically balanced to maximize screen real estate while protecting user focus.
 
 
-![AETHER Core System Default](./screenshots/AETHER_logo_background_notifications_1.jpg)
+![AETHER Core System Default](./visual-showcase/AETHER_logo_background_notifications_1.jpg)
 <p align="center"><em>A.E.T.H.E.R. at startup: default wallpaper with logo; plus notification styles (low, normal, critical)</em></p>
 
-![AETHER Core System Cyberpunk](./screenshots/AETHER_logo_background_notifications_2.jpg)
+![AETHER Core System Cyberpunk](./visual-showcase/AETHER_logo_background_notifications_2.jpg)
 <p align="center"><em>A.E.T.H.E.R. logo on a "cyberpunk" setting, notification styles (low, normal, critical)</em></p>
 
-![AETHER Core System Abstract](./screenshots/AETHER_logo_background_notifications_3.jpg)
+![AETHER Core System Abstract](./visual-showcase/AETHER_logo_background_notifications_3.jpg)
 <p align="center"><em>A.E.T.H.E.R. logo on an "abstract" setting</em></p>
 
-![AETHER ricing music 1](./screenshots/AETHER_ricing_music_example_1.jpg)
-<p align="center"><em>An example of "ricing art" using the "mosaic style" in the Hyprland style</em></p>
+<br>
 
-![AETHER ricing music 2](./screenshots/AETHER_ricing_music_example_2.jpg)
-<p align="center"><em>Another example of "digital desktop art" you can mimic using A.E.T.H.E.R.</em></p>
+Some "_ricing art_" made possible using [*Hyprland*](https://hypr.land/)' tiling window manager and blur effect, alongside the futuristic/abstract [*Waybar*](https://github.com/Alexays/Waybar) theme:
 
-![AETHER ricing techinfo](./screenshots/AETHER_ricing_techinfo_1.jpg)
-<p align="center"><em>This desktop setup leverages the Hyprland floating/pseudo windows instead</em></p>
+![AETHER Ricing: Music](./visual-showcase/AETHER_ricing_music_2.jpg)
+<p align="center"><em></em></p>
 
-Other beautiful ricing screenshots are provided in the ["*screenshots*"](./screenshots) folder.
+![AETHER Ricing: Casual](./visual-showcase/AETHER_ricing_casual.jpg)
+<p align="center"><em></em></p>
+
+![AETHER Ricing: Tech 1](./visual-showcase/AETHER_ricing_tech_1.jpg)
+
+![AETHER Ricing: Tech 2 (old)](./visual-showcase/AETHER_ricing_tech_2_old.jpg)
+
+![AETHER Ricing: Audio Session](./visual-showcase/AETHER_ricing_audio_session_1.jpg)
+<p align="center"><em>"Futuristic Audio Session" in Hyprland! This is a lightweight, custom music player script, included within the repo</em></p>
+
+<br>
+
+Check out the [*visual-showcase*](./visual-showcase) folder for other multimedial material!
 
 
 
@@ -87,6 +97,7 @@ Without these core pillars, the *A.E.T.H.E.R.* environment cannot initialize or 
 | [HyprPaper](https://github.com/hyprwm/hyprpaper) / [SwayBG](https://github.com/swaywm/swaybg) | **Wallpaper Backends**: The core rendering layers for background imagery. The configuration defaults to `hyprpaper` for native compatibility and efficiency; while leaving `swaybg` as an on-the-fly _Wayland_ alternative. |
 | [HyprShutdown](https://github.com/hyprwm/hyprshutdown) | **Graceful Shutdown**: Ensures clean session teardowns, closing _Wayland_ clients and flushing states reliably before poweroff or reboot. |
 | [PipeWire](https://pipewire.org/) / [WirePlumber](https://pipewire.pages.freedesktop.org/wireplumber/) (`wpctl`) | **Audio Architecture Stack**: _PipeWire_ serves as the low-latency multimedia server backend, while _WirePlumber_ manages dynamic session routing, hardware mute states, and volume levels via `wpctl`. |
+| [Power-profiles-daemon](https://gitlab.freedesktop.org/upower/power-profiles-daemon) | **Power Management Engine**: Handles system power profiles (Performance, Balanced, Power Saver) and communicates hardware battery states to status bars like Waybar. |
 | [QT6CT](https://github.com/trialuser02/qt6ct) | The central configuration controller forcing cross-toolkit UI elements to render via uniform theme rules. |
 | [Tmux](https://github.com/tmux/tmux) | The terminal multiplexer handling persistent terminal sessions, workspace isolation, and automated environment spawn logic across CLI tools. |
 | [Waybar](https://github.com/Alexays/Waybar) | The primary _CSS_-styled status bar, hosting custom script extensions and the interactive hardware monitors, including suspend inhibitor. |
@@ -163,34 +174,34 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
 - **Interactive Status Bar**:
   Powered by [***Waybar***](https://github.com/Alexays/Waybar), the modular pill-based interface combines system metrics, workspace switchers, media controls, and hardware toggles directly at the top of your screen. 
   For a full breakdown of gestures, tooltips, and modular design, check out the dedicated [**Status Bar Documentation**](./StatusBar.md).
-  ![AETHER Status Bar](./screenshots/AETHER_status_bar.png)
+  ![AETHER Status Bar](./visual-showcase/AETHER_status_bar.png)
   <p align="center"><em>Interactive, modular Waybar status bar architecture</em></p>
 
 - **Minimal Logout Overlay ([***WLogout***](https://github.com/ArtsyMacaw/wlogout))**:
   By clicking the power button on the far right of Waybar, a modern, full-screen blur overlay provides quick, stylized actions for system shutdown, reboot, lock, and session logout.
-  ![AETHER Logout Menu](./screenshots/AETHER_logout_menu.jpg)
+  ![AETHER Logout Menu](./visual-showcase/AETHER_logout_menu.jpg)
   <p align="center"><em>Full-screen wlogout overlay interface</em></p>
 
 - **Interactive Keybindings Map**:
   Triggered via `SUPER + F1`, it intercepts live system mappings and instantly renders an interactive data table nested inside a distinct window class wrapper (`floating_bindsmap`).
-  ![Keybinds Table](./screenshots/AETHER_keybindings_table.jpg)
+  ![Keybinds Table](./visual-showcase/AETHER_keybindings_table_2.jpg)
   <p align="center"><em>Interactive TUI keybindings table inside an isolated terminal window</em></p>
 
 - **Dynamic Application Launcher**:
   Invoked via `SUPER + SPACE`, the system summons a fast, asynchronous application menu (`wofi`) styled with custom CSS to perfectly match the neon-drenched aesthetic.
-  ![AETHER Apps Launcher](./screenshots/AETHER_apps_launcher.jpg)
+  ![AETHER Apps Launcher](./visual-showcase/AETHER_apps_launcher.jpg)
   <p align="center"><em>Dynamic application launcher triggered asynchronously</em></p>
 
 - **Interactive Network Selection**:
   Accessible directly from the status bar or via keyboard shortcuts, this launches a dedicated floating terminal interface for quick, keyboard-driven Wi-Fi network management.
-  ![AETHER Wi-Fi Menu](./screenshots/AETHER_wifi_menu.jpg)
+  ![AETHER Wi-Fi Menu](./visual-showcase/AETHER_wifi_menu.jpg)
   <p align="center"><em>Terminal-based interactive Wi-Fi network selection menu</em></p>
 
 - **Clipboard History Menu**:
   Invoking `SUPER + H`, this macro launches a high-performance, text-only clipboard engine.
   By piping `cliphist` straight through a streamlined `awk` parser, the system hides database index tracking numbers on the fly, rendering a pristine, unified history of your last copied assets inside a wide dedicated Wofi container.
   Purge your clipboard history registry via `SUPER + SHIFT + H`.
-  ![Clipboard Menu screenshot](./screenshots/AETHER_clipboard_selector.jpg)
+  ![Clipboard Menu screenshot](./visual-showcase/AETHER_clipboard_selector.jpg)
   <p align="center"><em>Clipboard history selector rendering full untruncated strings</em></p>
 
 - **Chronological Terminal Isolation**:
@@ -202,7 +213,7 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
   A custom system summary powered by [***FastFetch***](https://github.com/fastfetch-cli/fastfetch), tailored to match the exact color palette, neon mood, and visual identity of *A.E.T.H.E.R.*.
   Designed with bold rounded borders, dynamic gradient dividers, and cohesive icon sets, it seamlessly integrates hardware specs into the overall terminal aesthetic.
   Inspirations and architectural references: [EnthusiastNewbie](https://github.com/EnthusiastNewbie/MyLab/tree/main/Newbie_Shell) and [miketester10](https://github.com/miketester10/fastfetch-config-arch-linux).
-  ![AETHER fastfetch setup](./screenshots/AETHER_fastfetch.jpg)
+  ![AETHER fastfetch setup](./visual-showcase/AETHER_fastfetch.jpg)
   <p align="center"><em>Custom FastFetch layout harmonized with the A.E.T.H.E.R. color scheme and terminal aesthetic</em></p>
 
 - **_IDE_ Workspace**:
@@ -215,7 +226,7 @@ See [`Keybindings.md`](./Keybindings.md) to see a user-friendly _key combination
 - **[Futuristic Audio Session](https://github.com/ilNick-03/ArchLinux-alchemy)**:
   Triggered with `SUPER + SHIFT + A`, this macro launches a custom script environment inside your directory structures designed specifically for high-quality music listening experience.
   Closed typing `SUPER + SHIFT + ALT + A`.
-  ![Futuristic Audio Session view](./screenshots/AETHER_ricing_audio_session_2.jpg)
+  ![Futuristic Audio Session view](./visual-showcase/AETHER_ricing_audio_session_2.jpg)
 
 
 
