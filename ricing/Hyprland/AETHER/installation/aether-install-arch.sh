@@ -60,8 +60,8 @@ fi
 log_info "Resolving system dependencies (Essential & Optional Stack)..."
 # Extracted directly from README.md and vars.lua requirements
 DEPS=(
-    alacritty blueman brightnessctl dunst gtk3 gtk4 swayidle hyprland hyprpaper 
-    hyprshutdown pipewire wireplumber qt6ct tmux waybar wlogout wofi xfce-polkit zsh
+    alacritty blueman brightnessctl dunst gtk3 gtk4 swayidle hyprland hyprpaper hyprshutdown
+    pipewire wireplumber power-profiles-daemon qt6ct tmux waybar wlogout wofi xfce-polkit zsh
     btop cliphist wl-clipboard fastfetch grim slurp imagemagick kate 
     librewolf obs-studio obs-cmd playerctl thunar yazi
 )
