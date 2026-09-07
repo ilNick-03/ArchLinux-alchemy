@@ -140,7 +140,7 @@ chmod +x "$HOME/.config/hypr/scripts/"*.sh
 > [!NOTE]
 > The `-sf` (*Symbolic, Force*) architecture guarantees that any pre-existing or broken pointer nodes inside the *Hyprland- directory will be safely overwritten and realigned to your master files, ensuring an idempotent and non-destructive deployment.
 
-### 4. Optional: ["*Futuristic Audio Session*" shell music player](https://www.google.com/search?q=../../../dotfiles/shell/custom/.futuristic-audio-session)
+### 4. Optional: ["*Futuristic Audio Session*" shell music player](../../../../dotfiles/shell/custom/.futuristic-audio-session)
 
 If you plan to utilize the ***Futuristic Audio Session**- music listening environment via `SUPER + SHIFT + A`, follow these two steps:
 
@@ -157,7 +157,7 @@ Open your local shell configuration file (`~/.zshrc` or `~/.bashrc`) and append 
 > [!TIP]
 > This defensive guard condition ensures that your shell initializes flawlessly and without throwing errors even if the cloned repository path is temporarily missing or relocated during system cleanups.
 
-#### B. Uncomment the Keybindings in [keybindings.lua](https://www.google.com/search?q=../../../ricing/Hyprland/AETHER/.config/hypr/modules/keybindings.lua)
+#### B. Uncomment the Keybindings in [keybindings.lua](../../../../ricing/Hyprland/AETHER/.config/hypr/modules/keybindings.lua)
 
 Open `./.config/hypr/modules/keybindings.lua` and uncomment the following lines to make this feature actually working by typing these keyboard shortcuts:
 
@@ -177,9 +177,9 @@ map.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio
 
 ### 1. Wallpaper Gallery Setup & Default Background Initialization
 
-*A.E.T.H.E.R.* manages wallpaper rotation through native daemons (`hyprpaper` or `swaybg`) controlled via [hypr-bg-setter.sh](https://www.google.com/search?q=../../../scripts/desktop-enhancements/change-wallpaper/hypr-bg-setter.sh) / [sway-bg-setter.sh](https://www.google.com/search?q=../../../scripts/desktop-enhancements/change-wallpaper/sway-bg-setter.sh) and [random-wallpaper-selector.sh](https://www.google.com/search?q=../../../scripts/desktop-enhancements/random-wallpaper-selector.sh).
+*A.E.T.H.E.R.* manages wallpaper rotation through native daemons (`hyprpaper` or `swaybg`) controlled via [hypr-bg-setter.sh](../../../../scripts/desktop-enhancements/change-wallpaper/hypr-bg-setter.sh) / [sway-bg-setter.sh](../../../../scripts/desktop-enhancements/change-wallpaper/sway-bg-setter.sh) and [random-wallpaper-selector.sh](../../../../scripts/desktop-enhancements/random-wallpaper-selector.sh).
 
-1. Read the [dedicated wallpaper guide](https://www.google.com/search?q=./Wallpapers.md) to obtain the recommended high-resolution artwork collection.
+1. Read the [dedicated wallpaper guide](../Wallpapers.md) to obtain the recommended high-resolution artwork collection.
 2. Place your downloaded wallpapers into your preferred picture directory (e.g., `~/Pictures/Wallpapers/`).
 3. Set your default startup wallpaper by placing an image named `splash.jpg` inside `$HOME/.config/hypr/` **OR*- update the initial wallpaper path in `./.config/hypr/modules/vars.lua`:
 
@@ -189,7 +189,7 @@ local initial_WP = os.getenv("HOME") .. "/.config/hypr/splash.jpg"
 
 ```
 
-### 2. Align Environment Directories in [vars.lua](https://www.google.com/search?q=../../../ricing/Hyprland/AETHER/.config/hypr/modules/vars.lua)
+### 2. Align Environment Directories in [vars.lua](../../../../ricing/Hyprland/AETHER/.config/hypr/modules/vars.lua)
 
 Open the global variables module located at `./.config/hypr/modules/vars.lua`.
 Confirm or update the script and wallpaper root directories to reflect your system layout:
@@ -219,6 +219,6 @@ hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 To prevent mixed fonts and inconsistent white window frames from breaking the Synthwave theme immersion:
 
 1. Confirm that `qt6ct` and/or `Kvantum` are configured as your primary theme engines.
-2. If needed, uncomment `hl.env("QT_STYLE_OVERRIDE" , "kvantum")` in [vars.lua](https://www.google.com/search?q=../../../ricing/Hyprland/AETHER/.config/hypr/modules/vars.lua).
+2. If needed, uncomment `hl.env("QT_STYLE_OVERRIDE" , "kvantum")` in [vars.lua](../../../../ricing/Hyprland/AETHER/.config/hypr/modules/vars.lua).
 The Lua configuration enforces `kvantum` theme across all *QT*-based *GUI- applications.
 3. Verify that your `$HOME/.config/gtk-3.0/gtk.css` file properly includes `@import url('aether-win-menu.css');` as configured during deployment.
