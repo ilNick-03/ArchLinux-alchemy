@@ -222,6 +222,10 @@
             "default": ["", "", ""]
         },
 
+        // --- TOOLTIP CONFIGURATION ---
+        "tooltip": true,
+        "tooltip-format": "󰓃  {desc}\n󰕾  Volume: {volume}%",
+
         // LEFT CLICK: Toggle Mute/Unmute (restores previous volume)
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         // RIGHT CLICK: Open audio control panel
