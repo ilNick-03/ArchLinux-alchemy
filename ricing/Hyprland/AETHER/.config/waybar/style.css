@@ -363,19 +363,20 @@ window#waybar.empty #window {
     color: @sky_blue; 
     font-size: 14.5px;
 }
-#bluetooth { 
-    color: @flamingo_pink; 
-    font-size: 14.5px;
-}
-
 #network.disconnected, #bluetooth.disconnected { 
     color: @red; 
 }
 #network.disabled, #bluetooth.disabled, #bluetooth.off { 
     color: @gray; 
 }
-#bluetooth.connected { 
+
+#bluetooth { 
     color: @mauve; 
+    font-size: 14.5px;
+}
+#bluetooth.connected { 
+    /* color: @mauve; */
+    color: @flamingo_pink;
 }
 
 
