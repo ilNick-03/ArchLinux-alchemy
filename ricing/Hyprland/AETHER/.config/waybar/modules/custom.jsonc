@@ -8,7 +8,8 @@
     // Application launcher module (Wofi)
     "custom/apps-launcher": {
         "format": "Apps",
-        "tooltip": false,
+        "tooltip": true,
+        "tooltip-format": "App Launcher",
         "on-click": "~/.config/hypr/scripts/apps-launcher.sh"
     },
 
@@ -29,15 +30,16 @@
         "tooltip-format": "Camera is IN USE"
     },
 
-    // Disk storage usage monitor  (Manual refresh via click)
+    // Disk storage usage monitor (Manual refresh via click)
     "custom/disk": {
         "format": "{}% 󰋊",
-        "exec": "df -h / | awk 'NR==2 {print $5 \"\\n\" $3 \" / \" $2}' | sed 's/%//'",   // Percentage value
-        "return-type": "mpris",                                                           // Standard multiline parser (Line 1 = Label, Line 2 = Tooltip)
+        // Generates JSON output: "text" for bar percentage, "tooltip" for tab-separated partition list
+        "exec": "df -h -x tmpfs -x devtmpfs -x squashfs -x efivarfs | awk 'NR>1 { if ($6==\"/\") root=$5; u=$3; t=$2; gsub(/[A-Za-z]/, \" &B\", u); gsub(/[A-Za-z]/, \" &B\", t); ut=u \" / \" t; line=sprintf(\"%-16s %-6s %s\", $6, $5, ut); tt=(tt==\"\"?\"\":tt \"\\\\n\") line } END { sub(/%/, \"\", root); printf \"{\\\"text\\\":\\\"%s\\\",\\\"tooltip\\\":\\\"<tt>%s</tt>\\\"}\\n\", root, tt }'",
+        "return-type": "json",                                                            // Official Waybar JSON parser for text + tooltip
         "interval": "once",                                                               // Run strictly on Waybar launch (no background polling)
         "signal": 8,                                                                      // Dedicated RT signal reserved for manual updates
         "on-click": "pkill -RTMIN+8 waybar",                                              // Force immediate data refresh upon mouse click
-        "tooltip": true                                                                   // Format: 'Used / Total' (e.g., "185G / 460G")
+        "tooltip": true                                                                   // Renders the multiline tooltip from JSON
     },
 
     "custom/power": {
