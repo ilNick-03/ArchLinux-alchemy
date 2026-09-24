@@ -31,7 +31,14 @@
         "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
+
+        // --- TOOLTIP CONFIGURATION ---
+        "tooltip": true,    // Enable tooltip rendering
+        "tooltip-format-discharging": "      Empty in:  {time}\n   Energy rate:  {power} W\nBattery health:  {health}%",
+        "tooltip-format-charging": "       Full in:  {time}\n   Energy rate:  {power} W\nBattery health:  {health}%",
+        "tooltip-format-full": "Fully charged  󱊣\nBattery health:  {health}%",
+        "tooltip-format": "{capacity}%\nEnergy rate: {power} W\nBattery health: {health}%"
     },
 
     "bluetooth": {
@@ -39,23 +46,18 @@
         "format-off": "BT Off ",
         "format-on": "BT Ready ",
         "format-discoverable": "Scanning... ",
-
-
-		// Device Connected - Alternative Views
-
-		//  (a) Show device (details, clarity)
-		// "format-connected": "{device_alias} ",
-        // "format-connected-battery": "{device_alias} {device_battery_percentage}% ",
-
-        //  (b) Show default text (compact view, no details)
         "format-connected": "BT ",
         "format-connected-battery": "BT, {device_battery_percentage}% ",
 
-
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        // --- TOOLTIP CONFIGURATION ---
+        "tooltip": true,    // Replace with "false" to disable tooltip
+        "tooltip-format-disabled": "BT Offline 󰂲",
+        "tooltip-format-off": "BT Offline ",
+        "tooltip-format-on": "{controller_alias}\nMAC: {controller_address}\n\nStatus: Ready (No devices connected)",
+        "tooltip-format-connected": "{controller_alias}\nMAC: {controller_address}\n\nConnected ({num_connections}):\n{device_enumerate}",
+        // Enumeration of individual devices
+        "tooltip-format-enumerate-connected": "󰂱 {device_alias}\t[{device_address}]",
+        "tooltip-format-enumerate-connected-battery": "󰂱 {device_alias}\t{device_battery_percentage}%",
 
         // LEFT CLICK: Toggle Bluetooth On/Off
         "on-click": "rfkill toggle bluetooth",
@@ -64,7 +66,6 @@
     },
 
     "clock": {
-        
         // "format": "{:%H:%M}",    // 24h format  (e.g., 13:45)
         "format": "{:%I:%M %p}",    // 12h format with AM/PM    (e.g., 01:45 PM)
         
@@ -98,8 +99,10 @@
 
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false,
-        "interval": 10           // Increased interval to mitigate polling overhead
+        "interval": 10,           
+        "tooltip": true,
+        "tooltip-format": "󰻠 CPU Overview\n\nAvg Freq: {avg_frequency} GHz\nMax Freq: {max_frequency} GHz",
+        "on-click": "alacritty -T \"BTOP (Process Monitor)\" --class floating_monitor -e btop"
     },
 
     // Activated   = always-on screen
@@ -118,7 +121,11 @@
     // RAM Usage
     "memory": {
         "format": "{}% ",
-        "interval": 30           // Increased interval to mitigate polling overhead
+        "interval": 30,           // Increased interval to mitigate polling overhead
+        "tooltip": true,          // Enable tooltip rendering
+        "tooltip-format": "󰍛 RAM Overview\nUsed:       {used:0.1f} GiB / {total:0.1f} GiB  ({percentage}%)\nAvailable:  {avail:0.1f} GiB\n\n󰓡 Swap Usage\nUsed:       {swapUsed:0.1f} GiB / {swapTotal:0.1f} GiB  ({swapPercentage}%)",
+
+        "on-click": "alacritty -T \"BTOP (Process Monitor)\" --class floating_monitor -e btop"
     },
 
     // Which audio is playing now?
@@ -151,15 +158,19 @@
     },
 
     "network": {
-        "format-disabled": "Network Off ⚠",
-        "format-disconnected": "Searching... ⚠",
-        "format-ethernet": "Ethernet ",
-
-		// Device Connected - Alternative Views
-        // "format-wifi": "{essid} ",               //  (a) Show device (details, clarity)
-        "format-wifi": "Wi-Fi ",                 //  (b) Show default text (compact view, no details)
+        "format-disabled": "Network Off 󰯡",
+        "format-disconnected": "Searching... 󱛄",
+        "format-ethernet": "Ethernet ",
+        "format-wifi": "Wi-Fi ",
         
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        // --- TOOLTIP CONFIGURATION ---
+        "tooltip": true,    // Replace with "false" to disable tooltip
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)   \nIP: {ipaddr}",
+        "tooltip-format-ethernet": "Ethernet ({ifname})  \nIP: {ipaddr}",
+        "tooltip-format-disconnected": "Disconnected ⚠",
+        "tooltip-format-disabled": "Offline 󰯡",
+
+
         // LEFT CLICK: Toggles Wi-Fi radio (Switch between On/Off)
         "on-click": "nmcli radio wifi $(nmcli radio wifi | grep -q 'enabled' && echo 'off' || echo 'on')",
         // RIGHT CLICK: Open manager in floating window
@@ -169,8 +180,6 @@
     // Power profiles daemon configuration
     "power-profiles-daemon": {
         "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true,
         "format-icons": {
             "default": " ",
             "performance": " ",
@@ -178,6 +187,10 @@
             "power-saver": "  "
         },
         "min-length": 3,
+
+        // --- TOOLTIP CONFIGURATION ---
+        "tooltip": true,    // Enable tooltip rendering
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
 
         // SCROLL up/down to change the current profile (power-saver -> balanced -> performance)
         "on-scroll-up": "powerprofilesctl set $(powerprofilesctl get | awk '/power-saver/{print \"balanced\"} /balanced/{print \"performance\"} /performance/{print \"power-saver\"}')",
@@ -225,9 +238,10 @@
         "critical-threshold": 80,
         "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""],
-        "interval": 20,                       // Increased interval to mitigate polling overhead
-        "tooltip": false
+        "format-icons": ["", "", ""],
+        "interval": 20,                       
+        "tooltip": false,
+        "on-click": "alacritty -T \"BTOP (Process Monitor)\" --class floating_monitor -e btop"
     },
 
     "tray": {
