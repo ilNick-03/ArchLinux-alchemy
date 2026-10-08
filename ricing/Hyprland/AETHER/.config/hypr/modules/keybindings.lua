@@ -107,8 +107,8 @@ map.bind("XF86MonBrightnessUp",            hl.dsp.exec_cmd("brightnessctl set 5%
 map.bind("XF86MonBrightnessDown",          hl.dsp.exec_cmd("brightnessctl set 5%-"),                              { locked = true, repeating = true,  description = "Decrease backlight" })
 
 ---  Laptop volume controls keys
-map.bind("XF86AudioRaiseVolume",           hl.dsp.exec_cmd("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 2%+"),   { locked = true, repeating = true,  description = "Increase volume" })
-map.bind("XF86AudioLowerVolume",           hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"),          { locked = true, repeating = true,  description = "Decrease volume" })
+map.bind("XF86AudioRaiseVolume",           hl.dsp.exec_cmd("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 2%+  && pkill -RTMIN+1 waybar"),   { locked = true, repeating = true,  description = "Increase volume" })
+map.bind("XF86AudioLowerVolume",           hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-  && pkill -RTMIN+1 waybar"),          { locked = true, repeating = true,  description = "Decrease volume" })
 map.bind("XF86AudioMute",                  hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),         { locked = true, repeating = true,  description = "Toggle mute for playback" })
 map.bind("XF86AudioMicMute",               hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),       { locked = true, repeating = true,  description = "Toggle mute for microphone" })
 
@@ -128,7 +128,7 @@ map.bind("XF86AudioPrev",                  hl.dsp.exec_cmd("playerctl previous")
 -- map.bind(mainMod .. " + SHIFT + ALT + A",  hl.dsp.exec_cmd("zsh -ic 'close-audio-session'"),                      { description = "Terminate the 'futuristic audio session'" })
 
 ---  Wallpaper Changing
-map.bind(mainMod .. " + ALT + W",          hl.dsp.exec_cmd(random_WP_cmd),                                        { description = "Set a random image as new wallpaper" })
+map.bind(mainMod .. " + SHIFT + Z",          hl.dsp.exec_cmd(random_WP_cmd),                                        { description = "Set a random image as new wallpaper" })
 
 ---  Screen Capturing
 map.bind("Print",                          hl.dsp.exec_cmd(screen_shot),                                          { description = "Capture screenshot" })
